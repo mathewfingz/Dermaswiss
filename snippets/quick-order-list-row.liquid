@@ -358,7 +358,7 @@
 
   <td class="variant-item__totals text-right hidden md:table-cell">
     {%- if customer -%}
-      {{- cart | line_items_for: item | sum: 'original_line_price' | money -}}
+    {{- cart | line_items_for: item | sum: 'original_line_price' | money -}}
     {%- else -%}
       {{ 'sections.cart.login_to_see_price' | t }}
     {%- endif -%}

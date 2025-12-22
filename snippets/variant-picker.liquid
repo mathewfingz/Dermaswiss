@@ -136,7 +136,7 @@
       {%- endfor -%}
       <script type="application/json" data-selected-variant>
         {%- if customer -%}
-          {{ product.selected_or_first_available_variant | json }}
+        {{ product.selected_or_first_available_variant | json }}
         {%- else -%}
           {}
         {%- endif -%}
@@ -170,7 +170,7 @@
             {{ variant.title }}
             {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
             {%- if customer -%}
-              - {{ variant.price | money | strip_html }}
+            - {{ variant.price | money | strip_html }}
             {%- endif -%}
           </option>
         {%- endfor -%}

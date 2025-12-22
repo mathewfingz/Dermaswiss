@@ -311,14 +311,14 @@
             </div>
             <script type="application/json">
               {%- if customer -%}
-                {{ featured_product.variants | json }}
+              {{ featured_product.variants | json }}
               {%- else -%}
                 []
               {%- endif -%}
             </script>
             <script type="application/json" data-selected-variant>
               {%- if customer -%}
-                {{ product.selected_or_first_available_variant | json }}
+              {{ product.selected_or_first_available_variant | json }}
               {%- else -%}
                 {}
               {%- endif -%}

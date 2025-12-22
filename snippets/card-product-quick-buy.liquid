@@ -23,8 +23,8 @@
   data-quick-buy-item
   data-product-id="{{ product.id }}"
   {% if customer %}
-    data-current-price="{{ selected_variant.price }}"
-    data-current-compare="{{ selected_variant.compare_at_price | default: 0 }}"
+  data-current-price="{{ selected_variant.price }}"
+  data-current-compare="{{ selected_variant.compare_at_price | default: 0 }}"
   {% endif %}
   data-current-available="{{ selected_variant.available }}"
 >
