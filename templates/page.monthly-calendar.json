@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -7,6 +16,19 @@
     },
     "calendar": {
       "type": "monthly-calendar",
+      "blocks": {
+        "event_QdygJg": {
+          "type": "event",
+          "settings": {
+            "title": "Programa",
+            "event_date": "2025-12-25",
+            "event_color": "#e6f3ff"
+          }
+        }
+      },
+      "block_order": [
+        "event_QdygJg"
+      ],
       "settings": {
         "heading": "Calendario de Eventos"
       }
@@ -17,4 +39,3 @@
     "calendar"
   ]
 }
-

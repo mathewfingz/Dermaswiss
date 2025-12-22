@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -13,19 +22,14 @@
         "hero_height": "medium",
         "content_position": "center",
         "text_alignment": "center",
-        "text_color": "#ffffff",
-        "subheading": "DERMASWISS PARTNER PROGRAM",
-        "heading": "Dropshipping con Dermaswiss",
-        "description": "<p>Lleva tu negocio al siguiente nivel sin preocuparte por el inventario o la logística.<\/p>"
+        "text_color": "#ffffff"
       }
     },
     "intro_text": {
       "type": "rich-text",
       "settings": {
         "container": "container",
-        "text_alignment": "center",
-        "heading": "¿Qué es el Dropshipping?",
-        "description": "<p>El dropshipping es un modelo de negocio en el que tú vendes nuestros productos en tu propia plataforma y nosotros nos encargamos de enviarlos directamente a tu cliente final. Tú te enfocas en vender y nosotros en todo lo demás.<\/p>"
+        "text_alignment": "center"
       }
     },
     "how_it_works": {
@@ -34,25 +38,25 @@
         "step_1": {
           "type": "column",
           "settings": {
+            "show_image": false,
             "title": "PASO 1.",
-            "text": "<ul><li>Haz tu pedido desde tu cuenta profesional.<\/li><li>Selecciona los productos Retail y elige <strong>“Dropshipping”<\/strong>.<\/li><li>Ingresa los datos de envío de tu cliente.<\/li><\/ul>",
-            "show_image": false
+            "text": "<ul><li>Haz tu pedido desde tu cuenta profesional.</li><li>Selecciona los productos Retail y elige <strong>“Dropshipping”</strong>.</li><li>Ingresa los datos de envío de tu cliente.</li></ul>"
           }
         },
         "step_2": {
           "type": "column",
           "settings": {
+            "show_image": false,
             "title": "PASO 2.",
-            "text": "<ul><li>Nosotros preparamos el pedido.<\/li><li>Nuestro centro de despacho alista y empaca los productos con presentación profesional.<\/li><\/ul>",
-            "show_image": false
+            "text": "<ul><li>Nosotros preparamos el pedido.</li><li>Nuestro centro de despacho alista y empaca los productos con presentación profesional.</li></ul>"
           }
         },
         "step_3": {
           "type": "column",
           "settings": {
+            "show_image": false,
             "title": "PASO 3.",
-            "text": "<ul><li>Enviamos el pedido directo a tu cliente.<\/li><li>El paquete llega sin precios ni material promocional.<\/li><li>Recibirás un número de seguimiento para compartirlo con tu cliente.<\/li><\/ul>",
-            "show_image": false
+            "text": "<ul><li>Enviamos el pedido directo a tu cliente.</li><li>El paquete llega sin precios ni material promocional.</li><li>Recibirás un número de seguimiento para compartirlo con tu cliente.</li></ul>"
           }
         }
       },
@@ -63,8 +67,8 @@
       ],
       "settings": {
         "heading": "¿CÓMO FUNCIONA?",
-        "columns": 3,
-        "text_alignment": "left"
+        "text_alignment": "left",
+        "columns": 3
       }
     },
     "faqs": {
@@ -74,21 +78,21 @@
           "type": "content",
           "settings": {
             "title": "¿Tiene algún costo unirse?",
-            "content": "<p>No, unirse a nuestro programa de dropshipping es totalmente gratuito para profesionales de la estética registrados.<\/p>"
+            "content": "<p>No, unirse a nuestro programa de dropshipping es totalmente gratuito para profesionales de la estética registrados.</p>"
           }
         },
         "faq_2": {
           "type": "content",
           "settings": {
             "title": "¿El cliente sabrá que el envío viene de Dermaswiss?",
-            "content": "<p>Si marcas la opción de 'Dropshipping' en el carrito, nos aseguraremos de que el envío sea discreto y no incluya facturas con precios de mayorista.<\/p>"
+            "content": "<p>Si marcas la opción de 'Dropshipping' en el carrito, nos aseguraremos de que el envío sea discreto y no incluya facturas con precios de mayorista.</p>"
           }
         },
         "faq_3": {
           "type": "content",
           "settings": {
             "title": "¿Cómo se manejan las devoluciones?",
-            "content": "<p>Las devoluciones se manejan directamente a través de tu cuenta de distribuidor siguiendo nuestras políticas estándar de garantía.<\/p>"
+            "content": "<p>Las devoluciones se manejan directamente a través de tu cuenta de distribuidor siguiendo nuestras políticas estándar de garantía.</p>"
           }
         }
       },
@@ -98,8 +102,8 @@
         "faq_3"
       ],
       "settings": {
-        "heading": "Preguntas Frecuentes",
-        "container": "container"
+        "container": "container",
+        "heading": "Preguntas Frecuentes"
       }
     }
   },
@@ -111,4 +115,3 @@
     "faqs"
   ]
 }
-
