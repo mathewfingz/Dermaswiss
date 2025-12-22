@@ -11,21 +11,17 @@
         "title": {
           "type": "title",
           "settings": {
-            "title": "Discover all benefits of being Dermaswiss Pro",
+            "title": "Descubre todos los beneficios de ser Dermaswiss Pro",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Start growing your business</p>"
+            "text": "<p>Comienza a hacer crecer tu negocio</p>"
           }
         }
       },
-      "block_order": [
-        "title",
-        "text"
-      ],
       "settings": {
         "container": "container-full",
         "image_overlay_opacity": 30,
@@ -41,36 +37,36 @@
         "benefit_1": {
           "type": "column",
           "settings": {
-            "title": "High-Quality Products",
-            "text": "<p>Most powerful ingredients to take perfect care of your client's skin.</p>"
+            "title": "Productos de alta calidad",
+            "text": "<p>Los ingredientes más potentes para cuidar perfectamente la piel de tus clientes.</p>"
           }
         },
         "benefit_2": {
           "type": "column",
           "settings": {
-            "title": "Free training",
-            "text": "<p>Free training on our professional line and access to our advanced seminar offerings.</p>"
+            "title": "Capacitación gratuita",
+            "text": "<p>Capacitación gratuita en nuestra línea profesional y acceso a nuestra oferta de seminarios avanzados.</p>"
           }
         },
         "benefit_3": {
           "type": "column",
           "settings": {
-            "title": "Events",
-            "text": "<p>Tickets to industry CONGRESSES and SHOWS.</p>"
+            "title": "Eventos",
+            "text": "<p>Entradas para CONGRESOS y SHOWS de la industria.</p>"
           }
         },
         "benefit_4": {
           "type": "column",
           "settings": {
-            "title": "Marketing resources",
-            "text": "<p>Access to marketing resources to promote the products in your treatment room.</p>"
+            "title": "Recursos de marketing",
+            "text": "<p>Acceso a recursos de marketing para promocionar los productos en tu cabina.</p>"
           }
         },
         "benefit_5": {
           "type": "column",
           "settings": {
-            "title": "Sales",
-            "text": "<p>Wholesale pricing and early access to seasonal promotions.</p>"
+            "title": "Ventas",
+            "text": "<p>Precios mayoristas y acceso anticipado a promociones de temporada.</p>"
           }
         }
       },
@@ -92,20 +88,20 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Maximize your business with our community",
+            "heading": "Maximiza tu negocio con nuestra comunidad",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>We are a <strong>community of support and growth for aesthetic professionals passionate about skin care</strong>. Our commitment will always be to drive their success.</p><p>Earn attractive commissions, access exclusive kits and protocols to apply in the salon, special discounts, profitability and all the resources you need to create impactful content to boost your social media presence.</p><p><strong>We are committed to transforming businesses and improving lives.</strong></p>"
+            "text": "<p>Somos una <strong>comunidad de apoyo y crecimiento para profesionales de la estética apasionados por el cuidado de la piel</strong>. Nuestro compromiso siempre será impulsar su éxito.</p><p>Gana atractivas comisiones, accede a kits y protocolos exclusivos para aplicar en el salón, descuentos especiales, rentabilidad y todos los recursos que necesitas para crear contenido impactante para potenciar tu presencia en redes sociales.</p><p><strong>Estamos comprometidos con transformar negocios y mejorar vidas.</strong></p>"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Register now!",
+            "button_label": "¡Regístrate ahora!",
             "button_link": "/account/register"
           }
         }
@@ -125,20 +121,20 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Dermaswiss PRO awaits you:",
+            "heading": "Dermaswiss PRO te espera:",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<ol><li>Accredited business owners.</li><li>Licensed medical professionals in dermatology or aesthetic medicine.</li><li>Licensed skincare professional.</li></ol>"
+            "text": "<ol><li>Propietarios de negocios acreditados.</li><li>Profesionales médicos con licencia en dermatología o medicina estética.</li><li>Profesionales del cuidado de la piel con licencia.</li></ol>"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Open account",
+            "button_label": "Abrir cuenta",
             "button_link": "/account/register"
           }
         }
@@ -158,42 +154,42 @@
         "p_benefit_1": {
           "type": "column",
           "settings": {
-            "title": "Personalized consulting",
+            "title": "Consultoría personalizada",
             "text": ""
           }
         },
         "p_benefit_2": {
           "type": "column",
           "settings": {
-            "title": "PRO-level education",
+            "title": "Educación de nivel PRO",
             "text": ""
           }
         },
         "p_benefit_3": {
           "type": "column",
           "settings": {
-            "title": "Samples at Checkout",
-            "text": "<p>over $250</p>"
+            "title": "Muestras en el Checkout",
+            "text": "<p>en pedidos superiores a $250</p>"
           }
         },
         "p_benefit_4": {
           "type": "column",
           "settings": {
-            "title": "US over $500",
-            "text": "<p>Free standard Shipping*<br>Exclude Hawai, PR, Virgin Islands</p>"
+            "title": "Envío gratuito en EE. UU.",
+            "text": "<p>Para pedidos sobre $500*<br>Excluye Hawái, PR, Islas Vírgenes</p>"
           }
         },
         "p_benefit_5": {
           "type": "column",
           "settings": {
-            "title": "Wholesale Pricing",
-            "text": "<p>for orders over $200</p>"
+            "title": "Precios mayoristas",
+            "text": "<p>para pedidos superiores a $200</p>"
           }
         },
         "p_benefit_6": {
           "type": "column",
           "settings": {
-            "title": "Access to exclusive protocols",
+            "title": "Acceso a protocolos exclusivos",
             "text": ""
           }
         }
@@ -207,7 +203,7 @@
         "p_benefit_6"
       ],
       "settings": {
-        "heading": "Benefits of partnering with us:",
+        "heading": "Beneficios de asociarte con nosotros:",
         "columns": 3,
         "text_alignment": "center"
       }
