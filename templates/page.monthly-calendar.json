@@ -17,6 +17,14 @@
     "calendar": {
       "type": "monthly-calendar",
       "blocks": {
+        "event_9BFqJP": {
+          "type": "event",
+          "settings": {
+            "title": "Nuevo Evento",
+            "event_date": "2025-12-23",
+            "event_color": "#db0032"
+          }
+        },
         "event_QdygJg": {
           "type": "event",
           "settings": {
@@ -27,6 +35,7 @@
         }
       },
       "block_order": [
+        "event_9BFqJP",
         "event_QdygJg"
       ],
       "settings": {
