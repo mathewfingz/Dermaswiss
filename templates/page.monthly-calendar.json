@@ -17,6 +17,14 @@
     "calendar": {
       "type": "monthly-calendar",
       "blocks": {
+        "event_M6dVPK": {
+          "type": "event",
+          "settings": {
+            "title": "Evneto22",
+            "event_date": "2025-12-25",
+            "event_color": "#e6f3ff"
+          }
+        },
         "event_9BFqJP": {
           "type": "event",
           "settings": {
@@ -35,6 +43,7 @@
         }
       },
       "block_order": [
+        "event_M6dVPK",
         "event_9BFqJP",
         "event_QdygJg"
       ],
