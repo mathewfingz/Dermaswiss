@@ -1,30 +1,50 @@
 {% if customer and customer.tags contains 'Dropshipper' %}
   <div class="f-cart__dropshipping">
     <dropshipping-component>
-      <div class="f-cart__block-dropshipping flex items-center mb-4">
-        <input
-          id="f-dropshipping-toggle"
-          type="checkbox"
-          name="attributes[dropshipping]"
-          value="yes"
-          {% if cart.attributes.dropshipping == 'yes' %}
-            checked="checked"
-          {% endif %}
-          class="mr-2"
-        >
-        <label for="f-dropshipping-toggle" class="cursor-pointer">
+      <div class="f-cart__block-dropshipping mb-4">
+        <p class="mb-2 text-sm font-semibold">
           {{ 'general.cart.dropshipping_option_label' | t | default: '¿Desea enviar este pedido como Dropshipping?' }}
-        </label>
-        <div class="f-dropshipping--loading ml-2" style="display: none;">
-          <svg
-            class="animate-spin h-4 w-4 text-primary"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
+        </p>
+        <div class="f-dropshipping-toggle-group">
+          <div class="f-dropshipping-toggle-item">
+            <input
+              id="f-dropshipping-yes"
+              type="radio"
+              name="attributes[dropshipping]"
+              value="yes"
+              {% if cart.attributes.dropshipping == 'yes' %}
+                checked="checked"
+              {% endif %}
+            >
+            <label for="f-dropshipping-yes" class="f-dropshipping-toggle-label">
+              {{ 'general.cart.yes' | t | default: 'Sí' }}
+            </label>
+          </div>
+          <div class="f-dropshipping-toggle-item">
+            <input
+              id="f-dropshipping-no"
+              type="radio"
+              name="attributes[dropshipping]"
+              value="no"
+              {% if cart.attributes.dropshipping == 'no' or cart.attributes.dropshipping == blank %}
+                checked="checked"
+              {% endif %}
+            >
+            <label for="f-dropshipping-no" class="f-dropshipping-toggle-label">
+              {{ 'general.cart.no' | t | default: 'No' }}
+            </label>
+          </div>
+          <div class="f-dropshipping--loading ml-2 self-center" style="display: none;">
+            <svg
+              class="animate-spin h-4 w-4 text-primary"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </div>
         </div>
       </div>
     </dropshipping-component>

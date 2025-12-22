@@ -2,11 +2,15 @@ if (!customElements.get('dropshipping-component')) {
   class DropshippingComponent extends HTMLElement {
     constructor() {
       super();
-      this.input = this.querySelector('input[type="checkbox"]');
+      this.inputs = this.querySelectorAll('input[type="radio"]');
       this.loadingIcon = this.querySelector('.f-dropshipping--loading');
       
-      this.input.addEventListener('change', (event) => {
-        this.updateDropshipping(event.target.checked);
+      this.inputs.forEach(input => {
+        input.addEventListener('change', (event) => {
+          if (event.target.checked) {
+            this.updateDropshipping(event.target.value === 'yes');
+          }
+        });
       });
     }
 

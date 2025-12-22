@@ -1192,3 +1192,40 @@ responsive-image img {
   color: #fff !important;
   border-color: #333 !important;
 }
+
+/* Dropshipping Toggle Group */
+.f-dropshipping-toggle-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.f-dropshipping-toggle-item {
+  position: relative;
+}
+.f-dropshipping-toggle-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.f-dropshipping-toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  height: 32px;
+  min-width: 60px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s ease;
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+.f-dropshipping-toggle-item input:checked + .f-dropshipping-toggle-label {
+  background-color: #000;
+  color: #fff;
+}
