@@ -126,7 +126,7 @@
                     <span class="quick-buy-list__head-cell">Añadir</span>
                   </div>
                   <div class="quick-buy-list__body">
-                    {%- for product in collection.products -%}{%- capture wlm_check -%}{%- render 'wlm-product' with product , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
+                    {%- for product in collection.products -%}
                       {% if product.tags contains 'b2b-only' and customer_is_b2b == false %}
                         {% continue %}
                       {% endif %}
@@ -149,7 +149,7 @@
                   class="product-grid f-grid f-grid-2-cols md:f-grid-{{ columns_tablet }}-cols lg:f-grid-{{ columns_tablet_large }}-cols xl:f-grid-{{ columns }}-cols f-grid--gap-{{ section.settings.column_gap }} f-grid--row-gap-{{ section.settings.row_gap }}"
                   data-products-grid
                 >
-                  {%- for product in collection.products -%}{%- capture wlm_check -%}{%- render 'wlm-product' with product , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
+                  {%- for product in collection.products -%}
                     <div class="f-column">
                       {%- render 'product-card',
                         color_schema: 'background-1',

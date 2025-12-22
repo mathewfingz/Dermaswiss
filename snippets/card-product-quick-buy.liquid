@@ -95,6 +95,7 @@
     {% endif %}
   </div>
   <div class="quick-buy-item__cell quick-buy-item__cell--variant">
+    {%- if customer -%}
     {% if product.has_only_default_variant == false %}
       <label class="quick-buy-item__label" for="variant-select-{{ section.id }}-{{ product.id }}">
         {{ 'products.product.select_option' | t }}
@@ -136,8 +137,10 @@
       value="{{ selected_variant.id }}"
       data-variant-input
     >
+    {%- endif -%}
   </div>
   <div class="quick-buy-item__cell quick-buy-item__cell--quantity">
+    {%- if customer -%}
     <label class="quick-buy-item__label" for="quantity-{{ section.id }}-{{ product.id }}">
       {{ 'products.product.quantity.label' | t }}
     </label>
@@ -168,6 +171,7 @@
         +
       </button>
     </div>
+    {%- endif -%}
   </div>
   <div class="quick-buy-item__cell quick-buy-item__cell--action">
     {%- if customer -%}

@@ -27,7 +27,7 @@
     >
       {%- case section.settings.collections_to_show -%}
         {%- when 'all' -%}
-          {%- for collection in collections -%}{%- capture wlm_check -%}{%- render 'wlm-collection' with collection , wlm_is_render:'yes' -%}{%- endcapture -%}{%- if wlm_check == blank -%}{%continue%}{%- endif -%}
+          {%- for collection in collections -%}
             {% render 'collection-card',
               collection: collection,
               image_ratio: section.settings.image_ratio,

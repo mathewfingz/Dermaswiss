@@ -1,7 +1,4 @@
-{%- comment %}<locksmith:8383>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:8383>{% endcomment -%}
-
+<!doctype html>
 {%- liquid
   assign enable_rtl = settings.enable_rtl
   assign language_support_rtl = settings.language_support_rtl
@@ -16,7 +13,6 @@
     endif
   endif
 -%}
-<!doctype html>
 <html
   class="no-js"
   lang="{{ request.locale.iso_code }}"
@@ -25,7 +21,6 @@
   {% endif %}
 >
   <head>
-    {{ locksmith_initializations }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -59,10 +54,7 @@
     </title>
 
     {%- if page_description -%}
-      {%- comment %}<locksmith:9801>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:9801>{% endcomment -%}
+      <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
 
     {% render 'meta-tags' %}
@@ -155,7 +147,6 @@
         document.documentElement.className.replace('no-js', 'js');
     </script>
 
-    {% unless request.design_mode %}{% include 'wlm-head' %}{% endunless %}
 {{ content_for_header }}
 
     {% comment %}theme-check-disable{% endcomment %}
@@ -221,7 +212,7 @@
         role="main"
         tabindex="-1"
       >
-        {% comment %}{{ content_for_layout }}{% endcomment %}{% include 'wlm-body' %}
+        {{ content_for_layout }}
       </main>
       {%- liquid
         if template.name == 'product'

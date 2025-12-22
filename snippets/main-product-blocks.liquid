@@ -125,6 +125,7 @@
             {{ product.title | escape }}
           </{{ tag }}>
         {%- when 'price' -%}
+          {%- if customer -%}
           <div id="Price-{{ section.id }}" role="status">
             {%- render 'price',
               product: product,
@@ -135,7 +136,8 @@
               price_class: 'f-price--large text-lg sm:text-xl'
             -%}
           </div>
-          {%- if shop.taxes_included -%}
+          {%- endif -%}
+          {%- if shop.taxes_included and customer -%}
             <div class="f-product-single__block-tax text-subtext">
               {{- 'products.product.include_taxes' | t -}}
             </div>
@@ -320,6 +322,7 @@
             {% endcase %}
           </div>
         {%- when 'quantity_selector' -%}
+          {%- if customer -%}
           <div class="f-product-single__info-quantity">
             {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}  
             <div class="f-quantity__wrapper {{ class }}" id="QuantityForm-{{ section.id }}">
@@ -519,6 +522,7 @@
               </volume-pricing>
             {%- endif -%}
           </div>
+          {%- endif -%}
         {%- when 'addons' -%}
           {% liquid
             assign show_share = block.settings.show_share
@@ -637,6 +641,7 @@
             </div>
           {% endif %}
         {%- when 'variant_picker' -%}
+          {%- if customer -%}
           {% liquid
             assign size_title = block.settings.size_title
             assign size_title = block.settings.size_title
@@ -685,6 +690,7 @@
               </div>
             </modal-dialog>
           {% endif %}
+          {%- endif -%}
         {%- when 'buy_buttons' -%}
           {%- if customer -%}
           <div {{ block.shopify_attributes }}>
@@ -1020,12 +1026,14 @@
             <script src="{{ 'quick-view.js' | asset_url }}" defer="defer"></script>
           {% endif %}
         {%- when 'inventory_status' -%}
+          {%- if customer -%}
           {%- render 'product-inventory',
             product: product,
             current_variant: current_variant,
             block: block,
             disable_default_variant: disable_default_variant
           -%}
+          {%- endif -%}
         {%- when 'badge' -%}
           {%- liquid
             assign has_tags = false
