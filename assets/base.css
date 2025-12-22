@@ -1177,6 +1177,15 @@ responsive-image img {
   background-color: #000 !important;
   color: #fff !important;
   border-color: #000 !important;
+  border-radius: 0 !important;
+  padding: 0 1.2rem !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  font-size: 1.1rem !important;
+  width: auto !important;
+  display: inline-flex !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
 }
 .btn--black:hover {
   background-color: #333 !important;
