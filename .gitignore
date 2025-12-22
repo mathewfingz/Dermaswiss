@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.log
+.cursor/
+node_modules/
+dist/
+build/
+.env
+.shopify/
+

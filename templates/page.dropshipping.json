@@ -1,0 +1,123 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_banner": {
+      "type": "hero",
+      "settings": {
+        "container": "container-full",
+        "image_overlay_opacity": 30,
+        "hero_height": "medium",
+        "content_position": "center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "subheading": "DERMASWISS PARTNER PROGRAM",
+        "heading": "Dropshipping con Dermaswiss",
+        "description": "<p>Lleva tu negocio al siguiente nivel sin preocuparte por el inventario o la logística.<\/p>"
+      }
+    },
+    "intro_text": {
+      "type": "rich-text",
+      "settings": {
+        "container": "container",
+        "text_alignment": "center",
+        "heading": "¿Qué es el Dropshipping?",
+        "description": "<p>El dropshipping es un modelo de negocio en el que tú vendes nuestros productos en tu propia plataforma y nosotros nos encargamos de enviarlos directamente a tu cliente final. Tú te enfocas en vender y nosotros en todo lo demás.<\/p>"
+      }
+    },
+    "how_it_works": {
+      "type": "multicolumn",
+      "blocks": {
+        "step_1": {
+          "type": "column",
+          "settings": {
+            "title": "1. Regístrate",
+            "text": "<p>Únete a nuestro programa de profesionales y obtén el tag de Dropshipper.<\/p>",
+            "show_image": false
+          }
+        },
+        "step_2": {
+          "type": "column",
+          "settings": {
+            "title": "2. Vende",
+            "text": "<p>Promociona nuestros productos en tu tienda, redes sociales o consultorio.<\/p>",
+            "show_image": false
+          }
+        },
+        "step_3": {
+          "type": "column",
+          "settings": {
+            "title": "3. Ordena",
+            "text": "<p>Cuando recibas una venta, haz el pedido en nuestra web y activa la opción 'Dropshipping'.<\/p>",
+            "show_image": false
+          }
+        },
+        "step_4": {
+          "type": "column",
+          "settings": {
+            "title": "4. Enviamos",
+            "text": "<p>Nosotros preparamos el paquete y lo enviamos directamente a tu cliente de forma discreta.<\/p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "settings": {
+        "heading": "¿Cómo funciona?",
+        "columns": 4,
+        "text_alignment": "center"
+      }
+    },
+    "faqs": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "faq_1": {
+          "type": "content",
+          "settings": {
+            "title": "¿Tiene algún costo unirse?",
+            "content": "<p>No, unirse a nuestro programa de dropshipping es totalmente gratuito para profesionales de la estética registrados.<\/p>"
+          }
+        },
+        "faq_2": {
+          "type": "content",
+          "settings": {
+            "title": "¿El cliente sabrá que el envío viene de Dermaswiss?",
+            "content": "<p>Si marcas la opción de 'Dropshipping' en el carrito, nos aseguraremos de que el envío sea discreto y no incluya facturas con precios de mayorista.<\/p>"
+          }
+        },
+        "faq_3": {
+          "type": "content",
+          "settings": {
+            "title": "¿Cómo se manejan las devoluciones?",
+            "content": "<p>Las devoluciones se manejan directamente a través de tu cuenta de distribuidor siguiendo nuestras políticas estándar de garantía.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3"
+      ],
+      "settings": {
+        "heading": "Preguntas Frecuentes",
+        "container": "container"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner",
+    "intro_text",
+    "how_it_works",
+    "faqs"
+  ]
+}
+

@@ -1,0 +1,185 @@
+{% liquid
+  assign selected_variant = product.selected_or_first_available_variant
+  if selected_variant == blank
+    assign selected_variant = product.variants | first
+  endif
+  assign featured_media = selected_variant.featured_media | default: product.featured_media
+  assign image_alt = product.title | escape
+  assign show_discount = false
+  assign discount_percent = 0
+  if selected_variant.compare_at_price
+    if selected_variant.compare_at_price > selected_variant.price
+      assign show_discount = true
+      assign difference = selected_variant.compare_at_price | minus: selected_variant.price
+      assign discount_percent = difference | times: 100 | divided_by: selected_variant.compare_at_price | round: 0
+    endif
+  endif
+%}
+
+<form
+  action="/cart/add"
+  method="post"
+  class="quick-buy-item"
+  data-quick-buy-item
+  data-product-id="{{ product.id }}"
+  data-current-price="{{ selected_variant.price }}"
+  data-current-compare="{{ selected_variant.compare_at_price | default: 0 }}"
+  data-current-available="{{ selected_variant.available }}"
+>
+  <div class="quick-buy-item__cell quick-buy-item__cell--image">
+    <a href="{{ product.url }}" class="quick-buy-item__image-wrapper">
+      {% if featured_media %}
+        {{
+          featured_media
+          | image_url: width: 160
+          | image_tag:
+            widths: '80, 120, 160',
+            sizes: '(min-width: 1024px) 80px, 64px',
+            loading: 'lazy',
+            class: 'quick-buy-item__image',
+            alt: image_alt
+        }}
+      {% elsif product.featured_image %}
+        {{
+          product.featured_image
+          | image_url: width: 160
+          | image_tag:
+            widths: '80, 120, 160',
+            sizes: '(min-width: 1024px) 80px, 64px',
+            loading: 'lazy',
+            class: 'quick-buy-item__image',
+            alt: image_alt
+        }}
+      {% else %}
+        <div class="quick-buy-item__placeholder">
+          {{ 'product-1' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </a>
+  </div>
+  <div class="quick-buy-item__cell quick-buy-item__cell--details">
+    <a class="quick-buy-item__title h6" href="{{ product.url }}">
+      {{ product.title | escape }}
+    </a>
+    <div class="quick-buy-item__price" data-price-wrapper>
+      <span
+        class="quick-buy-item__compare{% unless show_discount %} quick-buy-item__compare--hidden{% endunless %}"
+        data-compare-price
+      >
+        {% if show_discount %}
+          {{ selected_variant.compare_at_price | money }}
+        {% endif %}
+      </span>
+      <span class="quick-buy-item__current" data-unit-price>
+        {{ selected_variant.price | money }}
+      </span>
+      <span
+        class="quick-buy-item__discount{% unless show_discount %} quick-buy-item__discount--hidden{% endunless %}"
+        data-discount-label
+      >
+        {% if show_discount %}
+          Save {{ discount_percent }}%
+        {% endif %}
+      </span>
+    </div>
+    {% if product.metafields.custom.quick_buy_note != blank %}
+      <p class="quick-buy-item__note">
+        {{ product.metafields.custom.quick_buy_note }}
+      </p>
+    {% endif %}
+  </div>
+  <div class="quick-buy-item__cell quick-buy-item__cell--variant">
+    {% if product.has_only_default_variant == false %}
+      <label class="quick-buy-item__label" for="variant-select-{{ section.id }}-{{ product.id }}">
+        {{ 'products.product.select_option' | t }}
+      </label>
+      <select
+        id="variant-select-{{ section.id }}-{{ product.id }}"
+        class="quick-buy-item__variant-select"
+        data-variant-select
+        aria-label="{{ 'products.product.select_option' | t }}"
+      >
+        {% for variant in product.variants %}
+          <option
+            value="{{ variant.id }}"
+            data-price="{{ variant.price }}"
+            data-compare="{{ variant.compare_at_price | default: 0 }}"
+            data-available="{{ variant.available }}"
+            {% if variant.id == selected_variant.id %}
+              selected
+            {% endif %}
+          >
+            {{- variant.title | escape -}}
+            {% if variant.sku != blank %}
+              - {{ variant.sku | escape }}
+            {% endif %}
+            {% unless variant.available %}
+              ({{ 'products.product.sold_out' | t }})
+            {% endunless %}
+          </option>
+        {% endfor %}
+      </select>
+    {% else %}
+      <span class="quick-buy-item__single-variant">
+        {{ selected_variant.title | escape }}
+      </span>
+    {% endif %}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ selected_variant.id }}"
+      data-variant-input
+    >
+  </div>
+  <div class="quick-buy-item__cell quick-buy-item__cell--quantity">
+    <label class="quick-buy-item__label" for="quantity-{{ section.id }}-{{ product.id }}">
+      {{ 'products.product.quantity.label' | t }}
+    </label>
+    <div class="quick-buy-item__qty-control" data-quantity-wrapper>
+      <button
+        type="button"
+        class="quick-buy-item__qty-btn"
+        data-quantity-decrease
+        aria-label="{{ 'products.product.quantity.decrease' | t }}"
+      >
+        &minus;
+      </button>
+      <input
+        id="quantity-{{ section.id }}-{{ product.id }}"
+        class="quick-buy-item__quantity-input"
+        name="quantity"
+        type="number"
+        min="1"
+        value="1"
+        data-quantity-input
+      >
+      <button
+        type="button"
+        class="quick-buy-item__qty-btn"
+        data-quantity-increase
+        aria-label="{{ 'products.product.quantity.increase' | t }}"
+      >
+        +
+      </button>
+    </div>
+  </div>
+  <div class="quick-buy-item__cell quick-buy-item__cell--action">
+    <button
+      type="submit"
+      class="quick-buy-item__add-button btn btn--primary"
+      data-add-button
+      {% unless selected_variant.available %}
+        disabled
+      {% endunless %}
+    >
+      <span class="quick-buy-item__add-label">
+        {{ 'products.product.add_to_cart' | t }}
+      </span>
+    </button>
+    <span class="quick-buy-item__status-text" data-status-text>
+      {% unless selected_variant.available %}
+        {{ 'products.product.sold_out' | t }}
+      {% endunless %}
+    </span>
+  </div>
+</form>
