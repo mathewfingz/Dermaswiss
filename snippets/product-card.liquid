@@ -233,7 +233,7 @@
         </div>
       {% endif %}
       {% unless list_layout %}
-        {% if enable_quick_add or enable_quick_view %}
+        {% if customer and enable_quick_add or enable_quick_view %}
           <div class="product-card__actions{{ actions_class }}">
             {% if enable_quick_add %}
               {%- if product.has_only_default_variant -%}
@@ -413,7 +413,7 @@
           %}
         </div>
       {% endif %}
-      {% if list_layout or is_lookbook %}
+      {% if customer and list_layout or is_lookbook %}
         {% if enable_quick_add or enable_quick_view %}
           {%- liquid
             assign button_class = 'btn--white'

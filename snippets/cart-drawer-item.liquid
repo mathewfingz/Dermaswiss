@@ -37,19 +37,23 @@
           {{- item.product.title -}}
         </a>
         <div class="f-cart-drawer__product-prices">
-          {%- if item.original_line_price != item.final_line_price -%}
-            <div class="f-cart-drawer__discounted-prices text-sm">
-              <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
-              <s class="f-cart-drawer__product-price">
-                {{ item.original_line_price | money }}
-              </s>
-              <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
-              <span class="f-cart-drawer__product-price f-cart-drawer__product-price--discount">
-                {{- item.final_line_price | money -}}
-              </span>
-            </div>
+          {%- if customer -%}
+            {%- if item.original_line_price != item.final_line_price -%}
+              <div class="f-cart-drawer__discounted-prices text-sm">
+                <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                <s class="f-cart-drawer__product-price">
+                  {{ item.original_line_price | money }}
+                </s>
+                <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                <span class="f-cart-drawer__product-price f-cart-drawer__product-price--discount">
+                  {{- item.final_line_price | money -}}
+                </span>
+              </div>
+            {%- else -%}
+              <span class="f-cart-drawer__product-price">{{ item.original_line_price | money }}</span>
+            {%- endif -%}
           {%- else -%}
-            <span class="f-cart-drawer__product-price">{{ item.original_line_price | money }}</span>
+            <span class="f-cart-drawer__product-price text-sm">{{ 'sections.cart.login_to_see_price' | t }}</span>
           {%- endif -%}
         </div>
       </div>

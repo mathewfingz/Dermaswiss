@@ -119,7 +119,11 @@
     </script>
   {%- endif -%}
   <script id="ProductData" type="application/json">
-    {{ product | json }}
+    {%- if customer -%}
+      {{ product | json }}
+    {%- else -%}
+      {}
+    {%- endif -%}
   </script>
 </product-info>
 <product-recently-viewed

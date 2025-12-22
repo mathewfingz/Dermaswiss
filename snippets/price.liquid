@@ -30,6 +30,7 @@
   endif
 -%}
 
+{%- if customer -%}
 <div class="f-price
   {%- if alignment %} f-price--{{ alignment }}{% endif -%}
   {%- if price_class %} {{ price_class }}{% endif -%}
@@ -118,3 +119,10 @@
     </div>
   {% endif %}
 </div>
+{%- else -%}
+  <div class="f-price-gate">
+    <a href="{{ routes.account_login_url }}" class="btn btn--underline btn--small">
+      {{ 'sections.cart.login_to_see_price' | t }}
+    </a>
+  </div>
+{%- endif -%}

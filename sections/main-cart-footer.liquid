@@ -204,7 +204,13 @@
                     {%- endif -%}
                     <div class="totals">
                       <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}:</h3>
-                      <p class="totals__subtotal-value text-right" data-cart-price>{{ total_price }}</p>
+                      <p class="totals__subtotal-value text-right" data-cart-price>
+                        {%- if customer -%}
+                          {{ total_price }}
+                        {%- else -%}
+                          {{ 'sections.cart.login_to_see_price' | t }}
+                        {%- endif -%}
+                      </p>
                     </div>
 
                     <p class="tax-note text-sm text-subtext">
@@ -239,6 +245,7 @@
                   {% endif %}
                 {% when 'buttons' %}
                   <div class="cart__ctas">
+                    {%- if customer -%}
                     <noscript>
                       <button type="submit" class="cart__update-button btn btn--secondary" form="cart">
                         {{ 'sections.cart.update' | t }}
@@ -257,6 +264,11 @@
                     >
                       {{ 'sections.cart.checkout' | t }}
                     </button>
+                    {%- else -%}
+                      <a href="{{ routes.account_login_url }}" class="btn btn--primary w-full">
+                        {{ 'sections.cart.login_to_see_price' | t }}
+                      </a>
+                    {%- endif -%}
                   </div>
 
                   {%- if additional_checkout_buttons and block.settings.show_additional_checkout_buttons -%}

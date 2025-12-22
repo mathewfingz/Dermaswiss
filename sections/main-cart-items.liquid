@@ -98,24 +98,30 @@
 
                         <a href="{{ item.url }}" class="f-cart-item__name h6 text-product-title font-{{ settings.pcard_title_font }}">{{ item.product.title | escape }}</a>
                         <div class="f-cart-item__price-wrapper">
-                          {%- if item.original_price != item.final_price -%}
-                            <div class="f-cart-item__discounted-prices">
-                              <span class="visually-hidden">
-                                {{ 'products.product.price.regular_price' | t }}
-                              </span>
-                              <s class="f-cart-item__old-price product-option">
-                                {{- item.original_price | money -}}
-                              </s>
-                              <span class="visually-hidden">
-                                {{ 'products.product.price.sale_price' | t }}
-                              </span>
-                              <strong class="f-cart-item__final-price product-option">
-                                {{ item.final_price | money }}
-                              </strong>
-                            </div>
+                          {%- if customer -%}
+                            {%- if item.original_price != item.final_price -%}
+                              <div class="f-cart-item__discounted-prices">
+                                <span class="visually-hidden">
+                                  {{ 'products.product.price.regular_price' | t }}
+                                </span>
+                                <s class="f-cart-item__old-price product-option">
+                                  {{- item.original_price | money -}}
+                                </s>
+                                <span class="visually-hidden">
+                                  {{ 'products.product.price.sale_price' | t }}
+                                </span>
+                                <strong class="f-cart-item__final-price product-option">
+                                  {{ item.final_price | money }}
+                                </strong>
+                              </div>
+                            {%- else -%}
+                              <div class="product-option">
+                                {{ item.original_price | money }}
+                              </div>
+                            {%- endif -%}
                           {%- else -%}
-                            <div class="product-option">
-                              {{ item.original_price | money }}
+                            <div class="product-option text-sm">
+                              {{ 'sections.cart.login_to_see_price' | t }}
                             </div>
                           {%- endif -%}
                         </div>
@@ -204,26 +210,32 @@
 
                       <td class="f-cart-item__totals right md:hidden">
                         <div class="f-cart-item__price-wrapper">
-                          {%- if item.original_line_price != item.final_line_price -%}
-                            <dl class="f-cart-item__discounted-prices">
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.regular_price' | t }}
-                              </dt>
-                              <dd>
-                                <s class="f-cart-item__old-price price price--end">
-                                  {{ item.original_line_price | money }}
-                                </s>
-                              </dd>
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.sale_price' | t }}
-                              </dt>
-                              <dd class="price price--end">
-                                {{ item.final_line_price | money }}
-                              </dd>
-                            </dl>
+                          {%- if customer -%}
+                            {%- if item.original_line_price != item.final_line_price -%}
+                              <dl class="f-cart-item__discounted-prices">
+                                <dt class="visually-hidden">
+                                  {{ 'products.product.price.regular_price' | t }}
+                                </dt>
+                                <dd>
+                                  <s class="f-cart-item__old-price price price--end">
+                                    {{ item.original_line_price | money }}
+                                  </s>
+                                </dd>
+                                <dt class="visually-hidden">
+                                  {{ 'products.product.price.sale_price' | t }}
+                                </dt>
+                                <dd class="price price--end">
+                                  {{ item.final_line_price | money }}
+                                </dd>
+                              </dl>
+                            {%- else -%}
+                              <span class="price price--end">
+                                {{ item.original_line_price | money }}
+                              </span>
+                            {%- endif -%}
                           {%- else -%}
-                            <span class="price price--end">
-                              {{ item.original_line_price | money }}
+                            <span class="price price--end text-sm">
+                              {{ 'sections.cart.login_to_see_price' | t }}
                             </span>
                           {%- endif -%}
 
@@ -264,26 +276,32 @@
 
                       <td class="f-cart-item__totals right md-down:hidden">
                         <div class="f-cart-item__price-wrapper">
-                          {%- if item.original_line_price != item.final_line_price -%}
-                            <dl class="f-cart-item__discounted-prices">
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.regular_price' | t }}
-                              </dt>
-                              <dd>
-                                <s class="f-cart-item__old-price price price--end">
-                                  {{ item.original_line_price | money }}
-                                </s>
-                              </dd>
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.sale_price' | t }}
-                              </dt>
-                              <dd class="f-cart-item__price f-cart-item__price--end">
-                                {{ item.final_line_price | money }}
-                              </dd>
-                            </dl>
+                          {%- if customer -%}
+                            {%- if item.original_line_price != item.final_line_price -%}
+                              <dl class="f-cart-item__discounted-prices">
+                                <dt class="visually-hidden">
+                                  {{ 'products.product.price.regular_price' | t }}
+                                </dt>
+                                <dd>
+                                  <s class="f-cart-item__old-price price price--end">
+                                    {{ item.original_line_price | money }}
+                                  </s>
+                                </dd>
+                                <dt class="visually-hidden">
+                                  {{ 'products.product.price.sale_price' | t }}
+                                </dt>
+                                <dd class="f-cart-item__price f-cart-item__price--end">
+                                  {{ item.final_line_price | money }}
+                                </dd>
+                              </dl>
+                            {%- else -%}
+                              <span class="f-cart-item__price f-cart-item__price--end">
+                                {{ item.original_line_price | money }}
+                              </span>
+                            {%- endif -%}
                           {%- else -%}
-                            <span class="f-cart-item__price f-cart-item__price--end">
-                              {{ item.original_line_price | money }}
+                            <span class="f-cart-item__price f-cart-item__price--end text-sm">
+                              {{ 'sections.cart.login_to_see_price' | t }}
                             </span>
                           {%- endif -%}
                           {%- if item.variant.available and item.unit_price_measurement -%}

@@ -1,6 +1,7 @@
 {%- assign cart_qty = cart | item_count_for_variant: variant.id -%}
 
 {%- capture item_price -%}
+  {%- if customer -%}
   {%- liquid 
     assign volume_pricing_array = variant.quantity_price_breaks | sort: 'quantity' | reverse
     assign variant_price_compare = variant.compare_at_price
@@ -90,6 +91,9 @@
         </span>
     {%- endif -%}
   </price-per-item>
+  {%- else -%}
+    <span class="text-sm">{{ 'sections.cart.login_to_see_price' | t }}</span>
+  {%- endif -%}
 {%- endcapture -%}
 
 {%- capture item_quantity -%}
@@ -332,7 +336,13 @@
 
         <div class="variant-item__quantity flex items-center justify-between md:hidden">
           {{- item_quantity -}}
-          <span class="md:hidden">{{- cart | line_items_for: item | sum: 'original_line_price' | money -}}</span>
+          <span class="md:hidden">
+            {%- if customer -%}
+              {{- cart | line_items_for: item | sum: 'original_line_price' | money -}}
+            {%- else -%}
+              {{ 'sections.cart.login_to_see_price' | t }}
+            {%- endif -%}
+          </span>
         </div>
       </div>
     </div>
@@ -347,6 +357,10 @@
   </td>
 
   <td class="variant-item__totals text-right hidden md:table-cell">
-    {{- cart | line_items_for: item | sum: 'original_line_price' | money -}}
+    {%- if customer -%}
+      {{- cart | line_items_for: item | sum: 'original_line_price' | money -}}
+    {%- else -%}
+      {{ 'sections.cart.login_to_see_price' | t }}
+    {%- endif -%}
   </td>
 </tr>

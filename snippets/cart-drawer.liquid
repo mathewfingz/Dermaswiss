@@ -259,7 +259,13 @@
                 </div>
                 <div class="f-cart-drawer__totals flex justify-between items-center">
                   <h3 class="f-cart-drawer__subtotal h6">{{ 'sections.cart.subtotal' | t }}:</h3>
-                  <p class="f-cart-drawer__subtotal-value" data-cart-price>{{ total_price }}</p>
+                  <p class="f-cart-drawer__subtotal-value" data-cart-price>
+                    {%- if customer -%}
+                      {{ total_price }}
+                    {%- else -%}
+                      {{ 'sections.cart.login_to_see_price' | t }}
+                    {%- endif -%}
+                  </p>
                   <p class="visually-hidden" data-price-live-region aria-live="polite" role="status"></p>
                   <p
                     class="visually-hidden"
@@ -300,6 +306,7 @@
                   {% if settings.cart_drawer_show_view_cart %}
                     <a class="btn btn--secondary" href="{{ routes.cart_url }}">{{ 'sections.cart.view_cart' | t }}</a>
                   {% endif %}
+                  {%- if customer -%}
                   <button
                     type="submit"
                     class="btn btn--primary w-full"
@@ -309,6 +316,11 @@
                   >
                     {{ 'sections.cart.checkout' | t }}
                   </button>
+                  {%- else -%}
+                    <a href="{{ routes.account_login_url }}" class="btn btn--primary w-full">
+                      {{ 'sections.cart.login_to_see_price' | t }}
+                    </a>
+                  {%- endif -%}
                 </form>
               </div>
             </div>

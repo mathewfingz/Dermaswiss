@@ -686,6 +686,7 @@
             </modal-dialog>
           {% endif %}
         {%- when 'buy_buttons' -%}
+          {%- if customer -%}
           <div {{ block.shopify_attributes }}>
             {%- liquid
               assign gift_card_recipient_feature_active = false
@@ -801,6 +802,7 @@
           </div>
 
           <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+        {%- endif -%}
         {% when 'countdown_timer' %}
           {% liquid
             assign timer = block.settings.end_time

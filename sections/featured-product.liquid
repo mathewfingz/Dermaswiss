@@ -310,10 +310,18 @@
               {%- endif -%}
             </div>
             <script type="application/json">
-              {{ featured_product.variants | json }}
+              {%- if customer -%}
+                {{ featured_product.variants | json }}
+              {%- else -%}
+                []
+              {%- endif -%}
             </script>
             <script type="application/json" data-selected-variant>
-              {{ product.selected_or_first_available_variant | json }}
+              {%- if customer -%}
+                {{ product.selected_or_first_available_variant | json }}
+              {%- else -%}
+                {}
+              {%- endif -%}
             </script>
           </media-gallery>
         {%- else -%}
@@ -334,6 +342,7 @@
               </h2>
             </div>
             <div class="f-product-single__block f-product-single__block--price">
+              {%- if customer -%}
               <span class="f-price">
                 <div class="f-price__regular">
                   <span class="visually-hidden visually-hidden--inline">
@@ -344,6 +353,13 @@
                   </span>
                 </div>
               </span>
+              {%- else -%}
+                <div class="f-price-gate">
+                  <a href="{{ routes.account_login_url }}" class="btn btn--underline btn--small">
+                    {{ 'sections.cart.login_to_see_price' | t }}
+                  </a>
+                </div>
+              {%- endif -%}
               {%- if shop.taxes_included -%}
                 <div class="f-product-single__block-tax text-subtext">
                   {{- 'products.product.include_taxes' | t -}}
@@ -364,9 +380,15 @@
             </div>
             <div class="f-product-single__block f-product-single__block--buy_buttons">
               <div class="f-product-form__buttons">
+                {%- if customer -%}
                 <button type="submit" class="btn btn--primary w-full">
                   <span>{{ 'products.product.add_to_cart' | t }}</span>
                 </button>
+                {%- else -%}
+                  <a href="{{ routes.account_login_url }}" class="btn btn--primary w-full">
+                    {{ 'sections.cart.login_to_see_price' | t }}
+                  </a>
+                {%- endif -%}
               </div>
             </div>
           </div>

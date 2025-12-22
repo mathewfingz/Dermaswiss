@@ -22,8 +22,10 @@
   class="quick-buy-item"
   data-quick-buy-item
   data-product-id="{{ product.id }}"
-  data-current-price="{{ selected_variant.price }}"
-  data-current-compare="{{ selected_variant.compare_at_price | default: 0 }}"
+  {% if customer %}
+    data-current-price="{{ selected_variant.price }}"
+    data-current-compare="{{ selected_variant.compare_at_price | default: 0 }}"
+  {% endif %}
   data-current-available="{{ selected_variant.available }}"
 >
   <div class="quick-buy-item__cell quick-buy-item__cell--image">
@@ -62,6 +64,7 @@
       {{ product.title | escape }}
     </a>
     <div class="quick-buy-item__price" data-price-wrapper>
+      {%- if customer -%}
       <span
         class="quick-buy-item__compare{% unless show_discount %} quick-buy-item__compare--hidden{% endunless %}"
         data-compare-price
@@ -81,6 +84,9 @@
           Save {{ discount_percent }}%
         {% endif %}
       </span>
+      {%- else -%}
+        <span class="text-sm">{{ 'sections.cart.login_to_see_price' | t }}</span>
+      {%- endif -%}
     </div>
     {% if product.metafields.custom.quick_buy_note != blank %}
       <p class="quick-buy-item__note">
@@ -164,6 +170,7 @@
     </div>
   </div>
   <div class="quick-buy-item__cell quick-buy-item__cell--action">
+    {%- if customer -%}
     <button
       type="submit"
       class="quick-buy-item__add-button btn btn--primary"
@@ -181,5 +188,10 @@
         {{ 'products.product.sold_out' | t }}
       {% endunless %}
     </span>
+    {%- else -%}
+      <a href="{{ routes.account_login_url }}" class="btn btn--primary btn--small">
+        {{ 'sections.cart.login_to_see_price' | t }}
+      </a>
+    {%- endif -%}
   </div>
 </form>

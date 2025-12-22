@@ -213,6 +213,7 @@
       "load_more": "Carga más"
     },
     "cart": {
+      "login_to_see_price": "Inicie sesión para ver el precio",
       "dropshipping_option_label": "¿Desea que este pedido sea enviado como Dropshipping?",
       "item_added": "Artículo añadido a tu carrito.",
       "view": "Ver mi carrito ({{ count }})",
