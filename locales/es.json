@@ -495,7 +495,8 @@
       "estimate_shipping_button": "Calcular tarifas de envío",
       "update": "Actualizar",
       "cart_quantity_error_html": "Solo puede agregar {{ quantity }} de este artículo a su carrito.",
-      "estimate_shipping_title": "Calcular tarifas de envío"
+      "estimate_shipping_title": "Calcular tarifas de envío",
+      "login_to_see_price": "Inicie sesión para ver el precio"
     },
     "featured_blog": {
       "onboarding_title": "Entrada en el blog",

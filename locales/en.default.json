@@ -55,7 +55,7 @@
       "popular_searches": "Popular searches"
     },
     "cart": {
-      "login_to_see_price": "Login to view price",
+      "login_to_see_price": "Login to see prices",
       "dropshipping_option_label": "Do you want this order to be sent as Dropshipping?",
       "view": "View my cart ({{ count }})",
       "item_added": "Item added to your cart.",
@@ -412,7 +412,8 @@
       "no_found_shipping_rate": "There are no shipping rates for your address.",
       "note_title": "Add order note",
       "estimate_shipping_title": "Estimate shipping rates",
-      "estimate_shipping_button": "Calculate shipping rates"
+      "estimate_shipping_button": "Calculate shipping rates",
+      "login_to_see_price": "Login to see prices"
     },
     "footer": {
       "payment": "Payment methods",
