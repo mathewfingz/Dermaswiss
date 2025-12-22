@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -7,28 +16,22 @@
     },
     "hero_banner": {
       "type": "hero",
-      "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {
-            "title": "Descubre todos los beneficios de ser Dermaswiss Pro",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Comienza a hacer crecer tu negocio</p>"
-          }
-        }
-      },
       "settings": {
         "container": "container-full",
         "image_overlay_opacity": 30,
         "hero_height": "medium",
+        "content_in_container": false,
         "content_position": "center",
         "text_alignment": "center",
-        "text_color": "#ffffff"
+        "text_color": "#ffffff",
+        "hero_height_mobile": "large",
+        "content_position_mobile": "center",
+        "show_text_below": true,
+        "text_alignment_mobile": "center",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
       }
     },
     "benefits_grid": {
@@ -37,36 +40,74 @@
         "benefit_1": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Web-Pro-Home-1.Biotecnologia_78533a6b-2de9-41a0-99a0-71f56a91a1c4.png",
+            "image_link": "",
             "title": "Productos de alta calidad",
-            "text": "<p>Los ingredientes más potentes para cuidar perfectamente la piel de tus clientes.</p>"
+            "heading_size": "h3",
+            "text": "<p>Los ingredientes más potentes para cuidar perfectamente la piel de tus clientes.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "benefit_2": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Web-Pro-Home-2.Soluciones.png",
+            "image_link": "",
             "title": "Capacitación gratuita",
-            "text": "<p>Capacitación gratuita en nuestra línea profesional y acceso a nuestra oferta de seminarios avanzados.</p>"
+            "heading_size": "h3",
+            "text": "<p>Capacitación gratuita en nuestra línea profesional y acceso a nuestra oferta de seminarios avanzados.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "benefit_3": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Eventos",
-            "text": "<p>Entradas para CONGRESOS y SHOWS de la industria.</p>"
+            "heading_size": "h3",
+            "text": "<p>Entradas para CONGRESOS y SHOWS de la industria.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "benefit_4": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Mkt-resources.png",
+            "image_link": "",
             "title": "Recursos de marketing",
-            "text": "<p>Acceso a recursos de marketing para promocionar los productos en tu cabina.</p>"
+            "heading_size": "h3",
+            "text": "<p>Acceso a recursos de marketing para promocionar los productos en tu cabina.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "benefit_5": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Ventas",
-            "text": "<p>Precios mayoristas y acceso anticipado a promociones de temporada.</p>"
+            "heading_size": "h3",
+            "text": "<p>Precios mayoristas y acceso anticipado a promociones de temporada.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         }
       },
@@ -78,8 +119,33 @@
         "benefit_5"
       ],
       "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "vertical",
+        "text_alignment": "center",
+        "image_width": "fullwidth",
+        "custom_image_width": 80,
         "columns": 3,
-        "text_alignment": "center"
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "maximize_business": {
@@ -89,7 +155,10 @@
           "type": "heading",
           "settings": {
             "heading": "Maximiza tu negocio con nuestra comunidad",
-            "heading_size": "h2"
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2",
+            "heading_color": ""
           }
         },
         "text": {
@@ -102,7 +171,9 @@
           "type": "button",
           "settings": {
             "button_label": "¡Regístrate ahora!",
-            "button_link": "/account/register"
+            "button_link": "/account/register",
+            "button_style": "btn--primary",
+            "button_size": ""
           }
         }
       },
@@ -112,7 +183,16 @@
         "button"
       ],
       "settings": {
-        "text_alignment": "center"
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "awaits_you": {
@@ -122,7 +202,10 @@
           "type": "heading",
           "settings": {
             "heading": "Dermaswiss PRO te espera:",
-            "heading_size": "h2"
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2",
+            "heading_color": ""
           }
         },
         "text": {
@@ -135,7 +218,9 @@
           "type": "button",
           "settings": {
             "button_label": "Abrir cuenta",
-            "button_link": "/account/register"
+            "button_link": "/account/register",
+            "button_style": "btn--primary",
+            "button_size": ""
           }
         }
       },
@@ -145,7 +230,16 @@
         "button"
       ],
       "settings": {
-        "text_alignment": "center"
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "partner_benefits": {
@@ -154,43 +248,85 @@
         "p_benefit_1": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Consultoría personalizada",
-            "text": ""
+            "heading_size": "h3",
+            "text": "",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "p_benefit_2": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Educación de nivel PRO",
-            "text": ""
+            "heading_size": "h3",
+            "text": "",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "p_benefit_3": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Muestras en el Checkout",
-            "text": "<p>en pedidos superiores a $250</p>"
+            "heading_size": "h3",
+            "text": "<p>en pedidos superiores a $250</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "p_benefit_4": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Envío gratuito en EE. UU.",
-            "text": "<p>Para pedidos sobre $500*<br>Excluye Hawái, PR, Islas Vírgenes</p>"
+            "heading_size": "h3",
+            "text": "<p>Para pedidos sobre $500*<br>Excluye Hawái, PR, Islas Vírgenes</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "p_benefit_5": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Precios mayoristas",
-            "text": "<p>para pedidos superiores a $200</p>"
+            "heading_size": "h3",
+            "text": "<p>para pedidos superiores a $200</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         },
         "p_benefit_6": {
           "type": "column",
           "settings": {
+            "show_image": true,
+            "image_link": "",
             "title": "Acceso a protocolos exclusivos",
-            "text": ""
+            "heading_size": "h3",
+            "text": "",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
           }
         }
       },
@@ -203,9 +339,33 @@
         "p_benefit_6"
       ],
       "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
         "heading": "Beneficios de asociarte con nosotros:",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "vertical",
+        "text_alignment": "center",
+        "image_width": "fullwidth",
+        "custom_image_width": 80,
         "columns": 3,
-        "text_alignment": "center"
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     }
   },
