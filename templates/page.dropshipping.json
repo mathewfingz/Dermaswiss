@@ -34,32 +34,24 @@
         "step_1": {
           "type": "column",
           "settings": {
-            "title": "1. Regístrate",
-            "text": "<p>Únete a nuestro programa de profesionales y obtén el tag de Dropshipper.<\/p>",
+            "title": "PASO 1.",
+            "text": "<ul><li>Haz tu pedido desde tu cuenta profesional.<\/li><li>Selecciona los productos Retail y elige <strong>“Dropshipping”<\/strong>.<\/li><li>Ingresa los datos de envío de tu cliente.<\/li><\/ul>",
             "show_image": false
           }
         },
         "step_2": {
           "type": "column",
           "settings": {
-            "title": "2. Vende",
-            "text": "<p>Promociona nuestros productos en tu tienda, redes sociales o consultorio.<\/p>",
+            "title": "PASO 2.",
+            "text": "<ul><li>Nosotros preparamos el pedido.<\/li><li>Nuestro centro de despacho alista y empaca los productos con presentación profesional.<\/li><\/ul>",
             "show_image": false
           }
         },
         "step_3": {
           "type": "column",
           "settings": {
-            "title": "3. Ordena",
-            "text": "<p>Cuando recibas una venta, haz el pedido en nuestra web y activa la opción 'Dropshipping'.<\/p>",
-            "show_image": false
-          }
-        },
-        "step_4": {
-          "type": "column",
-          "settings": {
-            "title": "4. Enviamos",
-            "text": "<p>Nosotros preparamos el paquete y lo enviamos directamente a tu cliente de forma discreta.<\/p>",
+            "title": "PASO 3.",
+            "text": "<ul><li>Enviamos el pedido directo a tu cliente.<\/li><li>El paquete llega sin precios ni material promocional.<\/li><li>Recibirás un número de seguimiento para compartirlo con tu cliente.<\/li><\/ul>",
             "show_image": false
           }
         }
@@ -67,13 +59,12 @@
       "block_order": [
         "step_1",
         "step_2",
-        "step_3",
-        "step_4"
+        "step_3"
       ],
       "settings": {
-        "heading": "¿Cómo funciona?",
-        "columns": 4,
-        "text_alignment": "center"
+        "heading": "¿CÓMO FUNCIONA?",
+        "columns": 3,
+        "text_alignment": "left"
       }
     },
     "faqs": {
