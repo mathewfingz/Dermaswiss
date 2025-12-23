@@ -1,0 +1,68 @@
+<section class="f-section-padding color-background-1" style="--section-padding-top: 40px; --section-padding-bottom: 40px;">
+  <div class="container">
+    <div class="section__header text-center spacing--medium">
+      <h1 class="section__heading h2">{{ 'general.bulk_order.title' | t }}</h1>
+      <p class="section__description">{{ 'general.bulk_order.instruction' | t }}</p>
+    </div>
+
+    <div class="f-bulk-order__container max-w-3xl mx-auto border-2 border-dashed border-gray-300 rounded-lg p-8 text-center bg-gray-50">
+      <div id="bulk-order-upload-zone">
+        <input type="file" id="bulk-order-file-input" accept=".xlsx, .xls, .csv" class="hidden">
+        <div class="flex flex-col items-center gap-4">
+          <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+          <button type="button" class="btn btn--primary" id="bulk-order-select-btn">{{ 'general.bulk_order.select_file' | t }}</button>
+          <p class="text-sm text-subtext" id="bulk-order-filename"></p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="#" id="bulk-order-download-template" class="btn btn--underline text-sm">{{ 'general.bulk_order.download_template' | t }}</a>
+      </div>
+    </div>
+
+    <div id="bulk-order-preview" class="mt-12 hidden">
+      <h3 class="h4 mb-4">Previsualización</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-100 font-semibold">
+              <th class="p-3 border">SKU</th>
+              <th class="p-3 border">Producto</th>
+              <th class="p-3 border text-center">Cantidad</th>
+              <th class="p-3 border text-right">Precio</th>
+              <th class="p-3 border">Estado</th>
+            </tr>
+          </thead>
+          <tbody id="bulk-order-preview-body">
+            <!-- Dynamic content -->
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-8 flex justify-end">
+        <button id="bulk-order-add-to-cart" class="btn btn--primary btn--large" disabled>
+          {{ 'general.bulk_order.add_to_cart' | t }}
+        </button>
+      </div>
+    </div>
+
+    <div id="bulk-order-status" class="mt-4 text-center hidden">
+      <div class="alert alert--info mb-4" id="bulk-order-status-message"></div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+<script src="{{ 'bulk-order-processor.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Bulk Order Upload",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Bulk Order Upload"
+    }
+  ]
+}
+{% endschema %}
+

@@ -417,7 +417,19 @@
       "note_title": "Add order note",
       "estimate_shipping_title": "Estimate shipping rates",
       "estimate_shipping_button": "Calculate shipping rates",
-      "login_to_see_price": "Login to see prices"
+      "login_to_see_price": "Login to see prices",
+      "bulk_order": {
+        "title": "Bulk Order Upload",
+        "instruction": "Upload your Excel or CSV file with columns 'SKU' and 'Quantity'.",
+        "download_template": "Download Sample Template",
+        "select_file": "Select File",
+        "processing": "Processing file...",
+        "add_to_cart": "Add Valid Items to Cart",
+        "invalid_sku": "SKU not found",
+        "out_of_stock": "Out of stock",
+        "success_message": "Items added to cart successfully!",
+        "error_message": "There was an error processing your file."
+      }
     },
     "footer": {
       "payment": "Payment methods",

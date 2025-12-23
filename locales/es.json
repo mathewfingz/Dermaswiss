@@ -500,7 +500,19 @@
       "update": "Actualizar",
       "cart_quantity_error_html": "Solo puede agregar {{ quantity }} de este artículo a su carrito.",
       "estimate_shipping_title": "Calcular tarifas de envío",
-      "login_to_see_price": "Inicie sesión para ver los precios"
+      "login_to_see_price": "Inicie sesión para ver los precios",
+      "bulk_order": {
+        "title": "Carga Masiva de Pedidos",
+        "instruction": "Sube tu archivo Excel o CSV con las columnas 'SKU' y 'Cantidad'.",
+        "download_template": "Descargar Plantilla de Ejemplo",
+        "select_file": "Seleccionar Archivo",
+        "processing": "Procesando archivo...",
+        "add_to_cart": "Añadir productos válidos al carrito",
+        "invalid_sku": "SKU no encontrado",
+        "out_of_stock": "Sin stock",
+        "success_message": "¡Productos añadidos al carrito correctamente!",
+        "error_message": "Hubo un error al procesar el archivo."
+      }
     },
     "featured_blog": {
       "onboarding_title": "Entrada en el blog",
