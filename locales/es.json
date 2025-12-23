@@ -215,7 +215,7 @@
     "cart": {
       "yes": "Sí",
       "no": "No",
-      "login_to_see_price": "Inicie sesión para ver el precio",
+      "login_to_see_price": "Inicie sesión para ver los precios",
       "dropshipping_option_label": "¿Desea que este pedido sea enviado como Dropshipping?",
       "dropshipping_delivery_note": "Nota: Los pedidos de Dropshipping pueden tardar entre 24 y 48 horas adicionales en procesarse.",
       "item_added": "Artículo añadido a tu carrito.",
@@ -347,7 +347,7 @@
       "variant_selection_needed_text": "Seleccione la variante que prefiera.",
       "variant_option_none_text": "Elige una opción",
       "view_more_options": "Ver más",
-      "sold_out": "Vendido",
+      "sold_out": "Agotado",
       "vendor": "Vendedor",
       "open_size_chart": "Carta del tamaño",
       "select_options": "Seleccione opciones",
@@ -499,7 +499,7 @@
       "update": "Actualizar",
       "cart_quantity_error_html": "Solo puede agregar {{ quantity }} de este artículo a su carrito.",
       "estimate_shipping_title": "Calcular tarifas de envío",
-      "login_to_see_price": "Inicie sesión para ver el precio"
+      "login_to_see_price": "Inicie sesión para ver los precios"
     },
     "featured_blog": {
       "onboarding_title": "Entrada en el blog",
@@ -527,12 +527,12 @@
       "view_all_label": "Ver todos los productos de la colección {{ collection_name }}"
     },
     "quick_order_list": {
-      "product_total": "Subtotal del producto",
+      "product_total": "Total del producto",
       "view_cart": "Ver carrito",
-      "each": "{{ money }}/ud",
+      "each": "{{ money }} c/u",
       "product": "Producto",
       "variant": "Variante",
-      "variant_total": "total de variantes",
+      "variant_total": "Total de la variante",
       "items_added": {
         "one": "{{ quantity }} elemento añadido",
         "other": "{{ quantity }} elementos añadidos"
