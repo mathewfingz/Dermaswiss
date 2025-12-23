@@ -2,16 +2,34 @@ if (!customElements.get('dropshipping-component')) {
   class DropshippingComponent extends HTMLElement {
     constructor() {
       super();
+      if (!document.getElementById('f-dropshipping-yes')) return;
+      
       this.inputs = this.querySelectorAll('input[type="radio"]');
       this.loadingIcon = this.querySelector('.f-dropshipping--loading');
-      
+      this.deliveryNote = document.getElementById('dropshipping-delivery-note');
+
       this.inputs.forEach(input => {
         input.addEventListener('change', (event) => {
           if (event.target.checked) {
+            this.updateA11y(event.target);
             this.updateDropshipping(event.target.value === 'yes');
           }
         });
       });
+    }
+
+    updateA11y(checkedInput) {
+      this.inputs.forEach(input => {
+        input.setAttribute('aria-checked', input === checkedInput ? 'true' : 'false');
+      });
+      
+      if (this.deliveryNote) {
+        if (checkedInput.value === 'yes') {
+          this.deliveryNote.classList.remove('hidden');
+        } else {
+          this.deliveryNote.classList.add('hidden');
+        }
+      }
     }
 
     updateDropshipping(isDropshipping) {

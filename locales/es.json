@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "customer": {
     "account": {
@@ -226,6 +217,7 @@
       "no": "No",
       "login_to_see_price": "Inicie sesión para ver el precio",
       "dropshipping_option_label": "¿Desea que este pedido sea enviado como Dropshipping?",
+      "dropshipping_delivery_note": "Nota: Los pedidos de Dropshipping pueden tardar entre 24 y 48 horas adicionales en procesarse.",
       "item_added": "Artículo añadido a tu carrito.",
       "view": "Ver mi carrito ({{ count }})",
       "qualified_shipping_message": "¡Felicidades! Su pedido califica para envío gratuito",

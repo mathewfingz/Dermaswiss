@@ -2,10 +2,10 @@
   <div class="f-cart__dropshipping">
     <dropshipping-component>
       <div class="f-cart__block-dropshipping mb-4">
-        <p class="mb-2 text-sm font-semibold">
+        <p id="dropshipping-label" class="mb-2 text-sm font-semibold">
           {{ 'general.cart.dropshipping_option_label' | t | default: '¿Desea enviar este pedido como Dropshipping?' }}
         </p>
-        <div class="f-dropshipping-toggle-group">
+        <div class="f-dropshipping-toggle-group" role="radiogroup" aria-labelledby="dropshipping-label">
           <div class="f-dropshipping-toggle-item">
             <input
               id="f-dropshipping-yes"
@@ -14,6 +14,9 @@
               value="yes"
               {% if cart.attributes.dropshipping == 'yes' %}
                 checked="checked"
+                aria-checked="true"
+              {% else %}
+                aria-checked="false"
               {% endif %}
             >
             <label for="f-dropshipping-yes" class="f-dropshipping-toggle-label">
@@ -28,6 +31,9 @@
               value="no"
               {% if cart.attributes.dropshipping == 'no' or cart.attributes.dropshipping == blank %}
                 checked="checked"
+                aria-checked="true"
+              {% else %}
+                aria-checked="false"
               {% endif %}
             >
             <label for="f-dropshipping-no" class="f-dropshipping-toggle-label">
@@ -46,6 +52,9 @@
             </svg>
           </div>
         </div>
+        <p id="dropshipping-delivery-note" class="f-dropshipping-note text-sm mt-2 color-foreground-secondary {% unless cart.attributes.dropshipping == 'yes' %}hidden{% endunless %}">
+          {{ 'general.cart.dropshipping_delivery_note' | t }}
+        </p>
       </div>
     </dropshipping-component>
   </div>
