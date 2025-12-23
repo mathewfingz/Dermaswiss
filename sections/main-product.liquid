@@ -215,9 +215,11 @@
     </div>
   </product-modal>
 {%- endif -%}
+{%- if customer -%}
 <script type="application/ld+json">
   {{ product | structured_data }}
 </script>
+{%- endif -%}
 {% schema %}
 {
   "name": "t:sections.main-product.name",

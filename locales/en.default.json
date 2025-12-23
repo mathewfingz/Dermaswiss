@@ -60,6 +60,7 @@
       "login_to_see_price": "Login to see prices",
       "dropshipping_option_label": "Do you want this order to be sent as Dropshipping?",
       "dropshipping_delivery_note": "Note: Dropshipping orders may take an additional 24-48 hours to process.",
+      "dropshipping_address_notice": "Remember to enter your final customer's address in the next step.",
       "view": "View my cart ({{ count }})",
       "item_added": "Item added to your cart.",
       "qualified_shipping_message": "Congratulations! Your order qualifies for free shipping",

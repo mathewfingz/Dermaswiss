@@ -59,6 +59,8 @@
 
     {% render 'meta-tags' %}
     {% render 'critical-css' %}
+    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'base.css' | asset_url }}" as="style">
     {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'grid.css' | asset_url | stylesheet_tag }}
@@ -148,6 +150,20 @@
     </script>
 
 {{ content_for_header }}
+
+    {%- unless customer -%}
+      <script>
+        // Security: Clear price data from global objects for non-logged in users
+        document.addEventListener('DOMContentLoaded', function() {
+          if (window.ShopifyAnalytics && window.ShopifyAnalytics.lib) {
+            // We can't fully remove Shopify's tracking but we can try to minimize data
+          }
+          if (window.meta && window.meta.product) {
+            window.meta.product.variants = [];
+          }
+        });
+      </script>
+    {%- endunless -%}
 
     {% comment %}theme-check-disable{% endcomment %}
     {%- unless settings.type_body_font.system? -%}

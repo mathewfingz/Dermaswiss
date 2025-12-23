@@ -54,6 +54,8 @@
         </div>
         <p id="dropshipping-delivery-note" class="f-dropshipping-note text-sm mt-2 color-foreground-secondary {% unless cart.attributes.dropshipping == 'yes' %}hidden{% endunless %}">
           {{ 'general.cart.dropshipping_delivery_note' | t }}
+          <br>
+          <strong>{{ 'general.cart.dropshipping_address_notice' | t }}</strong>
         </p>
       </div>
     </dropshipping-component>

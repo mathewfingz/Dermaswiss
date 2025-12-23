@@ -94,8 +94,10 @@
                     <div class="f-predictive-search__item-vendor text-subtext">{{ product.vendor }}</div>
                   {%- endif -%}
                   <h3 class="f-predictive-search__item-heading {{ product_title_class }}">{{ product.title }}</h3>
-                  {%- if settings.predictive_search_show_price -%}
+                  {%- if settings.predictive_search_show_price and customer -%}
                     {% render 'price', product: product, use_variant: true %}
+                  {%- elsif settings.predictive_search_show_price -%}
+                    <span class="text-xs color-foreground-secondary">{{ 'sections.cart.login_to_see_price' | t }}</span>
                   {%- endif -%}
                 </div>
               </a>
