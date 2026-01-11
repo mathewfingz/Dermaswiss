@@ -1177,7 +1177,7 @@ responsive-image img {
   background-color: #000 !important;
   color: #fff !important;
   border-color: #000 !important;
-  border-radius: 0 !important;
+  border-radius: var(--btn-rounded) !important;
   padding: 0 1.2rem !important;
   min-height: 32px !important;
   height: 32px !important;
@@ -1222,8 +1222,19 @@ responsive-image img {
   letter-spacing: 0.05rem;
   transition: all 0.3s ease;
   border: 1px solid #000;
+  border-radius: var(--btn-rounded);
   background-color: #fff;
   color: #000;
+}
+
+.announcement-bar {
+  background-color: #db0032 !important;
+}
+
+.announcement-bar__message,
+.announcement-bar__message p,
+.announcement-bar__link {
+  color: #fff !important;
 }
 .f-dropshipping-toggle-item input:checked + .f-dropshipping-toggle-label {
   background-color: #000;
