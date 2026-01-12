@@ -29,9 +29,29 @@
         <div class="calendar-list__event" {{ block.shopify_attributes }}>
           <div class="event__color-bar" style="background-color: {{ block.settings.event_color }}"></div>
           <div class="event__content">
+            <div class="event__meta">
+              {% if block.settings.event_type != blank %}
+                <span class="event__type">{{ block.settings.event_type }}</span>
+              {% endif %}
+              {% if block.settings.price != blank %}
+                <span class="event__price">{{ block.settings.price }}</span>
+              {% endif %}
+            </div>
             <h3 class="event__title h4">{{ block.settings.title }}</h3>
+            <div class="event__details">
+              {% if block.settings.location != blank %}
+                <div class="event__location">
+                  <span class="event__icon">📍</span> {{ block.settings.location }}
+                </div>
+              {% endif %}
+            </div>
             {% if block.settings.event_description != blank %}
               <div class="event__description rte">{{ block.settings.event_description }}</div>
+            {% endif %}
+            {% if block.settings.registration_link != blank %}
+              <div class="event__actions">
+                <a href="{{ block.settings.registration_link }}" class="btn btn--primary btn--small" target="_blank">Registrarse</a>
+              </div>
             {% endif %}
           </div>
         </div>
@@ -113,13 +133,44 @@
     padding: 20px 25px;
     flex-grow: 1;
   }
+  .event__meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+    margin-bottom: 5px;
+  }
+  .event__type {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .event__price {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
   .event__title {
     margin-bottom: 8px;
+  }
+  .event__details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #666;
   }
   .event__description {
     font-size: 1.4rem;
     color: #444;
     line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  .event__actions {
+    margin-top: 10px;
   }
   @media (max-width: 767px) {
     .calendar-list__event {
@@ -167,6 +218,30 @@
           "default": "2025-12-25"
         },
         {
+          "type": "text",
+          "id": "event_type",
+          "label": "Tipo de Evento",
+          "info": "Ej: Masterclass, Seminario, Taller",
+          "default": "Webinar"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Precio",
+          "info": "Ej: Gratis, $50, Varía"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Lugar",
+          "info": "Ej: Online, Miami, Hotel Plaza"
+        },
+        {
+          "type": "url",
+          "id": "registration_link",
+          "label": "Link de registro"
+        },
+        {
           "type": "richtext",
           "id": "event_description",
           "label": "Descripción del Evento"
@@ -189,7 +264,10 @@
           "settings": {
             "title": "Evento de Masterclass",
             "event_date": "2025-12-25",
-            "event_description": "<p>Únete a nuestra masterclass sobre técnicas avanzadas de skincare.</p>"
+            "event_description": "<p>Únete a nuestra masterclass sobre técnicas avanzadas de skincare.</p>",
+            "event_type": "Masterclass",
+            "location": "Online",
+            "price": "Gratis"
           }
         }
       ]
