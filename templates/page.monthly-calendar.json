@@ -17,6 +17,19 @@
     "calendar": {
       "type": "monthly-calendar",
       "blocks": {
+        "event_mxGR4K": {
+          "type": "event",
+          "settings": {
+            "title": "Nuevo Evento",
+            "event_date": "2025-12-25",
+            "event_type": "Webinar",
+            "price": "",
+            "location": "",
+            "registration_link": "",
+            "event_description": "",
+            "event_color": "#db0032"
+          }
+        },
         "event_3dVkB8": {
           "type": "event",
           "settings": {
@@ -28,6 +41,7 @@
         }
       },
       "block_order": [
+        "event_mxGR4K",
         "event_3dVkB8"
       ],
       "settings": {
