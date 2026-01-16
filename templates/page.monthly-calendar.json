@@ -17,6 +17,19 @@
     "calendar": {
       "type": "monthly-calendar",
       "blocks": {
+        "event_hrV4ft": {
+          "type": "event",
+          "settings": {
+            "title": "Nuevo Evento",
+            "event_date": "2025-12-25",
+            "event_type": "Webinar",
+            "price": "",
+            "location": "",
+            "registration_link": "",
+            "event_description": "",
+            "event_color": "#db0032"
+          }
+        },
         "event_mxGR4K": {
           "type": "event",
           "settings": {
@@ -35,12 +48,17 @@
           "settings": {
             "title": "When Retinol Meets Glycolic, Skin Wakes Us",
             "event_date": "2026-01-21",
+            "event_type": "Webinar",
+            "price": "",
+            "location": "",
+            "registration_link": "",
             "event_description": "<p>What will you take away from this webinar?<br/><br/>• When and how to combine Retinol and Glycolic Acid without compromising the skin<br/>• Why this duo reactivates the skin and improves its response<br/>• Strategies to achieve visible renewal from the first applications<br/>• How to avoid common mistakes that lead to sensitivity or setback<br/>• When this combination is ideal and when it should not be used<br/><br/>Skin Knowledge applied to real practice.<br/>When you understand the formula, the skin responds.<br/><br/>Secure your spot</p>",
             "event_color": "#db0032"
           }
         }
       },
       "block_order": [
+        "event_hrV4ft",
         "event_mxGR4K",
         "event_3dVkB8"
       ],
