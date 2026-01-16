@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -20,27 +11,14 @@
         "event_hrV4ft": {
           "type": "event",
           "settings": {
-            "title": "Nuevo Evento",
-            "event_date": "2025-12-25",
-            "event_type": "Webinar",
-            "price": "",
-            "location": "",
+            "title": "Peeling Químico Avanzado",
+            "event_date": "2026-02-10",
+            "event_type": "Taller",
+            "price": "$150",
+            "city": "Miami",
+            "location": "Dermaswiss HQ, Miami",
             "registration_link": "#",
-            "event_description": "",
-            "event_color": "#db0032",
-            "language": "all"
-          }
-        },
-        "event_UgiCr7": {
-          "type": "event",
-          "settings": {
-            "title": "Nuevo Evento",
-            "event_date": "2025-12-25",
-            "event_type": "Webinar",
-            "price": "",
-            "location": "",
-            "registration_link": "",
-            "event_description": "",
+            "event_description": "<p>Aprende técnicas avanzadas de exfoliación química para resultados profesionales.</p>",
             "event_color": "#db0032",
             "language": "all"
           }
@@ -48,37 +26,70 @@
         "event_mxGR4K": {
           "type": "event",
           "settings": {
-            "title": "Nuevo Evento",
-            "event_date": "2025-12-25",
-            "event_type": "Webinar",
-            "price": "",
-            "location": "",
-            "registration_link": "",
-            "event_description": "",
-            "event_color": "#db0032",
+            "title": "Tratamiento Anti-Edad con Retinol",
+            "event_date": "2026-02-22",
+            "event_type": "Seminario",
+            "price": "$99",
+            "city": "Bogotá",
+            "location": "Hotel Tequendama, Bogotá",
+            "registration_link": "#",
+            "event_description": "<p>Estrategias efectivas para el uso de retinol en pieles maduras.</p>",
+            "event_color": "#000000",
             "language": "all"
           }
         },
         "event_3dVkB8": {
           "type": "event",
           "settings": {
-            "title": "When Retinol Meets Glycolic, Skin Wakes Us",
-            "event_date": "2026-01-21",
+            "title": "Masterclass de Hidratación Profunda",
+            "event_date": "2026-03-05",
+            "event_type": "Masterclass",
+            "price": "$50",
+            "city": "Madrid",
+            "location": "Centro Convenciones, Madrid",
+            "registration_link": "#",
+            "event_description": "<p>Protocolos de hidratación intensa para el cambio de estación.</p>",
+            "event_color": "#008c62",
+            "language": "all"
+          }
+        },
+        "event_sample4": {
+          "type": "event",
+          "settings": {
+            "title": "Webinar: Nutrición y Piel",
+            "event_date": "2026-03-15",
             "event_type": "Webinar",
-            "price": "",
-            "location": "",
-            "registration_link": "",
-            "event_description": "<p>What will you take away from this webinar?<br/><br/>• When and how to combine Retinol and Glycolic Acid without compromising the skin<br/>• Why this duo reactivates the skin and improves its response<br/>• Strategies to achieve visible renewal from the first applications<br/>• How to avoid common mistakes that lead to sensitivity or setback<br/>• When this combination is ideal and when it should not be used<br/><br/>Skin Knowledge applied to real practice.<br/>When you understand the formula, the skin responds.<br/><br/>Secure your spot</p>",
+            "price": "Gratis",
+            "city": "Online",
+            "location": "Zoom Online",
+            "registration_link": "#",
+            "event_description": "<p>Cómo la dieta influye en la salud y apariencia de la piel.</p>",
             "event_color": "#db0032",
+            "language": "all"
+          }
+        },
+        "event_sample5": {
+          "type": "event",
+          "settings": {
+            "title": "Taller Práctico de Microdermabrasión",
+            "event_date": "2026-04-02",
+            "event_type": "Taller",
+            "price": "$120",
+            "city": "Mexico City",
+            "location": "WTC Mexico City",
+            "registration_link": "#",
+            "event_description": "<p>Uso práctico de equipos de microdermabrasión con puntas de diamante.</p>",
+            "event_color": "#000000",
             "language": "all"
           }
         }
       },
       "block_order": [
         "event_hrV4ft",
-        "event_UgiCr7",
         "event_mxGR4K",
-        "event_3dVkB8"
+        "event_3dVkB8",
+        "event_sample4",
+        "event_sample5"
       ],
       "settings": {
         "heading": "Calendario de Eventos",
