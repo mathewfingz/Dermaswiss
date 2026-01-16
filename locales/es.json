@@ -213,10 +213,10 @@
       "load_more": "Carga más"
     },
     "cart": {
-      "yes": "Sí",
+      "yes": "Yes",
       "no": "No",
       "login_to_see_price": "Inicie sesión para ver los precios",
-      "dropshipping_option_label": "¿Desea que este pedido sea enviado como Dropshipping?",
+      "dropshipping_option_label": "Is this a dropshipping order?",
       "dropshipping_delivery_note": "Nota: Los pedidos de Dropshipping pueden tardar entre 24 y 48 horas adicionales en procesarse.",
       "dropshipping_address_notice": "Recuerda ingresar la dirección de tu cliente final en el siguiente paso.",
       "item_added": "Artículo añadido a tu carrito.",

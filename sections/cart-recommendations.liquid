@@ -2,6 +2,9 @@
   <h3 class="f-cart-recommendations__title font-body-bolder h6">
     {{ 'general.cart.cart_recommendations' | t }}
   </h3>
+  <p class="f-cart-recommendations__subtitle text-sm" style="margin-top: -1rem; margin-bottom: 1rem;">
+    Professionals usually add this
+  </p>
   <div class="f-cart-recommendations__items {% if recommendations.products.size == 1 %} f-cart-recommendations__items-only-product{% endif %}">
     <flickity-component
       data-slider-options='{"pageDots": true, "wrapAround": true, "cellSelector": ".f-cart-recommendations__item" }'
