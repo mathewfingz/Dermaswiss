@@ -1,7 +1,15 @@
   assign cities = ""
   for block in sorted_blocks
-    if block.settings.location != blank
+    if block.settings.language != 'all' and block.settings.language != current_lang
+      continue
+    endif
+    
+    assign city = block.settings.city | strip
+    if city == blank and block.settings.location != blank
       assign city = block.settings.location | split: ',' | last | strip
+    endif
+    
+    if city != blank
       assign city_check = city | append: "|"
       unless cities contains city_check
         assign cities = cities | append: city | append: "|"
@@ -65,7 +73,11 @@
         {%- assign event_date = block.settings.event_date -%}
         {%- assign event_month_year = event_date | date: "%B %Y" -%}
         {%- assign event_month_val = event_date | date: "%Y-%m" -%}
-        {%- assign event_city = block.settings.location | split: ',' | last | strip -%}
+        
+        {%- assign event_city = block.settings.city | strip -%}
+        {%- if event_city == blank and block.settings.location != blank -%}
+          {%- assign event_city = block.settings.location | split: ',' | last | strip -%}
+        {%- endif -%}
 
         {%- if event_month_year != current_month_year -%}
           <div class="calendar-month-header" data-month="{{ event_month_val }}">
@@ -444,6 +456,12 @@
           "id": "price",
           "label": "Precio",
           "info": "Ej: Gratis, $50, Varía"
+        },
+        {
+          "type": "text",
+          "id": "city",
+          "label": "Ciudad (para filtros)",
+          "info": "Ej: Miami, Madrid, Bogotá"
         },
         {
           "type": "text",
