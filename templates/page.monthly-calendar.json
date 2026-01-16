@@ -25,7 +25,7 @@
             "event_type": "Webinar",
             "price": "",
             "location": "",
-            "registration_link": "",
+            "registration_link": "#",
             "event_description": "",
             "event_color": "#db0032"
           }
