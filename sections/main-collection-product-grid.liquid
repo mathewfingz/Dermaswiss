@@ -111,6 +111,7 @@
                     </p>
                   </div>
                 </div>
+              {%- elsif enable_quick_buy_mode -%}
                 {%- liquid
                   assign current_lang = request.locale.iso_code | downcase | split: '-' | first
                   if current_lang != 'es'
