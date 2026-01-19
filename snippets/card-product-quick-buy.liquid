@@ -22,6 +22,8 @@
   class="quick-buy-item"
   data-quick-buy-item
   data-product-id="{{ product.id }}"
+  data-product-title="{{ product.title | escape | downcase }}"
+  data-product-sku="{{ selected_variant.sku | escape | downcase }}"
   {% if customer %}
   data-current-price="{{ selected_variant.price }}"
   data-current-compare="{{ selected_variant.compare_at_price | default: 0 }}"

@@ -1,4 +1,13 @@
+{%- liquid
+  assign current_lang = request.locale.iso_code | downcase | split: '-' | first
+  if current_lang != 'es'
+    assign current_lang = 'en'
+  endif
+
+  assign sorted_blocks = section.blocks | sort: 'settings.event_date'
+
   assign cities = ""
+  assign course_types = ""
   for block in sorted_blocks
     if block.settings.language != 'all' and block.settings.language != current_lang
       continue
@@ -15,47 +24,83 @@
         assign cities = cities | append: city | append: "|"
       endunless
     endif
+
+    assign event_type = block.settings.event_type | strip
+    if event_type != blank
+      assign type_check = event_type | append: "|"
+      unless course_types contains type_check
+        assign course_types = course_types | append: event_type | append: "|"
+      endunless
+    endif
   endfor
   assign city_array = cities | split: "|" | sort
+  assign course_type_array = course_types | split: "|" | sort
 -%}
 
 <div class="monthly-calendar-list container section-{{ section.id }}" 
   style="--month-font-size: {{ section.settings.month_font_size }}px; --date-title-spacing: {{ section.settings.date_title_spacing }}px;"
 >
   <div class="calendar-header">
-    <h1 class="h2">{{ section.settings.heading | default: 'Calendario de Eventos' }}</h1>
+    <h1 class="h2">{{ section.settings.heading | default: 'Upcoming Events' }}</h1>
     {% if section.settings.description != blank %}
       <div class="calendar-description h5">{{ section.settings.description }}</div>
     {% endif %}
     
     <div class="calendar-filters">
-      <div class="filter-item">
-        <label for="filter-city">
-          <span class="filter-icon">📍</span>
-          {% if current_lang == 'es' %}Ciudad{% else %}City{% endif %}
-        </label>
-        <div class="select-wrapper">
-          <select id="filter-city">
-            <option value="">{% if current_lang == 'es' %}Todas las ciudades{% else %}All Cities{% endif %}</option>
-            {% for city in city_array %}
-              {% if city != blank %}
-                <option value="{{ city }}">{{ city }}</option>
-              {% endif %}
-            {% endfor %}
-          </select>
+      <div class="calendar-filters__grid">
+        <div class="calendar-filter">
+          <label class="calendar-filter__label" for="filter-city">
+            {% if current_lang == 'es' %}Ciudad{% else %}City{% endif %}
+          </label>
+          <div class="calendar-filter__select-wrapper">
+            <select id="filter-city" class="calendar-filter__select">
+              <option value="">{% if current_lang == 'es' %}Todas{% else %}All{% endif %}</option>
+              {% for city in city_array %}
+                {% if city != blank %}
+                  <option value="{{ city }}">{{ city }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            <span class="calendar-filter__arrow">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="filter-item">
-        <label for="filter-date">
-          <span class="filter-icon">📅</span>
-          {% if current_lang == 'es' %}Mes{% else %}Month{% endif %}
-        </label>
-        <input type="month" id="filter-date">
-      </div>
-      <div class="filter-actions hidden" id="filter-clear-wrapper">
-        <button type="button" id="filter-clear" class="btn btn--underline">
-          {% if current_lang == 'es' %}Limpiar filtros{% else %}Clear filters{% endif %}
-        </button>
+
+        <div class="calendar-filter">
+          <label class="calendar-filter__label" for="filter-date">
+            {% if current_lang == 'es' %}Mes{% else %}Month{% endif %}
+          </label>
+          <div class="calendar-filter__select-wrapper">
+            <input type="month" id="filter-date" class="calendar-filter__select calendar-filter__month-input">
+          </div>
+        </div>
+
+        <div class="calendar-filter">
+          <label class="calendar-filter__label" for="filter-course-type">
+            {% if current_lang == 'es' %}Tipo{% else %}Type{% endif %}
+          </label>
+          <div class="calendar-filter__select-wrapper">
+            <select id="filter-course-type" class="calendar-filter__select">
+              <option value="">{% if current_lang == 'es' %}Todos{% else %}All{% endif %}</option>
+              {% for course_type in course_type_array %}
+                {% if course_type != blank %}
+                  <option value="{{ course_type }}">{{ course_type }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            <span class="calendar-filter__arrow">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="calendar-filter calendar-filter--clear hidden" id="filter-clear-wrapper">
+          <button type="button" id="filter-clear" class="calendar-filter__clear-btn">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M1 11L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            {% if current_lang == 'es' %}Limpiar{% else %}Clear{% endif %}
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -86,7 +131,7 @@
           {%- assign current_month_year = event_month_year -%}
         {%- endif -%}
 
-        <div class="calendar-event-wrapper" data-city="{{ event_city }}" data-date="{{ event_month_val }}">
+        <div class="calendar-event-wrapper" data-city="{{ event_city }}" data-date="{{ event_month_val }}" data-type="{{ block.settings.event_type | strip }}">
           {%- if event_date != previous_date -%}
             <div class="calendar-list__date-header">
               <span class="date-header__day">{{ event_date | date: "%d" }}</span>
@@ -159,7 +204,7 @@
   .monthly-calendar-list {
     margin-top: 60px;
     margin-bottom: 60px;
-    max-width: 800px;
+    max-width: 900px;
   }
   .calendar-header {
     text-align: center;
@@ -169,6 +214,89 @@
     margin-top: 10px;
     color: rgba(var(--color-foreground), 0.7);
   }
+
+  /* Filter Styles - Product Category Style */
+  .calendar-filters {
+    margin-top: 40px;
+  }
+  .calendar-filters__grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .calendar-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .calendar-filter__label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(var(--color-foreground), 0.6);
+  }
+  .calendar-filter__select-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .calendar-filter__select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 10px 36px 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 140px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .calendar-filter__select:hover {
+    border-color: var(--color-foreground);
+  }
+  .calendar-filter__select:focus {
+    outline: none;
+    border-color: var(--color-foreground);
+  }
+  .calendar-filter__month-input {
+    padding-right: 14px;
+  }
+  .calendar-filter__arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: rgba(var(--color-foreground), 0.5);
+  }
+  .calendar-filter--clear {
+    align-self: flex-end;
+  }
+  .calendar-filter__clear-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: rgba(var(--color-foreground), 0.7);
+    transition: all 0.2s ease;
+  }
+  .calendar-filter__clear-btn:hover {
+    color: var(--color-foreground);
+  }
+  .calendar-filter--clear.hidden {
+    display: none;
+  }
+
+  /* Calendar List */
   .calendar-list {
     display: flex;
     flex-direction: column;
@@ -203,69 +331,6 @@
     color: #666;
   }
   .calendar-month-header {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid var(--color-primary);
-  }
-  .month-title {
-    font-size: var(--month-font-size, 2.5rem);
-    margin: 0;
-    color: var(--color-primary);
-  }
-  .calendar-filters {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 30px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    background: #f9f9f9;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-  }
-  .filter-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  .filter-item label {
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: #444;
-  }
-  .filter-icon {
-    font-size: 1.4rem;
-  }
-  .filter-item select, .filter-item input {
-    padding: 10px 15px;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    font-size: 1.4rem;
-    min-width: 180px;
-    transition: all 0.2s ease;
-    background: #fff;
-    cursor: pointer;
-  }
-  .filter-item select:hover, .filter-item input:hover {
-    border-color: var(--color-primary);
-  }
-  .filter-item select:focus, .filter-item input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
-  }
-  .filter-actions {
-    margin-bottom: 5px;
-  }
-  .calendar-month-header {
     margin-top: 60px;
     margin-bottom: 25px;
     padding-bottom: 12px;
@@ -273,6 +338,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .calendar-month-header:first-child {
+    margin-top: 0;
   }
   .month-title {
     font-size: var(--month-font-size, 2.5rem);
@@ -297,6 +365,48 @@
     transform: translateY(-3px) translateX(2px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
+  .event__color-bar {
+    width: 6px;
+    flex-shrink: 0;
+  }
+  .event__content {
+    padding: 20px 24px;
+    flex: 1;
+  }
+  .event__meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .event__type {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    background: rgba(var(--color-foreground), 0.05);
+    border-radius: 4px;
+  }
+  .event__price {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .event__title {
+    margin: 0 0 8px;
+  }
+  .event__location {
+    font-size: 14px;
+    color: rgba(var(--color-foreground), 0.7);
+  }
+  .event__description {
+    margin-top: 12px;
+    font-size: 14px;
+    color: rgba(var(--color-foreground), 0.8);
+  }
+  .event__actions {
+    margin-top: 16px;
+  }
   .calendar-event-wrapper {
     margin-bottom: 10px;
   }
@@ -309,8 +419,26 @@
   .calendar-list__no-results.hidden {
     display: none;
   }
-  .filter-actions.hidden {
-    display: none;
+  .calendar-list__no-results {
+    padding: 60px 20px;
+    color: rgba(var(--color-foreground), 0.6);
+  }
+  .calendar-list__empty {
+    padding: 60px 20px;
+    color: rgba(var(--color-foreground), 0.6);
+  }
+
+  @media (max-width: 768px) {
+    .calendar-filters__grid {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .calendar-filter {
+      width: 100%;
+    }
+    .calendar-filter__select {
+      width: 100%;
+    }
   }
 </style>
 
@@ -319,37 +447,39 @@
     function initCalendarFilters() {
       const cityFilter = document.getElementById('filter-city');
       const monthFilter = document.getElementById('filter-date');
+      const courseTypeFilter = document.getElementById('filter-course-type');
       const clearBtn = document.getElementById('filter-clear');
       const clearWrapper = document.getElementById('filter-clear-wrapper');
       const eventWrappers = document.querySelectorAll('.calendar-event-wrapper');
       const monthHeaders = document.querySelectorAll('.calendar-month-header');
       const noResults = document.querySelector('.calendar-list__no-results');
 
-      if (!cityFilter || !monthFilter) return;
+      if (!cityFilter || !monthFilter || !courseTypeFilter) return;
 
       function filterEvents() {
         const selectedCity = cityFilter.value.toLowerCase();
-        const selectedMonth = monthFilter.value; // YYYY-MM
+        const selectedMonth = monthFilter.value;
+        const selectedType = courseTypeFilter.value.toLowerCase();
         let visibleCount = 0;
 
-        // Show/hide clear button
-        if (selectedCity || selectedMonth) {
+        if (selectedCity || selectedMonth || selectedType) {
           clearWrapper.classList.remove('hidden');
         } else {
           clearWrapper.classList.add('hidden');
         }
 
-        // Reset month headers
         monthHeaders.forEach(header => header.classList.remove('hidden'));
 
         eventWrappers.forEach(wrapper => {
-          const eventCity = wrapper.getAttribute('data-city').toLowerCase();
+          const eventCity = (wrapper.getAttribute('data-city') || '').toLowerCase();
           const eventDate = wrapper.getAttribute('data-date');
+          const eventType = (wrapper.getAttribute('data-type') || '').toLowerCase();
           
           let cityMatch = !selectedCity || eventCity.includes(selectedCity);
           let monthMatch = !selectedMonth || eventDate === selectedMonth;
+          let typeMatch = !selectedType || eventType === selectedType;
 
-          if (cityMatch && monthMatch) {
+          if (cityMatch && monthMatch && typeMatch) {
             wrapper.classList.remove('hidden');
             visibleCount++;
           } else {
@@ -357,7 +487,6 @@
           }
         });
 
-        // Hide month headers that have no visible events
         monthHeaders.forEach(header => {
           const monthVal = header.getAttribute('data-month');
           const visibleInMonth = document.querySelectorAll(`.calendar-event-wrapper[data-date="${monthVal}"]:not(.hidden)`);
@@ -376,11 +505,13 @@
       function clearFilters() {
         cityFilter.value = "";
         monthFilter.value = "";
+        courseTypeFilter.value = "";
         filterEvents();
       }
 
       cityFilter.addEventListener('change', filterEvents);
       monthFilter.addEventListener('change', filterEvents);
+      courseTypeFilter.addEventListener('change', filterEvents);
       clearBtn.addEventListener('click', clearFilters);
     }
 
@@ -391,24 +522,24 @@
 
 {% schema %}
 {
-  "name": "Calendario de Lista",
+  "name": "Event Calendar",
   "settings": [
     {
       "type": "text",
       "id": "heading",
-      "label": "Encabezado",
-      "default": "Próximos Eventos"
+      "label": "Heading",
+      "default": "Upcoming Events"
     },
     {
       "type": "richtext",
       "id": "description",
-      "label": "Descripción",
-      "default": "<p>Mantente al día con nuestros próximos eventos y programas profesionales.</p>"
+      "label": "Description",
+      "default": "<p>Stay updated with our upcoming events and professional programs.</p>"
     },
     {
       "type": "range",
       "id": "month_font_size",
-      "label": "Tamaño de fuente del mes",
+      "label": "Month title font size",
       "min": 16,
       "max": 60,
       "step": 1,
@@ -418,7 +549,7 @@
     {
       "type": "range",
       "id": "date_title_spacing",
-      "label": "Espaciado entre fecha y título",
+      "label": "Date to event spacing",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -429,78 +560,78 @@
   "blocks": [
     {
       "type": "event",
-      "name": "Evento",
+      "name": "Event",
       "settings": [
         {
           "type": "text",
           "id": "title",
-          "label": "Título del Evento",
-          "default": "Nuevo Evento"
+          "label": "Event Title",
+          "default": "New Event"
         },
         {
           "type": "text",
           "id": "event_date",
-          "label": "Fecha (YYYY-MM-DD)",
-          "info": "Ejemplo: 2025-12-25",
+          "label": "Date (YYYY-MM-DD)",
+          "info": "Example: 2025-12-25",
           "default": "2025-12-25"
         },
         {
           "type": "text",
           "id": "event_type",
-          "label": "Tipo de Evento",
-          "info": "Ej: Masterclass, Seminario, Taller",
+          "label": "Event Type",
+          "info": "Ex: Masterclass, Seminar, Workshop",
           "default": "Webinar"
         },
         {
           "type": "text",
           "id": "price",
-          "label": "Precio",
-          "info": "Ej: Gratis, $50, Varía"
+          "label": "Price",
+          "info": "Ex: Free, $50, Varies"
         },
         {
           "type": "text",
           "id": "city",
-          "label": "Ciudad (para filtros)",
-          "info": "Ej: Miami, Madrid, Bogotá"
+          "label": "City (for filters)",
+          "info": "Ex: Miami, Madrid, Bogotá"
         },
         {
           "type": "text",
           "id": "location",
-          "label": "Lugar",
-          "info": "Ej: Online, Miami, Hotel Plaza"
+          "label": "Location",
+          "info": "Ex: Online, Miami, Hotel Plaza"
         },
         {
           "type": "url",
           "id": "registration_link",
-          "label": "Link de registro"
+          "label": "Registration Link"
         },
         {
           "type": "richtext",
           "id": "event_description",
-          "label": "Descripción del Evento"
+          "label": "Event Description"
         },
         {
           "type": "color",
           "id": "event_color",
-          "label": "Color de etiqueta",
+          "label": "Accent Color",
           "default": "#db0032"
         },
         {
           "type": "select",
           "id": "language",
-          "label": "Idioma del Evento",
+          "label": "Event Language",
           "options": [
             {
               "value": "all",
-              "label": "Todos los idiomas"
+              "label": "All Languages"
             },
             {
               "value": "es",
-              "label": "Español"
+              "label": "Spanish"
             },
             {
               "value": "en",
-              "label": "Inglés"
+              "label": "English"
             }
           ],
           "default": "all"
@@ -510,17 +641,17 @@
   ],
   "presets": [
     {
-      "name": "Calendario de Lista",
+      "name": "Event Calendar",
       "blocks": [
         {
           "type": "event",
           "settings": {
-            "title": "Evento de Masterclass",
+            "title": "Masterclass Event",
             "event_date": "2025-12-25",
-            "event_description": "<p>Únete a nuestra masterclass sobre técnicas avanzadas de skincare.</p>",
+            "event_description": "<p>Join our masterclass on advanced skincare techniques.</p>",
             "event_type": "Masterclass",
             "location": "Online",
-            "price": "Gratis"
+            "price": "Free"
           }
         }
       ]
@@ -528,4 +659,3 @@
   ]
 }
 {% endschema %}
-

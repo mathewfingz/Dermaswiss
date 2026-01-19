@@ -174,18 +174,79 @@
     });
   }
 
+  function initSearch() {
+    var searchInput = document.getElementById('quick-buy-search');
+    var clearBtn = document.getElementById('quick-buy-search-clear');
+    var noResults = document.getElementById('quick-buy-no-results');
+    var listBody = document.getElementById('quick-buy-list-body');
+
+    if (!searchInput || !listBody) return;
+
+    function filterProducts() {
+      var query = searchInput.value.toLowerCase().trim();
+      var items = listBody.querySelectorAll('[data-quick-buy-item]');
+      var visibleCount = 0;
+
+      // Show/hide clear button
+      if (clearBtn) {
+        if (query) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+      }
+
+      items.forEach(function (item) {
+        var title = (item.getAttribute('data-product-title') || '').toLowerCase();
+        var sku = (item.getAttribute('data-product-sku') || '').toLowerCase();
+
+        if (!query || title.includes(query) || sku.includes(query)) {
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Show/hide no results message
+      if (noResults) {
+        if (visibleCount === 0 && query) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      filterProducts();
+      searchInput.focus();
+    }
+
+    searchInput.addEventListener('input', filterProducts);
+    searchInput.addEventListener('keyup', filterProducts);
+    if (clearBtn) {
+      clearBtn.addEventListener('click', clearSearch);
+    }
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       init(document);
+      initSearch();
     });
   } else {
     init(document);
+    initSearch();
   }
 
   document.addEventListener('shopify:section:load', function (event) {
     init(event.target);
+    initSearch();
   });
   document.addEventListener('product-grid:updated', function (event) {
     init(event.target ? event.target : document);
+    initSearch();
   });
 })();

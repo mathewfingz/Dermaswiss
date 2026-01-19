@@ -118,6 +118,16 @@
                   data-quick-buy-list
                   data-money-format="{{ shop.money_format | strip_html | escape }}"
                 >
+                  <div class="quick-buy-list__search">
+                    <input 
+                      type="text" 
+                      id="quick-buy-search" 
+                      class="quick-buy-list__search-input form-control" 
+                      placeholder="🔍 Buscar productos por nombre o SKU..."
+                      autocomplete="off"
+                    >
+                    <button type="button" id="quick-buy-search-clear" class="quick-buy-list__search-clear hidden" aria-label="Limpiar búsqueda">✕</button>
+                  </div>
                   <div class="quick-buy-list__row quick-buy-list__row--head">
                     <span class="quick-buy-list__head-cell">Producto</span>
                     <span class="quick-buy-list__head-cell">Precio</span>
@@ -125,7 +135,7 @@
                     <span class="quick-buy-list__head-cell">Cantidad</span>
                     <span class="quick-buy-list__head-cell">Añadir</span>
                   </div>
-                  <div class="quick-buy-list__body">
+                  <div class="quick-buy-list__body" id="quick-buy-list-body">
                     {%- for product in collection.products -%}
                       {% if product.tags contains 'b2b-only' and customer_is_b2b == false %}
                         {% continue %}
@@ -133,6 +143,9 @@
                       {% assign quick_buy_visible_count = quick_buy_visible_count | plus: 1 %}
                       {% render 'card-product-quick-buy', product: product %}
                     {%- endfor -%}
+                  </div>
+                  <div class="quick-buy-list__no-results hidden" id="quick-buy-no-results">
+                    <p>No se encontraron productos que coincidan con tu búsqueda.</p>
                   </div>
                 </div>
                 {% if quick_buy_visible_count == 0 %}
