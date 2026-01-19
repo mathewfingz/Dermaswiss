@@ -765,7 +765,7 @@ show-more-button {
 
 .quick-buy-list__row--head {
   display: grid;
-  grid-template-columns: 150px minmax(220px, 1fr) 220px 150px 160px;
+  grid-template-columns: 80px minmax(200px, 1fr) 120px 200px 130px 140px;
   gap: 1.6rem;
   padding: 1.6rem 2rem;
   font-size: 1.2rem;
@@ -792,7 +792,7 @@ show-more-button {
 
 .quick-buy-item {
   display: grid;
-  grid-template-columns: 150px minmax(220px, 1fr) 220px 150px 160px;
+  grid-template-columns: 80px minmax(200px, 1fr) 120px 200px 130px 140px;
   gap: 1.6rem;
   padding: 1.6rem 2rem;
   align-items: center;
@@ -817,8 +817,8 @@ show-more-button {
 }
 
 .quick-buy-item__image {
-  width: 96px;
-  height: 96px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 0.8rem;
   border: 1px solid rgba(var(--color-foreground), 0.08);
@@ -826,8 +826,8 @@ show-more-button {
 }
 
 .quick-buy-item__placeholder {
-  width: 96px;
-  height: 96px;
+  width: 60px;
+  height: 60px;
   border-radius: 0.8rem;
   border: 1px dashed var(--color-border);
   display: flex;
@@ -966,11 +966,13 @@ show-more-button {
   border-radius: 1.2rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
 
   .quick-buy-list__row--head,
   .quick-buy-item {
-    grid-template-columns: 120px minmax(180px, 1fr) 180px 140px 140px;
+    grid-template-columns: 60px minmax(150px, 1fr) 100px 180px 110px 120px;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
   }
 }
 

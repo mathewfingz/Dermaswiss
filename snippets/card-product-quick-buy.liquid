@@ -70,6 +70,13 @@
     <a class="quick-buy-item__title h6" href="{{ product.url }}">
       {{ product.title | escape }}
     </a>
+    {% if product.metafields.custom.quick_buy_note != blank %}
+      <p class="quick-buy-item__note">
+        {{ product.metafields.custom.quick_buy_note }}
+      </p>
+    {% endif %}
+  </div>
+  <div class="quick-buy-item__cell quick-buy-item__cell--price">
     <div class="quick-buy-item__price" data-price-wrapper>
       {%- if customer -%}
       <span
@@ -95,11 +102,6 @@
         <span class="text-sm">{{ 'sections.cart.login_to_see_price' | t }}</span>
       {%- endif -%}
     </div>
-    {% if product.metafields.custom.quick_buy_note != blank %}
-      <p class="quick-buy-item__note">
-        {{ product.metafields.custom.quick_buy_note }}
-      </p>
-    {% endif %}
   </div>
   <div class="quick-buy-item__cell quick-buy-item__cell--variant">
     {%- if customer -%}
