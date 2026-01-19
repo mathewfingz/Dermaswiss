@@ -1,4 +1,9 @@
 {% liquid
+  assign current_lang = request.locale.iso_code | downcase | split: '-' | first
+  if current_lang != 'es'
+    assign current_lang = 'en'
+  endif
+
   assign selected_variant = product.selected_or_first_available_variant
   if selected_variant == blank
     assign selected_variant = product.variants | first
@@ -83,7 +88,7 @@
         data-discount-label
       >
         {% if show_discount %}
-          Save {{ discount_percent }}%
+          {% if current_lang == 'es' %}Ahorra{% else %}Save{% endif %} {{ discount_percent }}%
         {% endif %}
       </span>
       {%- else -%}
@@ -195,7 +200,7 @@
       {% endunless %}
     </span>
     {%- else -%}
-      <a href="https://account.dermaswisspro.com/authentication/login?client_id=82153c0c-1d9c-4f76-9423-b63f135b181c&locale=en&redirect_uri=%2Fauthentication%2Foauth%2Fauthorize%3Fclient_id%3D82153c0c-1d9c-4f76-9423-b63f135b181c%26locale%3Den%26nonce%3D66f8ac46-10e2-4fc3-8d12-9439bac1f13a%26redirect_uri%3Dhttps%253A%252F%252Faccount.dermaswisspro.com%252Fcallback%253Fsource%253Dcore%26region_country%3DUS%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWN6jIU22uZhG0HiVpe2tiJG&region_country=US" class="btn btn--black">
+      <a href="https://account.dermaswisspro.com/authentication/login?client_id=82153c0c-1d9c-4f76-9423-b63f135b181c&locale={{ current_lang }}&redirect_uri=%2Fauthentication%2Foauth%2Fauthorize%3Fclient_id%3D82153c0c-1d9c-4f76-9423-b63f135b181c%26locale%3D{{ current_lang }}%26nonce%3D66f8ac46-10e2-4fc3-8d12-9439bac1f13a%26redirect_uri%3Dhttps%253A%252F%252Faccount.dermaswisspro.com%252Fcallback%253Fsource%253Dcore%26region_country%3DUS%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWN6jIU22uZhG0HiVpe2tiJG&region_country=US" class="btn btn--black">
         {{ 'sections.cart.login_to_see_price' | t }}
       </a>
     {%- endif -%}

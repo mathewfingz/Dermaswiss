@@ -111,30 +111,35 @@
                     </p>
                   </div>
                 </div>
-              {%- elsif enable_quick_buy_mode -%}
-                {% assign quick_buy_visible_count = 0 %}
+                {%- liquid
+                  assign current_lang = request.locale.iso_code | downcase | split: '-' | first
+                  if current_lang != 'es'
+                    assign current_lang = 'en'
+                  endif
+                  assign quick_buy_visible_count = 0
+                -%}
                 <div
                   class="quick-buy-list"
                   data-quick-buy-list
                   data-money-format="{{ shop.money_format | strip_html | escape }}"
                 >
-                  <div class="quick-buy-list__search">
-                    <input 
-                      type="text" 
-                      id="quick-buy-search" 
-                      class="quick-buy-list__search-input form-control" 
-                      placeholder="🔍 Buscar productos por nombre o SKU..."
-                      autocomplete="off"
-                    >
-                    <button type="button" id="quick-buy-search-clear" class="quick-buy-list__search-clear hidden" aria-label="Limpiar búsqueda">✕</button>
-                  </div>
-                  <div class="quick-buy-list__row quick-buy-list__row--head">
-                    <span class="quick-buy-list__head-cell">Producto</span>
-                    <span class="quick-buy-list__head-cell">Precio</span>
-                    <span class="quick-buy-list__head-cell">Variante</span>
-                    <span class="quick-buy-list__head-cell">Cantidad</span>
-                    <span class="quick-buy-list__head-cell">Añadir</span>
-                  </div>
+                    <div class="quick-buy-list__search">
+                      <input 
+                        type="text" 
+                        id="quick-buy-search" 
+                        class="quick-buy-list__search-input form-control" 
+                        placeholder="🔍 {% if current_lang == 'es' %}Buscar productos por nombre o SKU...{% else %}Search products by name or SKU...{% endif %}"
+                        autocomplete="off"
+                      >
+                      <button type="button" id="quick-buy-search-clear" class="quick-buy-list__search-clear hidden" aria-label="{% if current_lang == 'es' %}Limpiar búsqueda{% else %}Clear search{% endif %}">✕</button>
+                    </div>
+                    <div class="quick-buy-list__row quick-buy-list__row--head">
+                      <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Producto{% else %}Product{% endif %}</span>
+                      <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Precio{% else %}Price{% endif %}</span>
+                      <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Variante{% else %}Variant{% endif %}</span>
+                      <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Cantidad{% else %}Quantity{% endif %}</span>
+                      <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Añadir{% else %}Add{% endif %}</span>
+                    </div>
                   <div class="quick-buy-list__body" id="quick-buy-list-body">
                     {%- for product in collection.products -%}
                       {% if product.tags contains 'b2b-only' and customer_is_b2b == false %}
@@ -145,14 +150,26 @@
                     {%- endfor -%}
                   </div>
                   <div class="quick-buy-list__no-results hidden" id="quick-buy-no-results">
-                    <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+                    <p>
+                      {% if current_lang == 'es' %}
+                        No se encontraron productos que coincidan con tu búsqueda.
+                      {% else %}
+                        No products found matching your search.
+                      {% endif %}
+                    </p>
                   </div>
                 </div>
                 {% if quick_buy_visible_count == 0 %}
-                  <div class="quick-buy-list__empty">
-                    <p>{{ 'sections.collection_template.empty' | t }}</p>
-                    <p>Inicia sesión como cliente mayorista para ver estos productos.</p>
-                  </div>
+                    <div class="quick-buy-list__empty">
+                      <p>{{ 'sections.collection_template.empty' | t }}</p>
+                      <p>
+                        {% if current_lang == 'es' %}
+                          Inicia sesión como cliente mayorista para ver estos productos.
+                        {% else %}
+                          Log in as a wholesale customer to view these products.
+                        {% endif %}
+                      </p>
+                    </div>
                 {% endif %}
               {%- else -%}
                 <grid-list
