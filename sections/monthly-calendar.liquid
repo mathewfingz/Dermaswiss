@@ -39,9 +39,21 @@
   style="--month-font-size: {{ section.settings.month_font_size }}px; --date-title-spacing: {{ section.settings.date_title_spacing }}px;"
 >
   <div class="calendar-header">
-    <h1 class="h2">{{ section.settings.heading | default: 'Upcoming Events' }}</h1>
+    <h1 class="h2">
+      {%- if current_lang == 'en' -%}
+        Event Calendar
+      {%- else -%}
+        {{ section.settings.heading | default: 'Calendario de Eventos' }}
+      {%- endif -%}
+    </h1>
     {% if section.settings.description != blank %}
-      <div class="calendar-description h5">{{ section.settings.description }}</div>
+      <div class="calendar-description h5">
+        {%- if current_lang == 'en' -%}
+          <p>Stay updated with our upcoming events and professional programs.</p>
+        {%- else -%}
+          {{ section.settings.description }}
+        {%- endif -%}
+      </div>
     {% endif %}
     
     <div class="calendar-filters">
