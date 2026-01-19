@@ -120,7 +120,7 @@
         "enable_swipe_mobile": false,
         "column_mobile": "2",
         "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_bottom": 60,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
