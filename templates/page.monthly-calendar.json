@@ -8,88 +8,88 @@
     "calendar": {
       "type": "monthly-calendar",
       "blocks": {
-        "event_hrV4ft": {
+        "event_jan_18_students": {
           "type": "event",
           "settings": {
-            "title": "Peeling Químico Avanzado",
-            "event_date": "2026-02-10",
-            "event_type": "Taller",
-            "price": "$150",
-            "city": "Miami",
-            "location": "Dermaswiss HQ, Miami",
-            "registration_link": "#",
-            "event_description": "<p>Aprende técnicas avanzadas de exfoliación química para resultados profesionales.</p>",
+            "title": "Direct and Cocktailed Peels (Students)",
+            "event_date": "2026-01-18",
+            "event_type": "On site - San Antonio, TX",
+            "price": "$340",
+            "city": "San Antonio",
+            "location": "San Antonio, TX",
+            "registration_link": "https://dermaswiss.com/products/sanantoniopeelxplus",
+            "event_description": "<p>Chemical Peels: Direct and cocktail application for visible results. Adapted to every skin type. Comprehensive training that combines applied theory with practical hands-on procedures. Learn how to create effective peel cocktails using the PEEL X PLUS line from DERMASWISS.</p>",
             "event_color": "#db0032",
-            "language": "all"
+            "language": "en"
           }
         },
-        "event_mxGR4K": {
+        "event_jan_20_retinol_es": {
           "type": "event",
           "settings": {
-            "title": "Tratamiento Anti-Edad con Retinol",
-            "event_date": "2026-02-22",
-            "event_type": "Seminario",
-            "price": "$99",
-            "city": "Bogotá",
-            "location": "Hotel Tequendama, Bogotá",
-            "registration_link": "#",
-            "event_description": "<p>Estrategias efectivas para el uso de retinol en pieles maduras.</p>",
-            "event_color": "#000000",
-            "language": "all"
-          }
-        },
-        "event_3dVkB8": {
-          "type": "event",
-          "settings": {
-            "title": "Masterclass de Hidratación Profunda",
-            "event_date": "2026-03-05",
-            "event_type": "Masterclass",
-            "price": "$50",
-            "city": "Madrid",
-            "location": "Centro Convenciones, Madrid",
-            "registration_link": "#",
-            "event_description": "<p>Protocolos de hidratación intensa para el cambio de estación.</p>",
-            "event_color": "#008c62",
-            "language": "all"
-          }
-        },
-        "event_sample4": {
-          "type": "event",
-          "settings": {
-            "title": "Webinar: Nutrición y Piel",
-            "event_date": "2026-03-15",
-            "event_type": "Webinar",
+            "title": "Cuando el Retinol y el Glicólico hacen MATCH la piel responde",
+            "event_date": "2026-01-20",
+            "event_type": "Webinar and Social Media",
             "price": "Gratis",
             "city": "Online",
-            "location": "Zoom Online",
-            "registration_link": "#",
-            "event_description": "<p>Cómo la dieta influye en la salud y apariencia de la piel.</p>",
+            "location": "Zoom / Instagram pro español | 6:00 p.m. EST",
+            "registration_link": "https://us02web.zoom.us/webinar/register/WN_6TlsQfhcQGqXWeZzKlU0HA",
+            "event_description": "<p>Profesora: Mariana Martella. Cómo y cuándo combinar Retinol y Ácido Glicólico sin comprometer la piel, estrategias para lograr renovación visible, y cómo evitar errores comunes.</p>",
             "event_color": "#db0032",
-            "language": "all"
+            "language": "es"
           }
         },
-        "event_sample5": {
+        "event_jan_21_retinol_en": {
           "type": "event",
           "settings": {
-            "title": "Taller Práctico de Microdermabrasión",
-            "event_date": "2026-04-02",
-            "event_type": "Taller",
-            "price": "$120",
-            "city": "Mexico City",
-            "location": "WTC Mexico City",
-            "registration_link": "#",
-            "event_description": "<p>Uso práctico de equipos de microdermabrasión con puntas de diamante.</p>",
-            "event_color": "#000000",
-            "language": "all"
+            "title": "When Retinol Meets Glycolic, Skin Wakes Up",
+            "event_date": "2026-01-21",
+            "event_type": "Webinar and Social Media",
+            "price": "Free",
+            "city": "Online",
+            "location": "Zoom / Instagram pro english | 6:00 p.m. EST (45 min)",
+            "registration_link": "https://us02web.zoom.us/webinar/register/WN_13b4W_J3SUK60kqIOBaSQA",
+            "event_description": "<p>Professor: Nicole Morales. When and how to combine Retinol and Glycolic Acid, strategies to achieve visible renewal, and how to avoid common mistakes.</p>",
+            "event_color": "#db0032",
+            "language": "en"
+          }
+        },
+        "event_jan_26_reset_miami": {
+          "type": "event",
+          "settings": {
+            "title": "Reset: Taller de Automasaje",
+            "event_date": "2026-01-26",
+            "event_type": "Presencial - Miami",
+            "price": "Gratis",
+            "city": "Miami",
+            "location": "2806 NW 79th Avenue, Miami, FL 33122 | 9:30 a.m. - 1:00 p.m. EST",
+            "registration_link": "",
+            "event_description": "<p>Profesora: Mariana Martella. Un espacio para profesionales que combina desayuno, taller de automasaje y un momento para compartir con otros profesionales de la industria. Registro: Directo con la representante.</p>",
+            "event_color": "#db0032",
+            "language": "es"
+          }
+        },
+        "event_jan_28_reset_online": {
+          "type": "event",
+          "settings": {
+            "title": "Reset: Taller de Automasaje",
+            "event_date": "2026-01-28",
+            "event_type": "Online",
+            "price": "Gratis",
+            "city": "Online",
+            "location": "Zoom | 6:00 p.m. EST",
+            "registration_link": "https://us02web.zoom.us/webinar/register/WN_mxJSHKwdQmWIw2Jnah1srQ",
+            "event_description": "<p>Profesora: Alicia Ortiz. Un taller online de automasaje y un momento para compartir con otros profesionales de la industria.</p>",
+            "event_color": "#db0032",
+            "language": "es"
           }
         }
       },
       "block_order": [
-        "event_hrV4ft",
-        "event_mxGR4K",
-        "event_3dVkB8",
-        "event_sample4",
-        "event_sample5"
+        "event_jan_18_students",
+        "event_jan_20_retinol_es",
+        "event_jan_21_retinol_en",
+        "event_jan_26_reset_miami",
+        "event_jan_28_reset_online"
       ],
       "settings": {
         "heading": "Calendario de Eventos",
