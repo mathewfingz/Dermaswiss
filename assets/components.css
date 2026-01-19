@@ -531,6 +531,11 @@ shopify-accelerated-checkout-cart {
   display: inline-flex;
   flex-flow: row-reverse;
   align-items: center;
+  color: #db0032;
+}
+
+.cart-link .f-icon-svg {
+  color: #db0032;
 }
 
 .cart-link__count {
@@ -538,9 +543,9 @@ shopify-accelerated-checkout-cart {
   padding: 0 3px;
   height: 18px;
   min-width: 18px;
-  font-size: 12px;
-  color: var(--color-btn-text, #fff);
-  background: var(--color-cart-bubble, #000);
+  font-size: 11px;
+  color: #fff;
+  background: #db0032;
   border-radius: 50%;
   line-height: 16px;
   margin: 0 !important;
@@ -551,6 +556,7 @@ shopify-accelerated-checkout-cart {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #fff;
 }
 
 .cart-link__count.is-cart-empty {
