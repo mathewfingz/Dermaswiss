@@ -119,24 +119,23 @@
                   endif
                   assign quick_buy_visible_count = 0
                 -%}
+                <div class="quick-buy-list__search">
+                  <input 
+                    type="text" 
+                    id="quick-buy-search" 
+                    class="quick-buy-list__search-input form-control" 
+                    placeholder="🔍 {% if current_lang == 'es' %}Buscar productos por nombre o SKU...{% else %}Search products by name or SKU...{% endif %}"
+                    autocomplete="off"
+                  >
+                  <button type="button" id="quick-buy-search-clear" class="quick-buy-list__search-clear hidden" aria-label="{% if current_lang == 'es' %}Limpiar búsqueda{% else %}Clear search{% endif %}">✕</button>
+                </div>
                 <div
                   class="quick-buy-list"
                   data-quick-buy-list
                   data-money-format="{{ shop.money_format | strip_html | escape }}"
                 >
-                    <div class="quick-buy-list__search">
-                      <input 
-                        type="text" 
-                        id="quick-buy-search" 
-                        class="quick-buy-list__search-input form-control" 
-                        placeholder="🔍 {% if current_lang == 'es' %}Buscar productos por nombre o SKU...{% else %}Search products by name or SKU...{% endif %}"
-                        autocomplete="off"
-                      >
-                      <button type="button" id="quick-buy-search-clear" class="quick-buy-list__search-clear hidden" aria-label="{% if current_lang == 'es' %}Limpiar búsqueda{% else %}Clear search{% endif %}">✕</button>
-                    </div>
                     <div class="quick-buy-list__row quick-buy-list__row--head">
                       <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Producto{% else %}Product{% endif %}</span>
-                      <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Precio{% else %}Price{% endif %}</span>
                       <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Variante{% else %}Variant{% endif %}</span>
                       <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Cantidad{% else %}Quantity{% endif %}</span>
                       <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Añadir{% else %}Add{% endif %}</span>
