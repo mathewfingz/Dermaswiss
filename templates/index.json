@@ -94,7 +94,7 @@
       "settings": {
         "container": "container",
         "color_schema": "background-1",
-        "section_header_padding_bottom": "medium",
+        "section_header_padding_bottom": "large",
         "section_header_content_spacing": "medium",
         "header_layout": "vertical",
         "heading": "The top choice of leading estheticians",
