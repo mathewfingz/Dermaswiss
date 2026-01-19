@@ -95,6 +95,22 @@
           </div>
         </div>
 
+        <div class="calendar-filter">
+          <label class="calendar-filter__label" for="filter-language">
+            {% if current_lang == 'es' %}Idioma{% else %}Language{% endif %}
+          </label>
+          <div class="calendar-filter__select-wrapper">
+            <select id="filter-language" class="calendar-filter__select">
+              <option value="">{% if current_lang == 'es' %}Todos{% else %}All{% endif %}</option>
+              <option value="en" {% if current_lang == 'en' %}selected{% endif %}>{% if current_lang == 'es' %}Inglés{% else %}English{% endif %}</option>
+              <option value="es" {% if current_lang == 'es' %}selected{% endif %}>{% if current_lang == 'es' %}Español{% else %}Spanish{% endif %}</option>
+            </select>
+            <span class="calendar-filter__arrow">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
         <div class="calendar-filter calendar-filter--clear hidden" id="filter-clear-wrapper">
           <button type="button" id="filter-clear" class="calendar-filter__clear-btn">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M1 11L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -126,17 +142,58 @@
 
         {%- if event_month_year != current_month_year -%}
           <div class="calendar-month-header" data-month="{{ event_month_val }}">
-            <h2 class="month-title">{{ event_month_year | capitalize }}</h2>
+            <h2 class="month-title">
+              {%- if current_lang == 'es' -%}
+                {%- assign m = event_date | date: "%m" -%}
+                {%- case m -%}
+                  {%- when '01' -%}Enero
+                  {%- when '02' -%}Febrero
+                  {%- when '03' -%}Marzo
+                  {%- when '04' -%}Abril
+                  {%- when '05' -%}Mayo
+                  {%- when '06' -%}Junio
+                  {%- when '07' -%}Julio
+                  {%- when '08' -%}Agosto
+                  {%- when '09' -%}Septiembre
+                  {%- when '10' -%}Octubre
+                  {%- when '11' -%}Noviembre
+                  {%- when '12' -%}Diciembre
+                {%- endcase -%}
+                {{ event_date | date: " %Y" }}
+              {%- else -%}
+                {{ event_month_year | capitalize }}
+              {%- endif -%}
+            </h2>
           </div>
           {%- assign current_month_year = event_month_year -%}
         {%- endif -%}
 
-        <div class="calendar-event-wrapper" data-city="{{ event_city }}" data-date="{{ event_month_val }}" data-type="{{ block.settings.event_type | strip }}">
+        <div class="calendar-event-wrapper" data-city="{{ event_city }}" data-date="{{ event_month_val }}" data-type="{{ block.settings.event_type | strip }}" data-lang="{{ block.settings.language }}">
           {%- if event_date != previous_date -%}
             <div class="calendar-list__date-header">
               <span class="date-header__day">{{ event_date | date: "%d" }}</span>
               <div class="date-header__right">
-                <span class="date-header__month">{{ event_date | date: "%B" | capitalize }}</span>
+                <span class="date-header__month">
+                  {%- if current_lang == 'es' -%}
+                    {%- assign m = event_date | date: "%m" -%}
+                    {%- case m -%}
+                      {%- when '01' -%}Enero
+                      {%- when '02' -%}Febrero
+                      {%- when '03' -%}Marzo
+                      {%- when '04' -%}Abril
+                      {%- when '05' -%}Mayo
+                      {%- when '06' -%}Junio
+                      {%- when '07' -%}Julio
+                      {%- when '08' -%}Agosto
+                      {%- when '09' -%}Septiembre
+                      {%- when '10' -%}Octubre
+                      {%- when '11' -%}Noviembre
+                      {%- when '12' -%}Diciembre
+                    {%- endcase -%}
+                  {%- else -%}
+                    {{ event_date | date: "%B" | capitalize }}
+                  {%- endif -%}
+                </span>
                 <span class="date-header__year">{{ event_date | date: "%Y" }}</span>
               </div>
             </div>
@@ -448,21 +505,23 @@
       const cityFilter = document.getElementById('filter-city');
       const monthFilter = document.getElementById('filter-date');
       const courseTypeFilter = document.getElementById('filter-course-type');
+      const langFilter = document.getElementById('filter-language');
       const clearBtn = document.getElementById('filter-clear');
       const clearWrapper = document.getElementById('filter-clear-wrapper');
       const eventWrappers = document.querySelectorAll('.calendar-event-wrapper');
       const monthHeaders = document.querySelectorAll('.calendar-month-header');
       const noResults = document.querySelector('.calendar-list__no-results');
 
-      if (!cityFilter || !monthFilter || !courseTypeFilter) return;
+      if (!cityFilter || !monthFilter || !courseTypeFilter || !langFilter) return;
 
       function filterEvents() {
         const selectedCity = cityFilter.value.toLowerCase();
         const selectedMonth = monthFilter.value;
         const selectedType = courseTypeFilter.value.toLowerCase();
+        const selectedLang = langFilter.value;
         let visibleCount = 0;
 
-        if (selectedCity || selectedMonth || selectedType) {
+        if (selectedCity || selectedMonth || selectedType || selectedLang) {
           clearWrapper.classList.remove('hidden');
         } else {
           clearWrapper.classList.add('hidden');
@@ -474,12 +533,14 @@
           const eventCity = (wrapper.getAttribute('data-city') || '').toLowerCase();
           const eventDate = wrapper.getAttribute('data-date');
           const eventType = (wrapper.getAttribute('data-type') || '').toLowerCase();
+          const eventLang = wrapper.getAttribute('data-lang');
           
           let cityMatch = !selectedCity || eventCity.includes(selectedCity);
           let monthMatch = !selectedMonth || eventDate === selectedMonth;
           let typeMatch = !selectedType || eventType === selectedType;
+          let langMatch = !selectedLang || eventLang === 'all' || eventLang === selectedLang;
 
-          if (cityMatch && monthMatch && typeMatch) {
+          if (cityMatch && monthMatch && typeMatch && langMatch) {
             wrapper.classList.remove('hidden');
             visibleCount++;
           } else {
@@ -506,12 +567,17 @@
         cityFilter.value = "";
         monthFilter.value = "";
         courseTypeFilter.value = "";
+        langFilter.value = "";
         filterEvents();
       }
+
+      // Initial filter based on default selected values (e.g. language)
+      filterEvents();
 
       cityFilter.addEventListener('change', filterEvents);
       monthFilter.addEventListener('change', filterEvents);
       courseTypeFilter.addEventListener('change', filterEvents);
+      langFilter.addEventListener('change', filterEvents);
       clearBtn.addEventListener('click', clearFilters);
     }
 
