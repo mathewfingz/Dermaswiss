@@ -9,9 +9,7 @@
   assign cities = ""
   assign course_types = ""
   for block in sorted_blocks
-    if block.settings.language != 'all' and block.settings.language != current_lang
-      continue
-    endif
+    {% comment %} Remove restrictive Liquid filtering to allow dynamic JS filters {% endcomment %}
     
     assign city = block.settings.city | strip
     if city == blank and block.settings.location != blank
@@ -127,9 +125,7 @@
       {%- assign previous_date = "" -%}
       
       {%- for block in sorted_blocks -%}
-        {%- if block.settings.language != 'all' and block.settings.language != current_lang -%}
-          {%- continue -%}
-        {%- endif -%}
+        {% comment %} rendering all to DOM for JS filtering {% endcomment %}
         
         {%- assign event_date = block.settings.event_date -%}
         {%- assign event_month_year = event_date | date: "%B %Y" -%}
@@ -143,26 +139,22 @@
         {%- if event_month_year != current_month_year -%}
           <div class="calendar-month-header" data-month="{{ event_month_val }}">
             <h2 class="month-title">
-              {%- if current_lang == 'es' -%}
                 {%- assign m = event_date | date: "%m" -%}
                 {%- case m -%}
-                  {%- when '01' -%}Enero
-                  {%- when '02' -%}Febrero
-                  {%- when '03' -%}Marzo
-                  {%- when '04' -%}Abril
-                  {%- when '05' -%}Mayo
-                  {%- when '06' -%}Junio
-                  {%- when '07' -%}Julio
-                  {%- when '08' -%}Agosto
-                  {%- when '09' -%}Septiembre
-                  {%- when '10' -%}Octubre
-                  {%- when '11' -%}Noviembre
-                  {%- when '12' -%}Diciembre
+                  {%- when '01' -%}{% if current_lang == 'es' %}Enero{% else %}January{% endif %}
+                  {%- when '02' -%}{% if current_lang == 'es' %}Febrero{% else %}February{% endif %}
+                  {%- when '03' -%}{% if current_lang == 'es' %}Marzo{% else %}March{% endif %}
+                  {%- when '04' -%}{% if current_lang == 'es' %}Abril{% else %}April{% endif %}
+                  {%- when '05' -%}{% if current_lang == 'es' %}Mayo{% else %}May{% endif %}
+                  {%- when '06' -%}{% if current_lang == 'es' %}Junio{% else %}June{% endif %}
+                  {%- when '07' -%}{% if current_lang == 'es' %}Julio{% else %}July{% endif %}
+                  {%- when '08' -%}{% if current_lang == 'es' %}Agosto{% else %}August{% endif %}
+                  {%- when '09' -%}{% if current_lang == 'es' %}Septiembre{% else %}September{% endif %}
+                  {%- when '10' -%}{% if current_lang == 'es' %}Octubre{% else %}October{% endif %}
+                  {%- when '11' -%}{% if current_lang == 'es' %}Noviembre{% else %}November{% endif %}
+                  {%- when '12' -%}{% if current_lang == 'es' %}Diciembre{% else %}December{% endif %}
                 {%- endcase -%}
                 {{ event_date | date: " %Y" }}
-              {%- else -%}
-                {{ event_month_year | capitalize }}
-              {%- endif -%}
             </h2>
           </div>
           {%- assign current_month_year = event_month_year -%}
@@ -174,25 +166,21 @@
               <span class="date-header__day">{{ event_date | date: "%d" }}</span>
               <div class="date-header__right">
                 <span class="date-header__month">
-                  {%- if current_lang == 'es' -%}
                     {%- assign m = event_date | date: "%m" -%}
                     {%- case m -%}
-                      {%- when '01' -%}Enero
-                      {%- when '02' -%}Febrero
-                      {%- when '03' -%}Marzo
-                      {%- when '04' -%}Abril
-                      {%- when '05' -%}Mayo
-                      {%- when '06' -%}Junio
-                      {%- when '07' -%}Julio
-                      {%- when '08' -%}Agosto
-                      {%- when '09' -%}Septiembre
-                      {%- when '10' -%}Octubre
-                      {%- when '11' -%}Noviembre
-                      {%- when '12' -%}Diciembre
+                      {%- when '01' -%}{% if current_lang == 'es' %}Enero{% else %}January{% endif %}
+                      {%- when '02' -%}{% if current_lang == 'es' %}Febrero{% else %}February{% endif %}
+                      {%- when '03' -%}{% if current_lang == 'es' %}Marzo{% else %}March{% endif %}
+                      {%- when '04' -%}{% if current_lang == 'es' %}Abril{% else %}April{% endif %}
+                      {%- when '05' -%}{% if current_lang == 'es' %}Mayo{% else %}May{% endif %}
+                      {%- when '06' -%}{% if current_lang == 'es' %}Junio{% else %}June{% endif %}
+                      {%- when '07' -%}{% if current_lang == 'es' %}Julio{% else %}July{% endif %}
+                      {%- when '08' -%}{% if current_lang == 'es' %}Agosto{% else %}August{% endif %}
+                      {%- when '09' -%}{% if current_lang == 'es' %}Septiembre{% else %}September{% endif %}
+                      {%- when '10' -%}{% if current_lang == 'es' %}Octubre{% else %}October{% endif %}
+                      {%- when '11' -%}{% if current_lang == 'es' %}Noviembre{% else %}November{% endif %}
+                      {%- when '12' -%}{% if current_lang == 'es' %}Diciembre{% else %}December{% endif %}
                     {%- endcase -%}
-                  {%- else -%}
-                    {{ event_date | date: "%B" | capitalize }}
-                  {%- endif -%}
                 </span>
                 <span class="date-header__year">{{ event_date | date: "%Y" }}</span>
               </div>
