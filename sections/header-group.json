@@ -1,1 +1,95 @@
-{"type":"header","name":"t:sections.header.name","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement_bfeDTn":{"type":"announcement","settings":{"text":"<p>10% OFF your first purchase use code <a href=\"#\" title=\"#\">WELCOME10<\/a><\/p>","link":"","homepage_only":false,"hide_on_page":"","show_on_mobile":false,"show_on_tablet":true,"show_on_desktop":true}},"announcement_EqMdWP":{"type":"announcement","settings":{"text":"<p>New customers save 10% with code WELCOME10<\/p>","link":"","homepage_only":false,"hide_on_page":"","show_on_mobile":true,"show_on_tablet":false,"show_on_desktop":false}}},"block_order":["announcement_bfeDTn","announcement_EqMdWP"],"disabled":true,"custom_css":[".announcement-bar__row {padding: 7px 10px;}","a {font-weight: 500;}"],"settings":{"color_schema":"inverse","show_close_button":false,"enable_carousel":false,"autoplay":false,"autorotate_speed":4}},"header":{"type":"header","settings":{"color_schema":"","layout":"design-1","container":"container-fluid","sticky_header":true,"sticky_type":"always","transparent_header":false,"logo":"shopify:\/\/shop_images\/Logo_vertical.png","logo_width":155,"logo_mobile_width":110,"main_menu":"new-home","mobile_menu":"main-menu","menu_dropdown_color_schema":"background-1","dropdown_menu_trigger":"hover","enable_mega_menu":true,"show_search":true,"show_cart":true,"show_account":true,"show_country_selector":false,"show_language_selector":true,"logo_mobile_position":"center","mobile_show_search":true,"mobile_show_cart":true,"mobile_show_account":false,"mobile_show_social":true,"padding_top":13,"padding_bottom":13}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.name",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_bfeDTn": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>10% OFF your first purchase use code <a href=\"#\" title=\"#\">WELCOME10</a></p>",
+            "link": "",
+            "homepage_only": false,
+            "hide_on_page": "",
+            "show_on_mobile": false,
+            "show_on_tablet": true,
+            "show_on_desktop": true
+          }
+        },
+        "announcement_EqMdWP": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>New customers save 10% with code WELCOME10</p>",
+            "link": "",
+            "homepage_only": false,
+            "hide_on_page": "",
+            "show_on_mobile": true,
+            "show_on_tablet": false,
+            "show_on_desktop": false
+          }
+        }
+      },
+      "block_order": [
+        "announcement_bfeDTn",
+        "announcement_EqMdWP"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".announcement-bar__row {padding: 7px 10px;}",
+        "a {font-weight: 500;}"
+      ],
+      "settings": {
+        "color_schema": "inverse",
+        "show_close_button": false,
+        "enable_carousel": false,
+        "autoplay": false,
+        "autorotate_speed": 4
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "color_schema": "",
+        "layout": "design-1",
+        "container": "container-fluid",
+        "sticky_header": true,
+        "sticky_type": "always",
+        "transparent_header": false,
+        "logo": "shopify://shop_images/Logo_vertical_1_png.avif",
+        "logo_width": 155,
+        "logo_mobile_width": 110,
+        "main_menu": "",
+        "mobile_menu": "main-menu",
+        "menu_dropdown_color_schema": "background-1",
+        "dropdown_menu_trigger": "hover",
+        "enable_mega_menu": true,
+        "show_search": true,
+        "show_cart": true,
+        "show_account": true,
+        "show_country_selector": false,
+        "show_language_selector": true,
+        "logo_mobile_position": "center",
+        "mobile_show_search": true,
+        "mobile_show_cart": true,
+        "mobile_show_account": false,
+        "mobile_show_social": true,
+        "padding_top": 13,
+        "padding_bottom": 13
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
