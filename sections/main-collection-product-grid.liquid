@@ -62,7 +62,14 @@
   style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
 >
   <div class="main-collection__container">
-    {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- liquid
+      assign products_per_page = 50
+      assign limit_param = request.query_string | split: 'limit=' | last | split: '&' | first | plus: 0
+      if limit_param == 25 or limit_param == 50 or limit_param == 75 or limit_param == 100
+        assign products_per_page = limit_param
+      endif
+    -%}
+    {%- paginate collection.products by products_per_page -%}
       <div class="{{ container }}">
         <div class="main-collection__wrapper main-collection__wrapper--{{ sidebar_position }} flex{% unless show_filters %} main-collection__wrapper--hide-filters{% endunless %}">
           {% if show_filters %}
@@ -124,15 +131,26 @@
                   data-quick-buy-list
                   data-money-format="{{ shop.money_format | strip_html | escape }}"
                 >
-                    <div class="quick-buy-list__search">
-                      <input 
-                        type="text" 
-                        id="quick-buy-search" 
-                        class="quick-buy-list__search-input form-control" 
-                        placeholder="🔍 {% if current_lang == 'es' %}Buscar productos por nombre o SKU...{% else %}Search products by name or SKU...{% endif %}"
-                        autocomplete="off"
-                      >
-                      <button type="button" id="quick-buy-search-clear" class="quick-buy-list__search-clear hidden" aria-label="{% if current_lang == 'es' %}Limpiar búsqueda{% else %}Clear search{% endif %}">✕</button>
+                    <div class="quick-buy-list__toolbar">
+                      <div class="quick-buy-list__search">
+                        <input 
+                          type="text" 
+                          id="quick-buy-search" 
+                          class="quick-buy-list__search-input form-control" 
+                          placeholder="🔍 {% if current_lang == 'es' %}Buscar productos por nombre o SKU...{% else %}Search products by name or SKU...{% endif %}"
+                          autocomplete="off"
+                        >
+                        <button type="button" id="quick-buy-search-clear" class="quick-buy-list__search-clear hidden" aria-label="{% if current_lang == 'es' %}Limpiar búsqueda{% else %}Clear search{% endif %}">✕</button>
+                      </div>
+                      <div class="quick-buy-list__limit">
+                        <label for="quick-buy-limit">{% if current_lang == 'es' %}Mostrar:{% else %}Show:{% endif %}</label>
+                        <select id="quick-buy-limit" class="form-control">
+                          <option value="25" {% if products_per_page == 25 %}selected{% endif %}>25</option>
+                          <option value="50" {% if products_per_page == 50 %}selected{% endif %}>50</option>
+                          <option value="75" {% if products_per_page == 75 %}selected{% endif %}>75</option>
+                          <option value="100" {% if products_per_page == 100 %}selected{% endif %}>100</option>
+                        </select>
+                      </div>
                     </div>
                     <div class="quick-buy-list__row quick-buy-list__row--head">
                       <span class="quick-buy-list__head-cell">{% if current_lang == 'es' %}Producto{% else %}Product{% endif %}</span>

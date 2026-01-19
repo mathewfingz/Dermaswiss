@@ -159,11 +159,28 @@
   function initList(list) {
     var moneyFormat = list.dataset.moneyFormat || fallbackMoneyFormat;
     var items = list.querySelectorAll(selectors.item);
+    
+    initLimit(list);
+
     items.forEach(function (item) {
       if (item.dataset.quickBuyReady === 'true') return;
       initItem(item, moneyFormat);
       item.dataset.quickBuyReady = 'true';
     });
+  }
+
+  function initLimit(list) {
+    var limitSelect = document.getElementById('quick-buy-limit');
+    if (!limitSelect || limitSelect.dataset.limitReady === 'true') return;
+
+    limitSelect.addEventListener('change', function() {
+      var limit = this.value;
+      var url = new URL(window.location.href);
+      url.searchParams.set('limit', limit);
+      url.searchParams.delete('page'); // Reset to page 1 when limit changes
+      window.location.href = url.toString();
+    });
+    limitSelect.dataset.limitReady = 'true';
   }
 
   function init(root) {
