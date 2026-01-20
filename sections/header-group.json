@@ -43,6 +43,7 @@
         "announcement_bfeDTn",
         "announcement_EqMdWP"
       ],
+      "disabled": true,
       "custom_css": [
         ".announcement-bar__row {padding: 7px 10px;}",
         "a {font-weight: 500;}"
