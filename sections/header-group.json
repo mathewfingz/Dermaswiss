@@ -17,7 +17,7 @@
         "announcement_bfeDTn": {
           "type": "announcement",
           "settings": {
-            "text": "<p>10% OFF your first purchase use code <a href=\"#\" title=\"#\">WELCOME10</a></p>",
+            "text": "<p><a href=\"https://dermaswisspro.com/pages/registerform\">OPEN YOUR PRO ACCOUNT</a></p>",
             "link": "",
             "homepage_only": false,
             "hide_on_page": "",
@@ -43,7 +43,6 @@
         "announcement_bfeDTn",
         "announcement_EqMdWP"
       ],
-      "disabled": true,
       "custom_css": [
         ".announcement-bar__row {padding: 7px 10px;}",
         "a {font-weight: 500;}"
