@@ -11,12 +11,19 @@
   assign hero_height = section.settings.hero_height
   assign hero_height_mobile = section.settings.hero_height_mobile
   assign text_color = section.settings.text_color
+  assign image_overlay_opacity = section.settings.image_overlay_opacity
+
   assign image = section.settings.image
   assign image_mobile = section.settings.image_mobile
-  assign show_text_below = section.settings.show_text_below
-  assign text_alignment = section.settings.text_alignment
-  assign text_alignment_mobile = section.settings.text_alignment_mobile
-  assign image_overlay_opacity = section.settings.image_overlay_opacity
+
+  if request.locale.iso_code == 'es'
+    if section.settings.image_es != blank
+      assign image = section.settings.image_es
+    endif
+    if section.settings.image_mobile_es != blank
+      assign image_mobile = section.settings.image_mobile_es
+    endif
+  endif
 
   if hero_height == 'adapt' or hero_height_mobile == 'adapt'
     assign aspect_ratio = image.aspect_ratio | default: '21/9'
@@ -128,7 +135,13 @@
             {%- for block in section.blocks -%}
               {% case block.type %}
                 {%- when 'title' -%}
-                  {%- if block.settings.title != blank -%}
+                  {%- liquid
+                    assign title = block.settings.title
+                    if request.locale.iso_code == 'es' and block.settings.title_es != blank
+                      assign title = block.settings.title_es
+                    endif
+                  -%}
+                  {%- if title != blank -%}
                     {%- liquid
                       assign inline_css = ''
 
@@ -149,7 +162,7 @@
                         class="block"
                       >
                         {%- render 'highlight-text',
-                          hl_text: block.settings.title,
+                          hl_text: title,
                           hl_style: block.settings.highlight_style,
                           enable_hl_text_color: block.settings.enable_highlight_text_color
                         -%}
@@ -158,31 +171,49 @@
                     {%- assign motion_delay = motion_delay | plus: 50 -%}
                   {%- endif -%}
                 {%- when 'subtitle' -%}
-                  {%- if block.settings.subtitle != blank -%}
+                  {%- liquid
+                    assign subtitle = block.settings.subtitle
+                    if request.locale.iso_code == 'es' and block.settings.subtitle_es != blank
+                      assign subtitle = block.settings.subtitle_es
+                    endif
+                  -%}
+                  {%- if subtitle != blank -%}
                     <motion-element
                       data-motion="{{ animation_effect }}"
                       data-motion-delay="{{ motion_delay }}"
                       class="block f-hero_subheading text-subheading text-current"
                       {{ block.shopify_attributes }}
                     >
-                      {{ block.settings.subtitle | escape }}
+                      {{ subtitle | escape }}
                     </motion-element>
                     {%- assign motion_delay = motion_delay | plus: 50 -%}
                   {%- endif -%}
                 {%- when 'text' -%}
-                  {%- if block.settings.text != blank -%}
+                  {%- liquid
+                    assign text = block.settings.text
+                    if request.locale.iso_code == 'es' and block.settings.text_es != blank
+                      assign text = block.settings.text_es
+                    endif
+                  -%}
+                  {%- if text != blank -%}
                     <motion-element
                       data-motion="{{ animation_effect }}"
                       data-motion-delay="{{ motion_delay }}"
                       class="block f-hero_text text-current rte mobile-remove-br"
                       {{ block.shopify_attributes }}
                     >
-                      {{ block.settings.text }}
+                      {{ text }}
                     </motion-element>
                     {%- assign motion_delay = motion_delay | plus: 50 -%}
                   {%- endif -%}
                 {%- when 'button' -%}
-                  {%- if block.settings.button_label != blank -%}
+                  {%- liquid
+                    assign button_label = block.settings.button_label
+                    if request.locale.iso_code == 'es' and block.settings.button_label_es != blank
+                      assign button_label = block.settings.button_label_es
+                    endif
+                  -%}
+                  {%- if button_label != blank -%}
                     <motion-element
                       data-motion="{{ animation_effect }}"
                       data-motion-delay="{{ motion_delay }}"
@@ -198,7 +229,7 @@
                         {% endif %}
                         {{ block.shopify_attributes }}
                       >
-                        {{ block.settings.button_label | escape }}
+                        {{ button_label | escape }}
                       </a>
                     </motion-element>
                     {%- assign motion_delay = motion_delay | plus: 50 -%}
@@ -255,6 +286,16 @@
       "type": "image_picker",
       "id": "image_mobile",
       "label": "t:sections.hero.settings.image_settings.image_mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_es",
+      "label": "Imagen (Español)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile_es",
+      "label": "Imagen para Móvil (Español)"
     },
     {
       "type": "range",
@@ -533,6 +574,11 @@
           "default": "Image with text overlay"
         },
         {
+          "type": "inline_richtext",
+          "id": "title_es",
+          "label": "Título (Español)"
+        },
+        {
           "type": "select",
           "id": "highlight_style",
           "label": "t:sections.common.highlight_text.settings.highlight_style.label",
@@ -601,6 +647,11 @@
           "id": "subtitle",
           "label": "t:sections.hero.blocks.subheading.settings.heading.label",
           "default": "Subheading text"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_es",
+          "label": "Subtítulo (Español)"
         }
       ]
     },
@@ -620,6 +671,11 @@
       "type": "button",
       "name": "t:sections.image-with-text.blocks.button.name",
       "limit": 1,
+        {
+          "type": "richtext",
+          "id": "text_es",
+          "label": "Texto (Español)"
+        },
       "settings": [
         {
           "type": "text",
@@ -627,6 +683,16 @@
           "label": "t:sections.common.button.button_label.label",
           "default": "Button label",
           "info": "t:sections.common.button.button_label.info"
+        },
+        {
+          "type": "text",
+          "id": "button_label_es",
+          "label": "Texto del Botón (Español)"
+        },
+        {
+          "type": "text",
+          "id": "button_label_es",
+          "label": "Texto del Botón (Español)"
         },
         {
           "type": "url",

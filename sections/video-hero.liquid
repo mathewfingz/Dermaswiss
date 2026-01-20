@@ -15,6 +15,18 @@
   assign text_alignment_mobile = section.settings.text_alignment_mobile
   assign image_overlay_opacity = section.settings.image_overlay_opacity
 
+  assign shopify_video = section.settings.shopify_video
+  assign video_url_field = section.settings.video_url
+
+  if request.locale.iso_code == 'es'
+    if section.settings.shopify_video_es != blank
+      assign shopify_video = section.settings.shopify_video_es
+    endif
+    if section.settings.video_url_es != blank
+      assign video_url_field = section.settings.video_url_es
+    endif
+  endif
+
   if hero_height == 'adapt' or hero_height_mobile == 'adapt'
     assign aspect_ratio = section.settings.shopify_video.aspect_ratio | default: 2.333
     assign aspect_ratio_mobile = section.settings.shopify_video.aspect_ratio | default: 1
@@ -53,7 +65,7 @@
     >
       {%- liquid
         assign data_type = 'mp4'
-        assign video_sources = section.settings.shopify_video.sources[1]
+        assign video_sources = shopify_video.sources[1]
         assign video_url = video_sources.url
 
         if section.settings.video_type == 'shopify' and video_url == blank
@@ -61,8 +73,8 @@
         endif
         case section.settings.video_type
           when 'external'
-            assign video_url = section.settings.video_url
-            if section.settings.video_url.type == 'youtube'
+            assign video_url = video_url_field
+            if video_url_field.type == 'youtube'
               assign data_type = 'youtube'
             else
               assign data_type = 'vimeo'
@@ -108,7 +120,13 @@
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when 'title' -%}
-                  {%- if block.settings.title != blank -%}
+                  {%- liquid
+                    assign title = block.settings.title
+                    if request.locale.iso_code == 'es' and block.settings.title_es != blank
+                      assign title = block.settings.title_es
+                    endif
+                  -%}
+                  {%- if title != blank -%}
                     {%- liquid
                       assign inline_css = ''
 
@@ -138,7 +156,13 @@
                     {%- assign motion_delay = motion_delay | plus: 50 -%}
                   {%- endif -%}
                 {%- when 'subtitle' -%}
-                  {%- if block.settings.subtitle != blank -%}
+                  {%- liquid
+                    assign subtitle = block.settings.subtitle
+                    if request.locale.iso_code == 'es' and block.settings.subtitle_es != blank
+                      assign subtitle = block.settings.subtitle_es
+                    endif
+                  -%}
+                  {%- if subtitle != blank -%}
                     <motion-element
                       data-motion="{{ animation_effect }}"
                       data-motion-delay="{{ motion_delay }}"
@@ -150,7 +174,13 @@
                     {%- assign motion_delay = motion_delay | plus: 50 -%}
                   {%- endif -%}
                 {%- when 'text' -%}
-                  {%- if block.settings.text != blank -%}
+                  {%- liquid
+                    assign text = block.settings.text
+                    if request.locale.iso_code == 'es' and block.settings.text_es != blank
+                      assign text = block.settings.text_es
+                    endif
+                  -%}
+                  {%- if text != blank -%}
                     <motion-element
                       data-motion="{{ animation_effect }}"
                       data-motion-delay="{{ motion_delay }}"
@@ -162,8 +192,20 @@
                     {%- assign motion_delay = motion_delay | plus: 50 -%}
                   {%- endif -%}
                 {%- when 'button' -%}
-                  {%- if block.settings.button_label != blank
-                    or block.settings.button_second_label != blank
+                  {%- liquid
+                    assign button_label = block.settings.button_label
+                    assign button_second_label = block.settings.button_second_label
+                    if request.locale.iso_code == 'es'
+                        if block.settings.button_label_es != blank
+                            assign button_label = block.settings.button_label_es
+                        endif
+                        if block.settings.button_second_label_es != blank
+                            assign button_second_label = block.settings.button_second_label_es
+                        endif
+                    endif
+                  -%}
+                  {%- if button_label != blank
+                    or button_second_label != blank
                   -%}
                     <motion-element
                       data-motion="{{ animation_effect }}"
@@ -539,6 +581,11 @@
         },
         {
           "value": "fade-in-up",
+        {
+          "type": "inline_richtext",
+          "id": "title_es",
+          "label": "Título (Español)"
+        },
           "label": "t:settings_schema.animations.settings.animation.options.option_3"
         },
         {
@@ -610,6 +657,11 @@
             },
             {
               "value": "h1",
+        {
+          "type": "text",
+          "id": "subtitle_es",
+          "label": "Subtítulo (Español)"
+        },
               "label": "t:sections.common.text_size.options__h1.label"
             },
             {
@@ -621,6 +673,11 @@
               "label": "t:sections.common.text_size.options__hd1.label"
             }
           ]
+        },
+        {
+          "type": "richtext",
+          "id": "text_es",
+          "label": "Texto (Español)"
         },
         {
           "type": "color",
@@ -639,6 +696,11 @@
           "id": "subtitle",
           "label": "t:sections.hero.blocks.subheading.settings.heading.label",
           "default": "Subheading text"
+        {
+          "type": "text",
+          "id": "button_label_es",
+          "label": "Texto del Botón 1 (Español)"
+        },
         }
       ]
     },
@@ -698,6 +760,11 @@
             }
           ],
           "default": "btn--primary"
+        {
+          "type": "text",
+          "id": "button_second_label_es",
+          "label": "Texto del Botón 2 (Español)"
+        },
         },
         {
           "type": "select",

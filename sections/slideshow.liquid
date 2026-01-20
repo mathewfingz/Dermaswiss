@@ -125,7 +125,18 @@
             {% when 'slide' %}
               {% liquid
                 assign bs = block.settings
+                assign background = bs.background
                 assign mb_background = bs.mb_background
+                
+                if request.locale.iso_code == 'es'
+                  if bs.background_es != blank
+                    assign background = bs.background_es
+                  endif
+                  if bs.mb_background_es != blank
+                    assign mb_background = bs.mb_background_es
+                  endif
+                endif
+
                 assign image_overlay_opacity = block.settings.image_overlay_opacity
               %}
               <div
@@ -137,7 +148,7 @@
                 tabindex="-1"
                 {{ block.shopify_attributes }}
               >
-                {% if block.settings.background == blank %}
+                {% if background == blank %}
                   <div class="f-slideshow__slide-placeholder h-full{% if mb_background != blank %} hidden md:block{% endif %}{% if animated and section.settings.enable_bg_zoom_effect %} bg-image__animation{% endif %}">
                     {% capture current %}{% cycle 1, 2 %}{% endcapture %}
                     {{
@@ -149,23 +160,23 @@
                 {% else %}
                   <div class="f-slideshow__slide-bg bg-image{% if mb_background != blank %} hidden md:block{% endif %}{% if animated and section.settings.enable_bg_zoom_effect %} bg-image__animation{% endif %}">
                     {%- liquid
-                      assign image_height = bs.background.width | divided_by: bs.background.aspect_ratio
+                      assign image_height = background.width | divided_by: background.aspect_ratio
                       assign loading = 'lazy'
                       assign fetchpriority = 'low'
                       if forloop.index == 1 and section.index < 2
                         assign loading = 'eager'
                         assign fetchpriority = 'high'
                       endif
-                      assign alt = bs.background.alt | default: shop.name | escape
+                      assign alt = background.alt | default: shop.name | escape
                     -%}
                     {% if bs.image_link != blank %}
                       <a href="{{ bs.image_link }}" class="block">
                         {{
-                          bs.background
+                          background
                           | image_url: width: 1500
                           | image_tag:
                             loading: loading,
-                            width: bs.background.width,
+                            width: background.width,
                             height: image_height,
                             fetchpriority: fetchpriority,
                             sizes: '100vw',
@@ -175,11 +186,11 @@
                       </a>
                     {% else %}
                       {{
-                        bs.background
+                        background
                         | image_url: width: 1500
                         | image_tag:
                           loading: loading,
-                          width: bs.background.width,
+                          width: background.width,
                           height: image_height,
                           fetchpriority: fetchpriority,
                           sizes: '100vw',
@@ -306,6 +317,30 @@
         {% for block in section.blocks %}
           {% liquid
             assign bs = block.settings
+            assign title = bs.title
+            assign subheading = bs.subheading
+            assign description = bs.description
+            assign button_text_1 = bs.button_text_1
+            assign button_text_2 = bs.button_text_2
+
+            if request.locale.iso_code == 'es'
+              if bs.title_es != blank
+                assign title = bs.title_es
+              endif
+              if bs.subheading_es != blank
+                assign subheading = bs.subheading_es
+              endif
+              if bs.description_es != blank
+                assign description = bs.description_es
+              endif
+              if bs.button_text_1_es != blank
+                assign button_text_1 = bs.button_text_1_es
+              endif
+              if bs.button_text_2_es != blank
+                assign button_text_2 = bs.button_text_2_es
+              endif
+            endif
+
             assign text_color = bs.text_color
             assign text_alignment = bs.text_alignment
             assign desc_size = bs.desc_size
@@ -331,12 +366,12 @@
               class="f-slideshow__content f-text-blocks hidden text-{{ text_alignment_mobile }} sm:text-{{ text_alignment }}"
               style="--slide-content-text-color: {{ text_color }};"
             >
-              {% unless block.settings.subheading == blank %}
+              {% unless subheading == blank %}
                 <div class="f-slideshow__subtitle text-subheading">
-                  {{ block.settings.subheading }}
+                  {{ subheading }}
                 </div>
               {% endunless %}
-              {% unless block.settings.title == blank %}
+              {% unless title == blank %}
                 <h2
                   class="f-slideshow__title {{ block.settings.heading_size }}"
                   {% if block.settings.heading_color != blank
@@ -345,12 +380,12 @@
                     style="color: {{ block.settings.heading_color }};"
                   {% endif %}
                 >
-                  {{ block.settings.title }}
+                  {{ title }}
                 </h2>
               {% endunless %}
-              {% unless block.settings.description == blank %}
+              {% unless description == blank %}
                 <div class="f-slideshow__description {{ desc_size }}">
-                  {{ block.settings.description }}
+                  {{ description }}
                 </div>
               {% endunless %}
               <div class="f-slideshow__btn-group f-text-blocks__btn pointer-events-auto">
@@ -364,7 +399,7 @@
                     assign button_style_2 = 'btn--primary'
                   endif
                 %}
-                {% unless block.settings.button_text_1 == blank %}
+                {% unless button_text_1 == blank %}
                   <div class="f-slideshow__btn f-slideshow__btn-first">
                     <a
                       href="{{ block.settings.button_link_1 | default: "#" }}"
@@ -373,11 +408,11 @@
                       {% endif %}
                       class="btn {{ button_style_1 }} {{ block.settings.button_size_1 }}"
                     >
-                      {{ block.settings.button_text_1 }}
+                      {{ button_text_1 }}
                     </a>
                   </div>
                 {% endunless %}
-                {% unless block.settings.button_text_2 == blank %}
+                {% unless button_text_2 == blank %}
                   <div class="f-slideshow__btn f-slideshow__btn-second">
                     <a
                       href="{{ block.settings.button_link_2 | default: "#" }}"
@@ -386,7 +421,7 @@
                       {% endif %}
                       class="btn {{ button_style_2 }} {{ block.settings.button_size_2 }}"
                     >
-                      {{ block.settings.button_text_2 }}
+                      {{ button_text_2 }}
                     </a>
                   </div>
                 {% endunless %}
@@ -626,9 +661,21 @@
         },
         {
           "type": "image_picker",
+          "id": "background_es",
+          "label": "Imagen para Escritorio (Español)",
+          "info": "Opcional. Se mostrará en español si se proporciona."
+        },
+        {
+          "type": "image_picker",
           "id": "mb_background",
           "label": "t:sections.slideshow.blocks.slide_item.settings.image_mobile.label",
           "info": "t:sections.slideshow.blocks.slide_item.settings.image_mobile.info"
+        },
+        {
+          "type": "image_picker",
+          "id": "mb_background_es",
+          "label": "Imagen para Móvil (Español)",
+          "info": "Opcional. Se mostrará en español si se proporciona."
         },
         {
           "type": "url",
@@ -727,6 +774,11 @@
           "default": "Image slide"
         },
         {
+          "type": "inline_richtext",
+          "id": "title_es",
+          "label": "Título (Español)"
+        },
+        {
           "type": "select",
           "id": "heading_size",
           "default": "h2",
@@ -766,10 +818,20 @@
           "label": "t:sections.common.header.subheading"
         },
         {
+          "type": "text",
+          "id": "subheading_es",
+          "label": "Subtítulo (Español)"
+        },
+        {
           "type": "richtext",
           "id": "description",
           "label": "t:sections.common.header.description",
           "default": "<p>Tell your brand's story through images</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "description_es",
+          "label": "Descripción (Español)"
         },
         {
           "type": "select",
@@ -800,6 +862,11 @@
           "id": "button_text_1",
           "label": "t:sections.common.button.button_label.label",
           "default": "Button label"
+        },
+        {
+          "type": "text",
+          "id": "button_text_1_es",
+          "label": "Texto del Botón 1 (Español)"
         },
         {
           "type": "url",
@@ -855,6 +922,11 @@
           "content": "t:sections.slideshow.blocks.slide_item.settings.header_button_2.content"
         },
         {
+        {
+          "type": "text",
+          "id": "button_text_2_es",
+          "label": "Texto del Botón 2 (Español)"
+        },
           "type": "text",
           "id": "button_text_2",
           "label": "t:sections.common.button.button_label.label"
@@ -1015,6 +1087,11 @@
           "default": "Video slide"
         },
         {
+          "type": "inline_richtext",
+          "id": "title_es",
+          "label": "Título (Español)"
+        },
+        {
           "type": "select",
           "id": "heading_size",
           "default": "h1",
@@ -1049,6 +1126,11 @@
           "info": "t:sections.common.heading_color.info"
         },
         {
+        {
+          "type": "text",
+          "id": "subheading_es",
+          "label": "Subtítulo (Español)"
+        },
           "type": "text",
           "id": "subheading",
           "label": "t:sections.common.header.subheading"
@@ -1056,6 +1138,11 @@
         {
           "type": "richtext",
           "id": "description",
+        {
+          "type": "richtext",
+          "id": "description_es",
+          "label": "Descripción (Español)"
+        },
           "label": "t:sections.common.header.description",
           "default": "<p>Tell your brand's story through images</p>"
         },
@@ -1086,6 +1173,11 @@
         {
           "type": "text",
           "id": "button_text_1",
+        {
+          "type": "text",
+          "id": "button_text_1_es",
+          "label": "Texto del Botón 1 (Español)"
+        },
           "label": "t:sections.common.button.button_label.label",
           "default": "Button label"
         },
@@ -1145,6 +1237,11 @@
         {
           "type": "text",
           "id": "button_text_2",
+        {
+          "type": "text",
+          "id": "button_text_2_es",
+          "label": "Texto del Botón 2 (Español)"
+        },
           "label": "t:sections.common.button.button_label.label"
         },
         {
