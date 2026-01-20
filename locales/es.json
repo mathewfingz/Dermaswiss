@@ -215,7 +215,7 @@
     "cart": {
       "yes": "Yes",
       "no": "No",
-      "login_to_see_price": "Inicie sesión para ver los precios",
+      "login_to_see_price": "Inicia Sesíon",
       "dropshipping_option_label": "Is this a dropshipping order?",
       "dropshipping_delivery_note": "Nota: Los pedidos de Dropshipping pueden tardar entre 24 y 48 horas adicionales en procesarse.",
       "dropshipping_address_notice": "Recuerda ingresar la dirección de tu cliente final en el siguiente paso.",
@@ -387,7 +387,6 @@
       "clear": "Claro",
       "match_all": "Combinar todos",
       "filter_button": "Filtrar",
-      "filter_by_label": "Filtrar:",
       "filters_selected": {
         "one": "{{ count }} seleccionado",
         "other": "{{ count }} seleccionado"
@@ -500,7 +499,7 @@
       "update": "Actualizar",
       "cart_quantity_error_html": "Solo puede agregar {{ quantity }} de este artículo a su carrito.",
       "estimate_shipping_title": "Calcular tarifas de envío",
-      "login_to_see_price": "Inicie sesión para ver los precios",
+      "login_to_see_price": "Inicia Sesíon",
       "bulk_order": {
         "title": "Carga Masiva de Pedidos",
         "instruction": "Sube tu archivo Excel o CSV con las columnas 'SKU' y 'Cantidad'.",
