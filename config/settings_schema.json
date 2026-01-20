@@ -114,34 +114,49 @@
         "default": true,
         "label": "t:settings_schema.general.settings.page_transition.label"
       },
-			{
-				"type": "header",
-				"content": "t:settings_schema.animations.header__1.content"
-			},
-			{
-				"type": "select",
-				"id": "animations",
-				"label": "t:settings_schema.animations.settings.animation.label",
-				"default": "none",
-				"options": [
-					{"value": "none", "label": "t:settings_schema.animations.settings.animation.options.option_1"},
-					{"value": "fade-in", "label": "t:settings_schema.animations.settings.animation.options.option_2"},
-					{"value": "fade-in-up", "label": "t:settings_schema.animations.settings.animation.options.option_3"},
-					{"value": "fade-in-left", "label": "t:settings_schema.animations.settings.animation.options.option_4"},
-					{"value": "fade-in-right", "label": "t:settings_schema.animations.settings.animation.options.option_5"}
-				]
-			},
-			{
-				"type": "range",
-				"id": "animation_duration",
-				"label": "t:settings_schema.animations.settings.duration.label",
-				"default": 0.6,
-				"min": 0.1,
-				"max": 1,
-				"unit": "(s)",
-				"step": 0.1,
+      {
+        "type": "header",
+        "content": "t:settings_schema.animations.header__1.content"
+      },
+      {
+        "type": "select",
+        "id": "animations",
+        "label": "t:settings_schema.animations.settings.animation.label",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:settings_schema.animations.settings.animation.options.option_1"
+          },
+          {
+            "value": "fade-in",
+            "label": "t:settings_schema.animations.settings.animation.options.option_2"
+          },
+          {
+            "value": "fade-in-up",
+            "label": "t:settings_schema.animations.settings.animation.options.option_3"
+          },
+          {
+            "value": "fade-in-left",
+            "label": "t:settings_schema.animations.settings.animation.options.option_4"
+          },
+          {
+            "value": "fade-in-right",
+            "label": "t:settings_schema.animations.settings.animation.options.option_5"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "animation_duration",
+        "label": "t:settings_schema.animations.settings.duration.label",
+        "default": 0.6,
+        "min": 0.1,
+        "max": 1,
+        "unit": "(s)",
+        "step": 0.1,
         "visible_if": "{{ settings.animations != 'none' }}"
-			},
+      },
       {
         "type": "select",
         "id": "image_hover_effect",
@@ -1245,6 +1260,20 @@
         "id": "pcard_mobile_hide_quick_view",
         "label": "t:settings_schema.product_card.settings.mobile_hide_quick_view.label",
         "default": false
+      },
+      {
+        "type": "header",
+        "content": "Login to see price spacing"
+      },
+      {
+        "type": "range",
+        "id": "pcard_price_gate_spacing",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "Login to see price spacing",
+        "default": 5
       }
     ]
   },

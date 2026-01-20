@@ -622,7 +622,7 @@ shopify-accelerated-checkout-cart {
 }
 
 .f-price-gate {
-  margin-top: 5px;
+  margin-top: var(--pcard-price-gate-spacing, 5px);
 }
 
 .f-price__badges {
