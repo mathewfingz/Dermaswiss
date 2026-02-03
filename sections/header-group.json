@@ -11,37 +11,53 @@
   "type": "header",
   "name": "t:sections.header.name",
   "sections": {
+    "1770148309dfb12bfd": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_73254b0_eHFLzA": {
+          "type": "ai_gen_block_73254b0",
+          "settings": {
+            "button_text": "Become a PRO",
+            "button_link": "https://coslabus.myshopify.com/pages/login-2",
+            "font_size": 14,
+            "font_weight": "500",
+            "text_uppercase": true,
+            "border_radius": 50,
+            "border_width": 1,
+            "desktop_width_percent": 20,
+            "button_bg_color": "#222222",
+            "button_text_color": "#ffffff",
+            "border_color": "#222222",
+            "button_hover_bg_color": "#db0032",
+            "button_hover_text_color": "#ffffff",
+            "border_hover_color": "#db0032"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_73254b0_eHFLzA"
+      ],
+      "settings": {}
+    },
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_bfeDTn": {
+        "announcement_7RrCTa": {
           "type": "announcement",
           "settings": {
-            "text": "<p><a href=\"https://dermaswisspro.com/pages/registerform\">OPEN YOUR PRO ACCOUNT</a></p>",
-            "link": "",
-            "homepage_only": false,
-            "hide_on_page": "",
-            "show_on_mobile": false,
-            "show_on_tablet": true,
-            "show_on_desktop": true
-          }
-        },
-        "announcement_EqMdWP": {
-          "type": "announcement",
-          "settings": {
-            "text": "<p>New customers save 10% with code WELCOME10</p>",
-            "link": "",
-            "homepage_only": false,
+            "text": "<p>Become a PRO</p>",
+            "link": "https://coslabus.myshopify.com/pages/login-2",
+            "homepage_only": true,
             "hide_on_page": "",
             "show_on_mobile": true,
-            "show_on_tablet": false,
-            "show_on_desktop": false
+            "show_on_tablet": true,
+            "show_on_desktop": true
           }
         }
       },
       "block_order": [
-        "announcement_bfeDTn",
-        "announcement_EqMdWP"
+        "announcement_7RrCTa"
       ],
       "disabled": true,
       "custom_css": [
@@ -89,6 +105,7 @@
     }
   },
   "order": [
+    "1770148309dfb12bfd",
     "announcement-bar",
     "header"
   ]
