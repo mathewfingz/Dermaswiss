@@ -78,10 +78,6 @@
             "star_size": 12
           }
         },
-        "essential_upsell_frequently_bought_together_app_block_CUNnTg": {
-          "type": "shopify://apps/essential-upsell/blocks/frequently-bought-together-app-block/50627fd9-24fd-4250-8614-accc12826d80",
-          "settings": {}
-        },
         "description": {
           "type": "description",
           "disabled": true,
@@ -168,7 +164,6 @@
         "44a0cb66-4d76-437d-a088-4170647fb088",
         "price",
         "5d5f2fed-55f0-4ee0-b094-80d275d5d781",
-        "essential_upsell_frequently_bought_together_app_block_CUNnTg",
         "description",
         "c3fe57e7-f87d-482d-a723-0b40a6f4ff8d",
         "variant_picker",
