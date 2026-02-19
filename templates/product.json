@@ -35,7 +35,7 @@
         "richtext_jHDazn": {
           "type": "richtext",
           "settings": {
-            "text": "<p>{{ product.metafields.descriptors.subtitle.value }}</p>",
+            "text": "<p>{{ product.metafields.custom.subtitle.value }}</p>",
             "richtext_spacing": 6
           }
         },
