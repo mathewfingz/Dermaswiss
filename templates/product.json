@@ -68,6 +68,17 @@
             "default_open": false
           }
         },
+        "collapsible_tab_FeRFY3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "none",
+            "heading": "How to use",
+            "content": "<p>{{ product.metafields.custom.como_usar | metafield_tag }}</p>",
+            "liquid": "",
+            "page": "",
+            "default_open": false
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -167,6 +178,7 @@
         "richtext_B3EcpN",
         "collapsible_tab_YfYLeV",
         "44a0cb66-4d76-437d-a088-4170647fb088",
+        "collapsible_tab_FeRFY3",
         "price",
         "5d5f2fed-55f0-4ee0-b094-80d275d5d781",
         "description",
