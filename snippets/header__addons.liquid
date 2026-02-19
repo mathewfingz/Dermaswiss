@@ -73,6 +73,15 @@
     endif
   %}
   {% render 'header__search', section: section, search_form_class: search_form_class, color_schema: color_schema %}
+  <div class="site-header__element f-tablet-hidden">
+    <a
+      href="/pages/professional"
+      class="btn btn--become-pro site-header__link"
+      style="background-color:#e51520;color:#ffffff;font-size:11px;font-weight:700;letter-spacing:0.05em;padding:7px 14px;border-radius:4px;white-space:nowrap;text-transform:uppercase;line-height:1;display:inline-flex;align-items:center;"
+    >
+      {{ 'layout.header.become_professional' | t | default: 'BECOME A PROFESSIONAL' }}
+    </a>
+  </div>
   {% if shop.customer_accounts_enabled and show_account %}
     <div class="site-header__element hidden md:block">
       {% render 'user-links', block: block, link_class: 'site-header__link', color_schema: color_schema %}
