@@ -11,17 +11,20 @@
   endunless
 -%}
 <style>
+  .f-section-header {
+    position: relative;
+  }
   .become-pro-btn {
-    position: fixed;
-    top: 12px;
+    position: absolute;
+    top: 6px;
     right: 20px;
-    z-index: 999;
+    z-index: 100;
     background-color: #B7002C;
     color: #ffffff;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    padding: 10px 22px;
+    padding: 7px 18px;
     border-radius: 50px;
     white-space: nowrap;
     text-transform: uppercase;
@@ -30,21 +33,14 @@
     align-items: center;
     border: none;
     text-decoration: none;
-    box-shadow: 0 2px 12px rgba(183, 0, 44, 0.35);
-    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
     cursor: pointer;
     font-family: inherit;
   }
   .become-pro-btn:hover {
     background-color: #9A0024;
-    box-shadow: 0 4px 18px rgba(183, 0, 44, 0.5);
-    transform: translateY(-1px);
     color: #ffffff;
     text-decoration: none;
-  }
-  .become-pro-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(183, 0, 44, 0.3);
   }
   @media (max-width: 1023.98px) {
     .become-pro-btn {
@@ -52,9 +48,6 @@
     }
   }
 </style>
-<a href="/pages/professional" class="become-pro-btn">
-  {{ 'layout.header.become_professional' | t | default: 'BECOME A PROFESSIONAL' }}
-</a>
 <header
   data-section-id="{{ section.id }}"
   data-section-type="header"
@@ -70,6 +63,9 @@
     is="basic-header"
   {% endif %}
 >
+  <a href="/pages/professional" class="become-pro-btn">
+    {{ 'layout.header.become_professional' | t | default: 'BECOME A PROFESSIONAL' }}
+  </a>
   <div class="f-header__dropdown-backdrop">
     <div class="f-header__dropdown-overlay"></div>
     <div
