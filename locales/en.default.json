@@ -111,6 +111,13 @@
     "cookies": {
       "decline_button": "No, thanks",
       "accept_button": "Accept all"
+    },
+    "bulk_order": {
+      "title": "Bulk Order Upload",
+      "instruction": "Upload your Excel or CSV file with columns 'SKU' and 'Quantity'.",
+      "select_file": "Select File",
+      "download_template": "Download Sample Template",
+      "add_to_cart": "Add Valid Items to Cart"
     }
   },
   "layout": {
@@ -276,6 +283,7 @@
         "type": "Product type",
         "no_sku": "N/A"
       },
+      "select_option": "Choose option",
       "open_size_chart": "Size chart",
       "required_field": "Please fill all the required fields (*).",
       "variant_selection_needed_text": "Please select your preferred variant.",

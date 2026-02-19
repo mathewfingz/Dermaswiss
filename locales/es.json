@@ -260,6 +260,13 @@
     "cookies": {
       "decline_button": "No, gracias",
       "accept_button": "Aceptar"
+    },
+    "bulk_order": {
+      "title": "Carga Masiva de Pedidos",
+      "instruction": "Sube tu archivo Excel o CSV con las columnas 'SKU' y 'Cantidad'.",
+      "select_file": "Seleccionar Archivo",
+      "download_template": "Descargar Plantilla de Ejemplo",
+      "add_to_cart": "Añadir productos válidos al carrito"
     }
   },
   "gift_cards": {
@@ -360,6 +367,7 @@
       "view_more_options": "Ver más",
       "sold_out": "Agotado",
       "vendor": "Vendedor",
+      "select_option": "Elegir opción",
       "open_size_chart": "Carta del tamaño",
       "select_options": "Seleccione opciones",
       "view_full_details": "Ver detalles completos",
@@ -397,6 +405,7 @@
       "clear": "Claro",
       "match_all": "Combinar todos",
       "filter_button": "Filtrar",
+      "filter_by_label": "Filtrar:",
       "filters_selected": {
         "one": "{{ count }} seleccionado",
         "other": "{{ count }} seleccionado"
