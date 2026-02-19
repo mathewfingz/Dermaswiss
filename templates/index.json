@@ -41,8 +41,6 @@
         "slide_G7HP8H": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Home-Banner-Desktop-3.png",
-            "mb_background": "shopify://shop_images/Mobile-3.png",
             "image_link": "shopify://collections/professional-kits",
             "image_overlay_opacity": 0,
             "content_position": "center",
@@ -134,8 +132,6 @@
         "slide_XqAYY8": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Home-Banner-Desktop.png",
-            "mb_background": "shopify://shop_images/Mobile-1.png",
             "image_link": "",
             "image_overlay_opacity": 0,
             "content_position": "center",
@@ -426,7 +422,7 @@
         "heading_color": "",
         "subheading": "",
         "description": "",
-        "collection": "professional-kits",
+        "collection": "perfect-match-kits",
         "limit": 3,
         "columns": 3,
         "column_gap": "double-extra-small",
