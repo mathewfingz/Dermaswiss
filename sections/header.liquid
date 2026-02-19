@@ -10,6 +10,15 @@
     assign transparent_header = false
   endunless
 -%}
+<div class="become-pro-bar f-tablet-hidden" style="display:flex;justify-content:flex-end;align-items:center;padding:6px 20px;background:transparent;">
+  <a
+    href="/pages/professional"
+    class="btn btn--become-pro"
+    style="background-color:#B7002C;color:#ffffff;font-size:11px;font-weight:700;letter-spacing:0.06em;padding:8px 20px;border-radius:50px;white-space:nowrap;text-transform:uppercase;line-height:1;display:inline-flex;align-items:center;border:none;text-decoration:none;"
+  >
+    {{ 'layout.header.become_professional' | t | default: 'BECOME A PROFESSIONAL' }}
+  </a>
+</div>
 <header
   data-section-id="{{ section.id }}"
   data-section-type="header"
