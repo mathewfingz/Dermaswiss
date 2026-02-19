@@ -392,6 +392,22 @@
     }
   },
   "sections": {
+    "dropshipping": {
+      "how_it_works_heading": "HOW DOES IT WORK?",
+      "step_1_title": "STEP 1.",
+      "step_1_text": "<ul><li>Place your order from your professional account.</li><li>Select Retail products and choose <strong>'Dropshipping'</strong>.</li><li>Enter your customer's shipping details.</li></ul>",
+      "step_2_title": "STEP 2.",
+      "step_2_text": "<ul><li>We prepare the order.</li><li>Our fulfillment center picks and packs the products with professional presentation.</li></ul>",
+      "step_3_title": "STEP 3.",
+      "step_3_text": "<ul><li>We ship the order directly to your customer.</li><li>The package arrives without prices or promotional material.</li><li>You'll receive a tracking number to share with your customer.</li></ul>",
+      "faq_heading": "Frequently Asked Questions",
+      "faq_1_title": "Is there any cost to join?",
+      "faq_1_content": "No, joining our dropshipping program is completely free for registered aesthetics professionals.",
+      "faq_2_title": "Will the customer know the shipment comes from Dermaswiss?",
+      "faq_2_content": "If you select the 'Dropshipping' option in the cart, we'll make sure the shipment is discreet and doesn't include invoices with wholesale prices.",
+      "faq_3_title": "How are returns handled?",
+      "faq_3_content": "Returns are handled directly through your distributor account following our standard warranty policies."
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",

@@ -225,7 +225,7 @@
       "yes": "Yes",
       "no": "No",
       "login_to_see_price": "Inicia Sesíon",
-      "dropshipping_option_label": "Is this a dropshipping order?",
+      "dropshipping_option_label": "¿Desea enviar este pedido como Dropshipping?",
       "dropshipping_delivery_note": "Nota: Los pedidos de Dropshipping pueden tardar entre 24 y 48 horas adicionales en procesarse.",
       "dropshipping_address_notice": "Recuerda ingresar la dirección de tu cliente final en el siguiente paso.",
       "item_added": "Artículo añadido a tu carrito.",
@@ -452,6 +452,22 @@
     }
   },
   "sections": {
+    "dropshipping": {
+      "how_it_works_heading": "¿CÓMO FUNCIONA?",
+      "step_1_title": "PASO 1.",
+      "step_1_text": "<ul><li>Haz tu pedido desde tu cuenta profesional.</li><li>Selecciona los productos Retail y elige <strong>'Dropshipping'</strong>.</li><li>Ingresa los datos de envío de tu cliente.</li></ul>",
+      "step_2_title": "PASO 2.",
+      "step_2_text": "<ul><li>Nosotros preparamos el pedido.</li><li>Nuestro centro de despacho alista y empaca los productos con presentación profesional.</li></ul>",
+      "step_3_title": "PASO 3.",
+      "step_3_text": "<ul><li>Enviamos el pedido directo a tu cliente.</li><li>El paquete llega sin precios ni material promocional.</li><li>Recibirás un número de seguimiento para compartirlo con tu cliente.</li></ul>",
+      "faq_heading": "Preguntas Frecuentes",
+      "faq_1_title": "¿Tiene algún costo unirse?",
+      "faq_1_content": "No, unirse a nuestro programa de dropshipping es totalmente gratuito para profesionales de la estética registrados.",
+      "faq_2_title": "¿El cliente sabrá que el envío viene de Dermaswiss?",
+      "faq_2_content": "Si marcas la opción de 'Dropshipping' en el carrito, nos aseguraremos de que el envío sea discreto y no incluya facturas con precios de mayorista.",
+      "faq_3_title": "¿Cómo se manejan las devoluciones?",
+      "faq_3_content": "Las devoluciones se manejan directamente a través de tu cuenta de distribuidor siguiendo nuestras políticas estándar de garantía."
+    },
     "footer": {
       "payment": "Métodos de pago",
       "working_hours": "Horas Laborales",

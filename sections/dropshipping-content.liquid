@@ -1,0 +1,115 @@
+{% comment %}
+  Dropshipping page content — fully translatable via locale keys.
+  Used by templates/page.dropshipping.json
+{% endcomment %}
+
+<div class="f-section-dropshipping section-{{ section.id }}-padding">
+  <div class="container">
+
+    {%- comment -%} ====== HOW IT WORKS ====== {%- endcomment -%}
+    <div class="dropshipping-steps">
+      <h2 class="section__heading h2 text-center mb-8">
+        {{ 'sections.dropshipping.how_it_works_heading' | t }}
+      </h2>
+      <div class="f-grid f-grid-2-cols f-grid-3-cols-lg gap-8">
+        {% for i in (1..3) %}
+          <div class="dropshipping-step text-left">
+            <h3 class="h4 mb-2">{{ 'sections.dropshipping.step_' | append: i | append: '_title' | t }}</h3>
+            <div class="rte text-sm">{{ 'sections.dropshipping.step_' | append: i | append: '_text' | t }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {%- comment -%} ====== FAQs ====== {%- endcomment -%}
+    <div class="dropshipping-faqs mt-16">
+      <h2 class="section__heading h2 text-center mb-8">
+        {{ 'sections.dropshipping.faq_heading' | t }}
+      </h2>
+      <div class="f-collapsible-tabs">
+        {% for i in (1..3) %}
+          <details class="f-collapsible-tab">
+            <summary class="f-collapsible-tab__heading">
+              <span>{{ 'sections.dropshipping.faq_' | append: i | append: '_title' | t }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="f-collapsible-tab__content rte">
+              <p>{{ 'sections.dropshipping.faq_' | append: i | append: '_content' | t }}</p>
+            </div>
+          </details>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .f-section-dropshipping {
+    padding: 40px 0 60px;
+  }
+  .dropshipping-steps {
+    margin-bottom: 3rem;
+  }
+  .dropshipping-step {
+    background: var(--color-bg-secondary, #f9f9f9);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .dropshipping-step h3 {
+    color: var(--color-heading-text, #1a1a1a);
+  }
+  .dropshipping-step .rte ul {
+    padding-left: 1.2em;
+    margin: 0;
+  }
+  .dropshipping-step .rte li {
+    margin-bottom: 0.4em;
+  }
+  .f-collapsible-tabs {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .f-collapsible-tab {
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+  }
+  .f-collapsible-tab__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    list-style: none;
+  }
+  .f-collapsible-tab__heading::-webkit-details-marker {
+    display: none;
+  }
+  .f-collapsible-tab__heading svg {
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .f-collapsible-tab[open] .f-collapsible-tab__heading svg {
+    transform: rotate(180deg);
+  }
+  .f-collapsible-tab__content {
+    padding: 0 0 16px;
+    color: var(--color-foreground-secondary, #555);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dropshipping Content",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Dropshipping Content"
+    }
+  ]
+}
+{% endschema %}
