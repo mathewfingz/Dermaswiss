@@ -61,7 +61,7 @@
       "settings": {
         "color_schema": "",
         "layout": "design-1",
-        "container": "container",
+        "container": "container-fluid",
         "sticky_header": true,
         "sticky_type": "always",
         "transparent_header": false,
