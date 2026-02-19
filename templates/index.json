@@ -41,8 +41,6 @@
         "slide_G7HP8H": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Home-Banner-Desktop-3.png",
-            "mb_background": "shopify://shop_images/Mobile-3.png",
             "image_link": "shopify://collections/professional-kits",
             "image_overlay_opacity": 0,
             "content_position": "center",
