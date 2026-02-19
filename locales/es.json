@@ -224,7 +224,7 @@
     "cart": {
       "yes": "Yes",
       "no": "No",
-      "login_to_see_price": "Inicia Sesíon",
+      "login_to_see_price": "Inicia sesión para ver precios",
       "dropshipping_option_label": "¿Desea enviar este pedido como Dropshipping?",
       "dropshipping_delivery_note": "Nota: Los pedidos de Dropshipping pueden tardar entre 24 y 48 horas adicionales en procesarse.",
       "dropshipping_address_notice": "Recuerda ingresar la dirección de tu cliente final en el siguiente paso.",
@@ -534,7 +534,7 @@
       "update": "Actualizar",
       "cart_quantity_error_html": "Solo puede agregar {{ quantity }} de este artículo a su carrito.",
       "estimate_shipping_title": "Calcular tarifas de envío",
-      "login_to_see_price": "Inicia Sesíon",
+      "login_to_see_price": "Inicia sesión para ver precios",
       "bulk_order": {
         "title": "Carga Masiva de Pedidos",
         "instruction": "Sube tu archivo Excel o CSV con las columnas 'SKU' y 'Cantidad'.",
