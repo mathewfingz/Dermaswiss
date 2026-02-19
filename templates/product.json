@@ -23,14 +23,9 @@
             "title_spacing": 4
           }
         },
-        "stamped_reviews_star_rating_badge_e6MgdV": {
-          "type": "shopify://apps/stamped-reviews/blocks/star-rating-badge/a103faaf-2125-4b0e-89fa-de5149736723",
-          "settings": {
-            "use_metafields": false,
-            "sku_tagtype": "sku",
-            "is_featured_product": false,
-            "featured_product_handle": ""
-          }
+        "judge_me_reviews_preview_badge_6grNim": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         },
         "richtext_jHDazn": {
           "type": "richtext",
@@ -173,7 +168,7 @@
       "block_order": [
         "badge_8hgTjY",
         "title",
-        "stamped_reviews_star_rating_badge_e6MgdV",
+        "judge_me_reviews_preview_badge_6grNim",
         "richtext_jHDazn",
         "richtext_B3EcpN",
         "collapsible_tab_YfYLeV",
