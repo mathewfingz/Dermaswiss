@@ -132,6 +132,7 @@
         "slide_XqAYY8": {
           "type": "slide",
           "settings": {
+            "background": "shopify://shop_images/0a3a304-6155-f7fc-c1a-23256e2424bf_EDU-Web-Home-Banner-Desktop-1.webp",
             "image_link": "",
             "image_overlay_opacity": 0,
             "content_position": "center",
