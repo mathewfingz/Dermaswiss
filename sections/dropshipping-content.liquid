@@ -22,24 +22,42 @@
     </div>
 
     {%- comment -%} ====== FAQs ====== {%- endcomment -%}
-    <div class="dropshipping-faqs mt-16">
-      <h2 class="section__heading h2 text-center mb-8">
-        {{ 'sections.dropshipping.faq_heading' | t }}
-      </h2>
-      <div class="f-collapsible-tabs">
-        {% for i in (1..3) %}
-          <details class="f-collapsible-tab">
-            <summary class="f-collapsible-tab__heading">
-              <span>{{ 'sections.dropshipping.faq_' | append: i | append: '_title' | t }}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </summary>
-            <div class="f-collapsible-tab__content rte">
-              <p>{{ 'sections.dropshipping.faq_' | append: i | append: '_content' | t }}</p>
-            </div>
-          </details>
-        {% endfor %}
+    {%- assign faq_blocks = section.blocks | where: "type", "faq" -%}
+    {%- if faq_blocks.size > 0 -%}
+      <div class="dropshipping-faqs mt-16">
+        <h2 class="section__heading h2 text-center mb-8">
+          {%- assign main_heading = section.settings.faq_heading -%}
+          {%- if request.locale.iso_code == 'en' and section.settings.faq_heading_en != blank -%}
+            {%- assign main_heading = section.settings.faq_heading_en -%}
+          {%- endif -%}
+          {{ main_heading }}
+        </h2>
+        <div class="f-collapsible-tabs">
+          {%- for block in faq_blocks -%}
+            {%- assign faq_title = block.settings.title_es -%}
+            {%- assign faq_content = block.settings.content_es -%}
+            {%- if request.locale.iso_code == 'en' -%}
+              {%- if block.settings.title_en != blank -%}
+                {%- assign faq_title = block.settings.title_en -%}
+              {%- endif -%}
+              {%- if block.settings.content_en != blank -%}
+                {%- assign faq_content = block.settings.content_en -%}
+              {%- endif -%}
+            {%- endif -%}
+
+            <details class="f-collapsible-tab" {{ block.shopify_attributes }}>
+              <summary class="f-collapsible-tab__heading">
+                <span>{{ faq_title }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="f-collapsible-tab__content rte">
+                {{ faq_content }}
+              </div>
+            </details>
+          {%- endfor -%}
+        </div>
       </div>
-    </div>
+    {%- endif -%}
 
   </div>
 </div>
@@ -105,10 +123,84 @@
   "name": "Dropshipping Content",
   "tag": "section",
   "class": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "faq_heading",
+      "label": "FAQ Heading (ES)",
+      "default": "Preguntas Frecuentes"
+    },
+    {
+      "type": "text",
+      "id": "faq_heading_en",
+      "label": "FAQ Heading (EN)",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_es",
+          "label": "Pregunta (ES)",
+          "default": "Pregunta frecuente"
+        },
+        {
+          "type": "text",
+          "id": "title_en",
+          "label": "Question (EN)",
+          "default": "Frequently asked question"
+        },
+        {
+          "type": "richtext",
+          "id": "content_es",
+          "label": "Respuesta (ES)",
+          "default": "<p>Respuesta a la pregunta frecuente.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "content_en",
+          "label": "Answer (EN)",
+          "default": "<p>Answer to the frequently asked question.</p>"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Dropshipping Content"
+      "name": "Dropshipping Content",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "title_es": "¿Tiene algún costo unirse?",
+            "title_en": "Is there any cost to join?",
+            "content_es": "<p>No, unirse a nuestro programa de dropshipping es totalmente gratuito para profesionales de la estética registrados.</p>",
+            "content_en": "<p>No, joining our dropshipping program is completely free for registered aesthetic professionals.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "title_es": "¿El cliente sabrá que el envío viene de Dermaswiss?",
+            "title_en": "Will the client know the shipment comes from Dermaswiss?",
+            "content_es": "<p>Si marcas la opción de 'Dropshipping' en el carrito, nos aseguraremos de que el envío sea discreto y no incluya facturas con precios de mayorista.</p>",
+            "content_en": "<p>If you check the 'Dropshipping' option in the cart, we will ensure the shipment is discreet and does not include invoices with wholesale prices.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "title_es": "¿Cómo se manejan las devoluciones?",
+            "title_en": "How are returns handled?",
+            "content_es": "<p>Las devoluciones se manejan directamente a través de tu cuenta de distribuidor siguiendo nuestras políticas estándar de garantía.</p>",
+            "content_en": "<p>Returns are handled directly through your distributor account following our standard warranty policies.</p>"
+          }
+        }
+      ]
     }
   ]
 }
