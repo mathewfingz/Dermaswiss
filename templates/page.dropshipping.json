@@ -17,12 +17,22 @@
     "hero_banner": {
       "type": "hero",
       "settings": {
-        "container": "container-full",
+        "container": "container-fluid",
+        "image": "shopify://shop_images/Home-Banner-Desktop-3.png",
         "image_overlay_opacity": 30,
-        "hero_height": "medium",
+        "hero_height": "adapt",
+        "content_in_container": false,
         "content_position": "center",
         "text_alignment": "center",
-        "text_color": "#ffffff"
+        "text_color": "#ffffff",
+        "hero_height_mobile": "large",
+        "content_position_mobile": "center",
+        "show_text_below": true,
+        "text_alignment_mobile": "center",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
       }
     },
     "dropshipping_content": {
