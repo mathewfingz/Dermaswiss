@@ -15,7 +15,7 @@
         {% for i in (1..3) %}
           <div class="dropshipping-step text-left">
             <h3 class="h4 mb-2">{{ 'sections.dropshipping.step_' | append: i | append: '_title' | t }}</h3>
-            <div class="rte text-sm">{{ 'sections.dropshipping.step_' | append: i | append: '_text' | t }}</div>
+            <div class="rte text-sm">{{ 'sections.dropshipping.step_' | append: i | append: '_text_html' | t }}</div>
           </div>
         {% endfor %}
       </div>
