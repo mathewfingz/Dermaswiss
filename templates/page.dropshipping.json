@@ -37,41 +37,10 @@
     },
     "dropshipping_content": {
       "type": "dropshipping-content",
-      "blocks": {
-        "faq_1": {
-          "type": "faq",
-          "settings": {
-            "title_es": "¿Tiene algún costo unirse?",
-            "title_en": "Is there any cost to join?",
-            "content_es": "<p>No, unirse a nuestro programa de dropshipping es totalmente gratuito para profesionales de la estética registrados.</p>",
-            "content_en": "<p>No, joining our dropshipping program is completely free for registered aesthetic professionals.</p>"
-          }
-        },
-        "faq_2": {
-          "type": "faq",
-          "settings": {
-            "title_es": "¿El cliente sabrá que el envío viene de Dermaswiss?",
-            "title_en": "Will the client know the shipment comes from Dermaswiss?",
-            "content_es": "<p>Si marcas la opción de 'Dropshipping' en el carrito, nos aseguraremos de que el envío sea discreto y no incluya facturas con precios de mayorista.</p>",
-            "content_en": "<p>If you check the 'Dropshipping' option in the cart, we will ensure the shipment is discreet and does not include invoices with wholesale prices.</p>"
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "title_es": "¿Cómo se manejan las devoluciones?",
-            "title_en": "How are returns handled?",
-            "content_es": "<p>Las devoluciones se manejan directamente a través de tu cuenta de distribuidor siguiendo nuestras políticas estándar de garantía.</p>",
-            "content_en": "<p>Returns are handled directly through your distributor account following our standard warranty policies.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_1",
-        "faq_2",
-        "faq_3"
-      ],
-      "settings": {}
+      "settings": {
+        "faq_heading": "Preguntas Frecuentes",
+        "faq_heading_en": "Frequently Asked Questions"
+      }
     }
   },
   "order": [
