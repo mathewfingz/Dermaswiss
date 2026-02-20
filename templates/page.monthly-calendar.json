@@ -101,8 +101,8 @@
         "event_mbbrar"
       ],
       "settings": {
-        "heading": "Calendario de Eventos",
-        "description": "<p>Mantente al día con nuestros próximos eventos y programas profesionales.</p>",
+        "heading": "Monthly Calendar",
+        "description": "<p>Stay up to date with our upcoming events and professional programs.\"</p>",
         "month_font_size": 30,
         "date_title_spacing": 15
       }
