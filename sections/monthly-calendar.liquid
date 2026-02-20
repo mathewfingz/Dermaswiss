@@ -39,14 +39,25 @@
   style="--month-font-size: {{ section.settings.month_font_size }}px; --date-title-spacing: {{ section.settings.date_title_spacing }}px;"
 >
   <div class="calendar-header">
-    {% if section.settings.heading != blank %}
+    {%- assign final_heading = section.settings.heading -%}
+    {%- assign final_desc = section.settings.description -%}
+    {%- if current_lang == 'en' -%}
+      {%- if section.settings.heading_en != blank -%}
+        {%- assign final_heading = section.settings.heading_en -%}
+      {%- endif -%}
+      {%- if section.settings.description_en != blank -%}
+        {%- assign final_desc = section.settings.description_en -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {% if final_heading != blank %}
       <h1 class="h2">
-        {{ section.settings.heading }}
+        {{ final_heading }}
       </h1>
     {% endif %}
-    {% if section.settings.description != blank %}
+    {% if final_desc != blank %}
       <div class="calendar-description h5">
-        {{ section.settings.description }}
+        {{ final_desc }}
       </div>
     {% endif %}
     
@@ -587,13 +598,25 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
-      "default": "Upcoming Events"
+      "label": "Heading (ES)",
+      "default": "Calendario de Eventos"
+    },
+    {
+      "type": "text",
+      "id": "heading_en",
+      "label": "Heading (EN)",
+      "default": "Event Calendar"
     },
     {
       "type": "richtext",
       "id": "description",
-      "label": "Description",
+      "label": "Description (ES)",
+      "default": "<p>Mantente al día con nuestros próximos eventos y programas profesionales.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "description_en",
+      "label": "Description (EN)",
       "default": "<p>Stay updated with our upcoming events and professional programs.</p>"
     },
     {
