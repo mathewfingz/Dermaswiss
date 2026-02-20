@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -11,14 +20,14 @@
         "event_jan_18_students": {
           "type": "event",
           "settings": {
-            "title": "Direct and Cocktailed Peels (Students)",
-            "event_date": "2026-01-18",
-            "event_type": "On site - San Antonio, TX",
-            "price": "$340",
-            "city": "San Antonio",
-            "location": "San Antonio, TX",
+            "title": "PeelxPlus Certification Level I: Seminar",
+            "event_date": "2026-02-25",
+            "event_type": "Online",
+            "price": "$40",
+            "city": "",
+            "location": "",
             "registration_link": "https://dermaswiss.com/products/sanantoniopeelxplus",
-            "event_description": "<p>Chemical Peels: Direct and cocktail application for visible results. Adapted to every skin type. Comprehensive training that combines applied theory with practical hands-on procedures. Learn how to create effective peel cocktails using the PEEL X PLUS line from DERMASWISS.</p>",
+            "event_description": "<p>C</p>",
             "event_color": "#db0032",
             "language": "en"
           }
