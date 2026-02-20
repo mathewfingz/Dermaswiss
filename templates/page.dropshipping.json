@@ -19,7 +19,7 @@
       "settings": {
         "container": "container-fluid",
         "image": "shopify://shop_images/Home-Banner-Desktop-3.png",
-        "image_overlay_opacity": 30,
+        "image_overlay_opacity": 0,
         "hero_height": "adapt",
         "content_in_container": false,
         "content_position": "center",
