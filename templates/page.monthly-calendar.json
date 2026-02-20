@@ -27,7 +27,7 @@
             "city": "",
             "location": "",
             "registration_link": "https://dermaswiss.com/products/sanantoniopeelxplus",
-            "event_description": "<p>C</p>",
+            "event_description": "",
             "event_color": "#db0032",
             "language": "en"
           }
@@ -35,44 +35,29 @@
         "event_jan_20_retinol_es": {
           "type": "event",
           "settings": {
-            "title": "Cuando el Retinol y el Glicólico hacen MATCH la piel responde",
-            "event_date": "2026-01-20",
-            "event_type": "Webinar and Social Media",
-            "price": "Gratis",
+            "title": "Certificación PeelxPlus NIVEL 2* Seminario",
+            "event_date": "2026-02-26",
+            "event_type": "Peelings Químicos en Capas y Técnicas Combinadas",
+            "price": "60",
             "city": "Online",
-            "location": "Zoom / Instagram pro español | 6:00 p.m. EST",
-            "registration_link": "https://us02web.zoom.us/webinar/register/WN_6TlsQfhcQGqXWeZzKlU0HA",
-            "event_description": "<p>Profesora: Mariana Martella. Cómo y cuándo combinar Retinol y Ácido Glicólico sin comprometer la piel, estrategias para lograr renovación visible, y cómo evitar errores comunes.</p>",
+            "location": "",
+            "registration_link": "",
+            "event_description": "",
             "event_color": "#db0032",
             "language": "es"
-          }
-        },
-        "event_jan_21_retinol_en": {
-          "type": "event",
-          "settings": {
-            "title": "When Retinol Meets Glycolic, Skin Wakes Up",
-            "event_date": "2026-01-21",
-            "event_type": "Webinar and Social Media",
-            "price": "Free",
-            "city": "Online",
-            "location": "Zoom / Instagram pro english | 6:00 p.m. EST (45 min)",
-            "registration_link": "https://us02web.zoom.us/webinar/register/WN_13b4W_J3SUK60kqIOBaSQA",
-            "event_description": "<p>Professor: Nicole Morales. When and how to combine Retinol and Glycolic Acid, strategies to achieve visible renewal, and how to avoid common mistakes.</p>",
-            "event_color": "#db0032",
-            "language": "en"
           }
         },
         "event_jan_26_reset_miami": {
           "type": "event",
           "settings": {
-            "title": "Reset: Taller de Automasaje",
-            "event_date": "2026-01-26",
-            "event_type": "Presencial - Miami",
-            "price": "Gratis",
-            "city": "Miami",
-            "location": "2806 NW 79th Avenue, Miami, FL 33122 | 9:30 a.m. - 1:00 p.m. EST",
+            "title": "Seminario: Defensa Cutánea: Antioxidantes en la Era del Estrés Celular",
+            "event_date": "2026-03-25",
+            "event_type": "Seminario: Defensa Cutánea: Antioxidantes en la Era del Estrés Celular",
+            "price": "40",
+            "city": "",
+            "location": "",
             "registration_link": "",
-            "event_description": "<p>Profesora: Mariana Martella. Un espacio para profesionales que combina desayuno, taller de automasaje y un momento para compartir con otros profesionales de la industria. Registro: Directo con la representante.</p>",
+            "event_description": "",
             "event_color": "#db0032",
             "language": "es"
           }
@@ -91,14 +76,29 @@
             "event_color": "#db0032",
             "language": "es"
           }
+        },
+        "event_mbbrar": {
+          "type": "event",
+          "settings": {
+            "title": "Skin Defense: Antioxidants in the Era of Cellular Stress. Seminar",
+            "event_date": "2026-03-27",
+            "event_type": "Webinar",
+            "price": "40",
+            "city": "",
+            "location": "Online",
+            "registration_link": "",
+            "event_description": "",
+            "event_color": "#db0032",
+            "language": "all"
+          }
         }
       },
       "block_order": [
         "event_jan_18_students",
         "event_jan_20_retinol_es",
-        "event_jan_21_retinol_en",
         "event_jan_26_reset_miami",
-        "event_jan_28_reset_online"
+        "event_jan_28_reset_online",
+        "event_mbbrar"
       ],
       "settings": {
         "heading": "Calendario de Eventos",
