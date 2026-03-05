@@ -233,6 +233,102 @@
     },
     "17689081916a13a84a": {
       "type": "apps",
+      "blocks": {
+        "bundly_product_bundles_8RYUr8": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "Special Offers",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": false,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        }
+      },
+      "block_order": [
+        "bundly_product_bundles_8RYUr8"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "17727422827d12d41d": {
+      "type": "apps",
+      "blocks": {
+        "bundly_bundle_information_cLLL77": {
+          "type": "shopify://apps/bundly/blocks/bundle_information/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "show_bundle_images": true,
+            "show_vendor": false,
+            "show_title": true,
+            "show_discount_type": false,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_component_images": true,
+            "show_component_prices": true,
+            "show_component_unit_prices": false,
+            "product_click_action": "show_dialog",
+            "page_size": 12,
+            "redirect_to_cart": true,
+            "custom_data_metafield": "",
+            "liquid": "",
+            "theme": "minimal",
+            "css": ""
+          }
+        }
+      },
+      "block_order": [
+        "bundly_bundle_information_cLLL77"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "1772742284d6dd54b6": {
+      "type": "apps",
+      "blocks": {
+        "bundly_product_bundles_wpg8mX": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "Special Offers",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": false,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        }
+      },
+      "block_order": [
+        "bundly_product_bundles_wpg8mX"
+      ],
       "settings": {
         "container": "container",
         "color_schema": "",
@@ -250,6 +346,8 @@
   "order": [
     "main",
     "product-recommendations",
-    "17689081916a13a84a"
+    "17689081916a13a84a",
+    "17727422827d12d41d",
+    "1772742284d6dd54b6"
   ]
 }
