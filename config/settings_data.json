@@ -332,6 +332,21 @@
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
+      },
+      "17215572860364850269": {
+        "type": "shopify://apps/bundly/blocks/embed/1cabc354-c7f9-42e9-8322-7655396b33b7",
+        "disabled": false,
+        "settings": {
+          "collection_pages_bundle_prices": false,
+          "collection_pages_bundle_hide_prices": false,
+          "collection_pages_bundle_quick_buy_buttons": false,
+          "cart_pages_bundle_price_before_discount": false
+        }
+      },
+      "16605207545338212596": {
+        "type": "shopify://apps/aov-ai-bundle/blocks/aov-offer/0335d423-143c-4ad7-b224-99a1db74a9ee",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
