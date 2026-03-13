@@ -426,6 +426,7 @@
       "new_subtotal": "New subtotal",
       "note": "Add a note to your order",
       "checkout": "Check out",
+      "minimum_order": "Minimum order of $150.00 required to checkout.",
       "empty": "Your cart is empty",
       "cookies_required": "Enable cookies to use the shopping cart",
       "cart_error": "There was an error while updating your cart. Please try again.",

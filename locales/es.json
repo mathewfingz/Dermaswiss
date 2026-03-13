@@ -504,6 +504,7 @@
       "note": "Añade una nota a tu pedido",
       "subtotal": "Total parcial",
       "checkout": "Verificar",
+      "minimum_order": "Se requiere un pedido mínimo de $150.00 para proceder al pago.",
       "taxes_included_but_shipping_at_checkout": "Impuestos incluidos y envío calculado al finalizar la compra",
       "cookies_required": "Habilitar cookies para usar el carrito de compras",
       "caption": "Artículos del carrito",

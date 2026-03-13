@@ -307,15 +307,30 @@
                     <a class="btn btn--secondary" href="{{ routes.cart_url }}">{{ 'sections.cart.view_cart' | t }}</a>
                   {% endif %}
                   {%- if customer -%}
+                  {% liquid
+                    assign min_order_cents = 15000
+                    assign drawer_checkout_disabled = false
+                    if cart.total_price < min_order_cents
+                      assign drawer_checkout_disabled = true
+                    endif
+                  %}
                   <button
                     type="submit"
                     class="btn btn--primary w-full"
                     name="checkout"
                     data-checkout-button
                     form="CartDrawer"
+                    {% if drawer_checkout_disabled %}
+                      disabled
+                    {% endif %}
                   >
                     {{ 'sections.cart.checkout' | t }}
                   </button>
+                  {% if drawer_checkout_disabled %}
+                    <p class="text-sm text-subtext" style="margin-top: 0.5rem; text-align: center;">
+                      {{ 'sections.cart.minimum_order' | t }}
+                    </p>
+                  {% endif %}
                   {%- else -%}
                     <a href="https://account.dermaswisspro.com/authentication/login?client_id=82153c0c-1d9c-4f76-9423-b63f135b181c&locale=en&redirect_uri=%2Fauthentication%2Foauth%2Fauthorize%3Fclient_id%3D82153c0c-1d9c-4f76-9423-b63f135b181c%26locale%3Den%26nonce%3D66f8ac46-10e2-4fc3-8d12-9439bac1f13a%26redirect_uri%3Dhttps%253A%252F%252Faccount.dermaswisspro.com%252Fcallback%253Fsource%253Dcore%26region_country%3DUS%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWN6jIU22uZhG0HiVpe2tiJG&region_country=US" class="btn btn--black">
                       {{ 'sections.cart.login_to_see_price' | t }}
