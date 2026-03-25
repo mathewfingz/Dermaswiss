@@ -63,7 +63,7 @@
           "type": "brand",
           "settings": {
             "label": "Dermaswiss Pro",
-            "link": "/",
+            "link": "https://www.dermaswisspro.com",
             "active": true,
             "new_tab": false
           }
@@ -72,7 +72,7 @@
           "type": "brand",
           "settings": {
             "label": "Dermaswiss Education",
-            "link": "/pages/about-us",
+            "link": "https://www.education.dermaswiss.com",
             "active": false,
             "new_tab": false
           }
@@ -80,8 +80,8 @@
         "brand_retail": {
           "type": "brand",
           "settings": {
-            "label": "Tienda Retail",
-            "link": "/collections/all",
+            "label": "Dermaswiss",
+            "link": "https://www.dermaswiss.com",
             "active": false,
             "new_tab": false
           }
