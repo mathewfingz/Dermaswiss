@@ -1,0 +1,159 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_since": {
+      "type": "custom-html",
+      "settings": {
+        "container": "container-full",
+        "color_schema": "",
+        "heading": "",
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "custom_html": "<style>\n  .since-hero {\n    position: relative;\n    min-height: 80vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background: #0a0a0a;\n    overflow: hidden;\n    text-align: center;\n    padding: 120px 24px 80px;\n  }\n  .since-hero__bg {\n    position: absolute;\n    inset: 0;\n    background: linear-gradient(135deg, #0a0a0a 0%, #1a1215 50%, #0a0a0a 100%);\n  }\n  .since-hero__particles {\n    position: absolute;\n    inset: 0;\n    background-image: radial-gradient(circle at 20% 50%, rgba(183,0,44,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 30%, rgba(183,0,44,0.04) 0%, transparent 40%);\n  }\n  .since-hero__content {\n    position: relative;\n    z-index: 2;\n    max-width: 800px;\n  }\n  .since-hero__year {\n    font-size: clamp(80px, 15vw, 180px);\n    font-weight: 200;\n    letter-spacing: -4px;\n    line-height: 1;\n    color: rgba(255,255,255,0.06);\n    margin-bottom: -30px;\n    font-family: serif;\n  }\n  .since-hero__label {\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: 6px;\n    text-transform: uppercase;\n    color: #B7002C;\n    margin-bottom: 24px;\n  }\n  .since-hero__title {\n    font-size: clamp(32px, 5vw, 56px);\n    font-weight: 300;\n    letter-spacing: 2px;\n    color: #fff;\n    line-height: 1.2;\n    margin-bottom: 20px;\n    font-family: serif;\n  }\n  .since-hero__title strong {\n    font-weight: 600;\n  }\n  .since-hero__sub {\n    font-size: 16px;\n    font-weight: 300;\n    line-height: 1.8;\n    color: rgba(255,255,255,0.55);\n    max-width: 600px;\n    margin: 0 auto;\n  }\n  .since-hero__line {\n    width: 1px;\n    height: 60px;\n    background: linear-gradient(to bottom, #B7002C, transparent);\n    margin: 40px auto 0;\n    animation: pulse-line 2s ease-in-out infinite;\n  }\n  @keyframes pulse-line {\n    0%, 100% { opacity: 0.4; }\n    50% { opacity: 1; }\n  }\n  @media (max-width: 749px) {\n    .since-hero { min-height: 60vh; padding: 100px 20px 60px; }\n    .since-hero__year { margin-bottom: -15px; }\n  }\n</style>\n<div class=\"since-hero\">\n  <div class=\"since-hero__bg\"></div>\n  <div class=\"since-hero__particles\"></div>\n  <div class=\"since-hero__content\">\n    <div class=\"since-hero__year\">1992</div>\n    <p class=\"since-hero__label\">Since 1992</p>\n    <h1 class=\"since-hero__title\">Three Decades of<br><strong>Skin Knowledge</strong></h1>\n    <p class=\"since-hero__sub\">From a Swiss-inspired laboratory in Miami to skincare professionals across the Americas. The Dermaswiss story is one of science, passion, and purpose.</p>\n    <div class=\"since-hero__line\"></div>\n  </div>\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "story_intro": {
+      "type": "custom-html",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "custom_html": "<style>\n  .story-intro {\n    max-width: 720px;\n    margin: 0 auto;\n    text-align: center;\n    padding: 80px 24px;\n  }\n  .story-intro__icon {\n    width: 48px;\n    height: 1px;\n    background: #B7002C;\n    margin: 0 auto 32px;\n  }\n  .story-intro__heading {\n    font-size: clamp(24px, 3vw, 36px);\n    font-weight: 300;\n    letter-spacing: 1px;\n    color: #222;\n    line-height: 1.4;\n    margin-bottom: 24px;\n    font-family: serif;\n  }\n  .story-intro__text {\n    font-size: 15px;\n    font-weight: 300;\n    line-height: 2;\n    color: #666;\n  }\n  .story-intro__text em {\n    font-style: italic;\n    color: #B7002C;\n  }\n</style>\n<div class=\"story-intro\">\n  <div class=\"story-intro__icon\"></div>\n  <h2 class=\"story-intro__heading\">Our Philosophy</h2>\n  <p class=\"story-intro__text\">Since 1992, DERMASWISS has developed skincare with purpose. Our mission is to simplify high-performance skincare for real people — at home and in the treatment room.<br><br>We believe in <em>Skin Knowledge</em> — understanding what your skin needs, and when. That's why every product is multifunctional, minimal, and rooted in science. Clean formulas powered by peptides, hyaluronic acid, ceramides, antioxidants, and Swiss Alpine botanicals.</p>\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "timeline_section": {
+      "type": "custom-html",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "custom_html": "<style>\n  .tl-section { padding: 60px 24px 80px; }\n  .tl-section__title {\n    text-align: center;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: 5px;\n    text-transform: uppercase;\n    color: #B7002C;\n    margin-bottom: 60px;\n  }\n  .tl {\n    position: relative;\n    max-width: 800px;\n    margin: 0 auto;\n    padding-left: 40px;\n  }\n  .tl::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 12px;\n    width: 1px;\n    height: 100%;\n    background: linear-gradient(to bottom, #B7002C, #e8e0d8, #B7002C);\n  }\n  .tl__item {\n    position: relative;\n    padding-bottom: 48px;\n    opacity: 0;\n    transform: translateY(20px);\n    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);\n  }\n  .tl__item.is-visible {\n    opacity: 1;\n    transform: translateY(0);\n  }\n  .tl__dot {\n    position: absolute;\n    left: -34px;\n    top: 4px;\n    width: 12px;\n    height: 12px;\n    border-radius: 50%;\n    background: #fff;\n    border: 2px solid #B7002C;\n    z-index: 2;\n  }\n  .tl__year {\n    font-size: 13px;\n    font-weight: 700;\n    letter-spacing: 3px;\n    color: #B7002C;\n    margin-bottom: 6px;\n  }\n  .tl__title {\n    font-size: 20px;\n    font-weight: 400;\n    color: #222;\n    margin-bottom: 8px;\n    font-family: serif;\n  }\n  .tl__text {\n    font-size: 14px;\n    font-weight: 300;\n    line-height: 1.8;\n    color: #888;\n  }\n  @media (max-width: 749px) {\n    .tl { padding-left: 32px; }\n    .tl::before { left: 8px; }\n    .tl__dot { left: -30px; width: 10px; height: 10px; }\n  }\n</style>\n<div class=\"tl-section\">\n  <p class=\"tl-section__title\">Our Journey</p>\n  <div class=\"tl\">\n    <div class=\"tl__item\">\n      <div class=\"tl__dot\"></div>\n      <div class=\"tl__year\">1992</div>\n      <div class=\"tl__title\">The Beginning</div>\n      <p class=\"tl__text\">DERMASWISS is founded in Miami, Florida as Derma Swiss 3000 Manufacturers, Inc. Inspired by Swiss precision and cosmetic science traditions, the brand sets out to create clinical-grade skincare rooted in nature and innovation.</p>\n    </div>\n    <div class=\"tl__item\">\n      <div class=\"tl__dot\"></div>\n      <div class=\"tl__year\">1990s</div>\n      <div class=\"tl__title\">Building the Foundation</div>\n      <p class=\"tl__text\">The first formulations are developed using Swiss Alpine ingredients — plant derivatives, stem cells, and advanced peptide technology. Dermaswiss builds a reputation among estheticians and skin professionals in South Florida.</p>\n    </div>\n    <div class=\"tl__item\">\n      <div class=\"tl__dot\"></div>\n      <div class=\"tl__year\">2000s</div>\n      <div class=\"tl__title\">Professional Line Launch</div>\n      <p class=\"tl__text\">DERMASWISS Professional is born — a dedicated line for licensed estheticians. The brand introduces nanosphere delivery systems, bio-serums, and the Skin Knowledge philosophy that would become their signature.</p>\n    </div>\n    <div class=\"tl__item\">\n      <div class=\"tl__dot\"></div>\n      <div class=\"tl__year\">2010s</div>\n      <div class=\"tl__title\">Education Becomes Core</div>\n      <p class=\"tl__text\">DermaSwiss Institute opens as a licensed esthetics education school in Doral, FL. The brand's commitment to education deepens with on-demand seminars, professional training, and a complete facial specialist program.</p>\n    </div>\n    <div class=\"tl__item\">\n      <div class=\"tl__dot\"></div>\n      <div class=\"tl__year\">2020</div>\n      <div class=\"tl__title\">International Expansion</div>\n      <p class=\"tl__text\">Dermaswiss expands to Colombia and Latin America. The brand launches Spanish-language platforms and begins serving a growing community of professionals across the Americas.</p>\n    </div>\n    <div class=\"tl__item\">\n      <div class=\"tl__dot\"></div>\n      <div class=\"tl__year\">2024</div>\n      <div class=\"tl__title\">Digital Transformation</div>\n      <p class=\"tl__text\">Three distinct platforms launch: dermaswiss.com for consumers, dermaswisspro.com for professionals, and dermaswissinstitute.com for education. A unified digital ecosystem for the modern skincare professional.</p>\n    </div>\n    <div class=\"tl__item\">\n      <div class=\"tl__dot\"></div>\n      <div class=\"tl__year\">2026</div>\n      <div class=\"tl__title\">30+ Years and Growing</div>\n      <p class=\"tl__text\">With over three decades of expertise, 50+ products, and thousands of professionals trained, DERMASWISS continues to lead with science, integrity, and the belief that beautiful skin is possible at any age.</p>\n    </div>\n  </div>\n</div>\n<script>\n  document.addEventListener('DOMContentLoaded', function() {\n    const items = document.querySelectorAll('.tl__item');\n    const observer = new IntersectionObserver(function(entries) {\n      entries.forEach(function(entry) {\n        if (entry.isIntersecting) {\n          entry.target.classList.add('is-visible');\n          observer.unobserve(entry.target);\n        }\n      });\n    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });\n    items.forEach(function(item, i) {\n      item.style.transitionDelay = (i * 0.1) + 's';\n      observer.observe(item);\n    });\n  });\n</script>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "pillars_section": {
+      "type": "custom-html",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "custom_html": "<style>\n  .pillars {\n    padding: 80px 24px;\n    background: #faf9f7;\n  }\n  .pillars__title {\n    text-align: center;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: 5px;\n    text-transform: uppercase;\n    color: #B7002C;\n    margin-bottom: 48px;\n  }\n  .pillars__grid {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 32px;\n    max-width: 960px;\n    margin: 0 auto;\n  }\n  .pillar {\n    text-align: center;\n    padding: 40px 24px;\n    border: 1px solid #e8e0d8;\n    background: #fff;\n    transition: all 0.4s ease;\n  }\n  .pillar:hover {\n    border-color: #B7002C;\n    box-shadow: 0 8px 30px rgba(183,0,44,0.06);\n    transform: translateY(-4px);\n  }\n  .pillar__icon {\n    font-size: 32px;\n    margin-bottom: 16px;\n  }\n  .pillar__name {\n    font-size: 16px;\n    font-weight: 600;\n    letter-spacing: 2px;\n    text-transform: uppercase;\n    color: #222;\n    margin-bottom: 12px;\n  }\n  .pillar__text {\n    font-size: 14px;\n    font-weight: 300;\n    line-height: 1.8;\n    color: #888;\n  }\n  @media (max-width: 749px) {\n    .pillars__grid { grid-template-columns: 1fr; gap: 20px; }\n  }\n</style>\n<div class=\"pillars\">\n  <p class=\"pillars__title\">The Dermaswiss Ecosystem</p>\n  <div class=\"pillars__grid\">\n    <div class=\"pillar\">\n      <div class=\"pillar__icon\">&#9883;</div>\n      <div class=\"pillar__name\">Dermaswiss Pro</div>\n      <p class=\"pillar__text\">Professional-grade skincare for licensed estheticians. Advanced formulations, wholesale pricing, and exclusive tools for treatment rooms.</p>\n    </div>\n    <div class=\"pillar\">\n      <div class=\"pillar__icon\">&#9733;</div>\n      <div class=\"pillar__name\">Education</div>\n      <p class=\"pillar__text\">Licensed esthetics programs, on-demand seminars, and continuous professional development. From student to expert, we're with you.</p>\n    </div>\n    <div class=\"pillar\">\n      <div class=\"pillar__icon\">&#10084;</div>\n      <div class=\"pillar__name\">Dermaswiss</div>\n      <p class=\"pillar__text\">High-performance at-home skincare for everyone. Clean, multifunctional formulas designed for visible results from day one.</p>\n    </div>\n  </div>\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "stats_section": {
+      "type": "custom-html",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "custom_html": "<style>\n  .stats {\n    padding: 80px 24px;\n    background: #0a0a0a;\n  }\n  .stats__grid {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    gap: 24px;\n    max-width: 900px;\n    margin: 0 auto;\n    text-align: center;\n  }\n  .stat__number {\n    font-size: clamp(36px, 5vw, 52px);\n    font-weight: 200;\n    color: #B7002C;\n    line-height: 1;\n    margin-bottom: 8px;\n    font-family: serif;\n  }\n  .stat__label {\n    font-size: 11px;\n    font-weight: 500;\n    letter-spacing: 3px;\n    text-transform: uppercase;\n    color: rgba(255,255,255,0.5);\n  }\n  @media (max-width: 749px) {\n    .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }\n  }\n</style>\n<div class=\"stats\">\n  <div class=\"stats__grid\">\n    <div>\n      <div class=\"stat__number\">30+</div>\n      <div class=\"stat__label\">Years</div>\n    </div>\n    <div>\n      <div class=\"stat__number\">50+</div>\n      <div class=\"stat__label\">Products</div>\n    </div>\n    <div>\n      <div class=\"stat__number\">3</div>\n      <div class=\"stat__label\">Divisions</div>\n    </div>\n    <div>\n      <div class=\"stat__number\">1000s</div>\n      <div class=\"stat__label\">Professionals Trained</div>\n    </div>\n  </div>\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "values_section": {
+      "type": "custom-html",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "custom_html": "<style>\n  .values {\n    padding: 80px 24px;\n    max-width: 720px;\n    margin: 0 auto;\n    text-align: center;\n  }\n  .values__title {\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: 5px;\n    text-transform: uppercase;\n    color: #B7002C;\n    margin-bottom: 40px;\n  }\n  .values__list {\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    display: flex;\n    flex-direction: column;\n    gap: 20px;\n  }\n  .values__item {\n    font-size: 16px;\n    font-weight: 300;\n    color: #555;\n    line-height: 1.6;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #eee;\n  }\n  .values__item strong {\n    color: #222;\n    font-weight: 500;\n  }\n  .values__quote {\n    font-size: clamp(20px, 3vw, 28px);\n    font-weight: 300;\n    font-style: italic;\n    color: #222;\n    line-height: 1.5;\n    margin-top: 48px;\n    font-family: serif;\n  }\n  .values__quote-author {\n    font-size: 13px;\n    font-weight: 500;\n    letter-spacing: 2px;\n    text-transform: uppercase;\n    color: #B7002C;\n    margin-top: 16px;\n  }\n</style>\n<div class=\"values\">\n  <p class=\"values__title\">What We Believe</p>\n  <ul class=\"values__list\">\n    <li class=\"values__item\"><strong>Effective from the first use</strong> — visible results from day one</li>\n    <li class=\"values__item\"><strong>Safe for all skin types</strong> and all ages</li>\n    <li class=\"values__item\"><strong>Powered by science,</strong> nature, and innovation</li>\n    <li class=\"values__item\"><strong>Clean & cruelty-free</strong> — paraben-free formulas</li>\n    <li class=\"values__item\"><strong>Education over trends</strong> — rooted in Skin Knowledge</li>\n  </ul>\n  <p class=\"values__quote\">\"Above all, the gift of looking beautiful at any age.\"</p>\n  <p class=\"values__quote-author\">— Dermaswiss</p>\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "cta_section": {
+      "type": "custom-html",
+      "settings": {
+        "container": "container-full",
+        "color_schema": "",
+        "heading": "",
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "custom_html": "<style>\n  .since-cta {\n    padding: 80px 24px;\n    background: linear-gradient(135deg, #0a0a0a 0%, #1a1215 100%);\n    text-align: center;\n  }\n  .since-cta__heading {\n    font-size: clamp(24px, 3vw, 36px);\n    font-weight: 300;\n    color: #fff;\n    letter-spacing: 1px;\n    margin-bottom: 12px;\n    font-family: serif;\n  }\n  .since-cta__sub {\n    font-size: 15px;\n    color: rgba(255,255,255,0.5);\n    margin-bottom: 32px;\n  }\n  .since-cta__buttons {\n    display: flex;\n    gap: 16px;\n    justify-content: center;\n    flex-wrap: wrap;\n  }\n  .since-cta__btn {\n    display: inline-flex;\n    align-items: center;\n    padding: 14px 36px;\n    font-size: 12px;\n    font-weight: 600;\n    letter-spacing: 2px;\n    text-transform: uppercase;\n    text-decoration: none;\n    transition: all 0.3s ease;\n  }\n  .since-cta__btn--primary {\n    background: #B7002C;\n    color: #fff;\n    border: 1px solid #B7002C;\n  }\n  .since-cta__btn--primary:hover {\n    background: #9A0024;\n    border-color: #9A0024;\n  }\n  .since-cta__btn--outline {\n    background: transparent;\n    color: #fff;\n    border: 1px solid rgba(255,255,255,0.2);\n  }\n  .since-cta__btn--outline:hover {\n    border-color: #fff;\n    background: rgba(255,255,255,0.04);\n  }\n</style>\n<div class=\"since-cta\">\n  <h2 class=\"since-cta__heading\">The Story Continues</h2>\n  <p class=\"since-cta__sub\">Join thousands of professionals who trust Dermaswiss.</p>\n  <div class=\"since-cta__buttons\">\n    <a href=\"/collections/all\" class=\"since-cta__btn since-cta__btn--primary\">Shop Products</a>\n    <a href=\"https://www.education.dermaswiss.com\" class=\"since-cta__btn since-cta__btn--outline\">Explore Education</a>\n    <a href=\"/pages/registerform\" class=\"since-cta__btn since-cta__btn--outline\">Become a Professional</a>\n  </div>\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_since",
+    "story_intro",
+    "timeline_section",
+    "pillars_section",
+    "stats_section",
+    "values_section",
+    "cta_section"
+  ]
+}
