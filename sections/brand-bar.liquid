@@ -1,0 +1,275 @@
+{% comment %}
+  Brand Bar — Elegant top bar with brand logos linking to different pages.
+  Configurable from Shopify admin.
+{% endcomment %}
+
+<style>
+  .brand-bar {
+    background: {{ section.settings.bg_color | default: '#1a1a1a' }};
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    z-index: 50;
+    overflow: hidden;
+  }
+
+  .brand-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: {{ section.settings.bar_height | default: 48 }}px;
+  }
+
+  .brand-bar__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 28px;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .brand-bar__item:first-child {
+    border-left: none;
+  }
+
+  .brand-bar__item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background: {{ section.settings.accent_color | default: '#B7002C' }};
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .brand-bar__item:hover::before,
+  .brand-bar__item--active::before {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .brand-bar__item:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .brand-bar__item--active {
+    background: rgba(255,255,255,0.06);
+  }
+
+  .brand-bar__item img {
+    height: {{ section.settings.logo_height | default: 22 }}px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+    filter: brightness(0) invert(1);
+  }
+
+  .brand-bar__item:hover img,
+  .brand-bar__item--active img {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .brand-bar__item--active img {
+    opacity: 1;
+  }
+
+  .brand-bar__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .brand-bar__item:hover .brand-bar__label,
+  .brand-bar__item--active .brand-bar__label {
+    color: rgba(255,255,255,0.95);
+  }
+
+  /* Subtle entrance animation */
+  .brand-bar__item {
+    opacity: 0;
+    transform: translateY(-4px);
+    animation: brandBarFadeIn 0.5s ease forwards;
+  }
+
+  .brand-bar__item:nth-child(1) { animation-delay: 0.1s; }
+  .brand-bar__item:nth-child(2) { animation-delay: 0.2s; }
+  .brand-bar__item:nth-child(3) { animation-delay: 0.3s; }
+  .brand-bar__item:nth-child(4) { animation-delay: 0.4s; }
+  .brand-bar__item:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes brandBarFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 749px) {
+    .brand-bar__inner {
+      justify-content: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .brand-bar__inner::-webkit-scrollbar {
+      display: none;
+    }
+    .brand-bar__item {
+      padding: 0 18px;
+      flex-shrink: 0;
+    }
+    .brand-bar__item img {
+      height: {{ section.settings.logo_height | default: 22 | minus: 4 }}px;
+    }
+    .brand-bar__label {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+  }
+</style>
+
+<div class="brand-bar" data-section-id="{{ section.id }}" data-section-type="brand-bar">
+  <div class="brand-bar__inner">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'brand' -%}
+          <a
+            href="{{ block.settings.link | default: '#' }}"
+            class="brand-bar__item{% if block.settings.active %} brand-bar__item--active{% endif %}"
+            {{ block.shopify_attributes }}
+            {% if block.settings.new_tab %}target="_blank" rel="noopener"{% endif %}
+          >
+            {%- if block.settings.logo != blank -%}
+              <img
+                src="{{ block.settings.logo | image_url: height: 80 }}"
+                alt="{{ block.settings.label | escape }}"
+                loading="eager"
+                height="{{ section.settings.logo_height | default: 22 }}"
+              >
+            {%- else -%}
+              <span class="brand-bar__label">{{ block.settings.label }}</span>
+            {%- endif -%}
+          </a>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Brand Bar",
+  "class": "brand-bar-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color (hover line)",
+      "default": "#B7002C"
+    },
+    {
+      "type": "range",
+      "id": "bar_height",
+      "label": "Bar height (px)",
+      "min": 36,
+      "max": 64,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo height (px)",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "default": 22,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Brand logo"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Brand name (fallback if no logo)",
+          "default": "Brand Name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "active",
+          "label": "Active (current page)",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "new_tab",
+          "label": "Open in new tab",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Bar",
+      "blocks": [
+        {
+          "type": "brand",
+          "settings": {
+            "label": "Dermaswiss Pro",
+            "active": true
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "label": "Dermaswiss Education"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "label": "Tienda Retail"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

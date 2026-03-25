@@ -56,6 +56,49 @@
         "autorotate_speed": 4
       }
     },
+    "brand-bar": {
+      "type": "brand-bar",
+      "blocks": {
+        "brand_pro": {
+          "type": "brand",
+          "settings": {
+            "label": "Dermaswiss Pro",
+            "link": "/",
+            "active": true,
+            "new_tab": false
+          }
+        },
+        "brand_edu": {
+          "type": "brand",
+          "settings": {
+            "label": "Dermaswiss Education",
+            "link": "/pages/about-us",
+            "active": false,
+            "new_tab": false
+          }
+        },
+        "brand_retail": {
+          "type": "brand",
+          "settings": {
+            "label": "Tienda Retail",
+            "link": "/collections/all",
+            "active": false,
+            "new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "brand_pro",
+        "brand_edu",
+        "brand_retail"
+      ],
+      "settings": {
+        "bg_color": "#1a1a1a",
+        "accent_color": "#B7002C",
+        "bar_height": 48,
+        "logo_height": 22
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -90,6 +133,7 @@
     }
   },
   "order": [
+    "brand-bar",
     "announcement-bar",
     "header"
   ]
