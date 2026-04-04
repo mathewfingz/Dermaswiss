@@ -310,7 +310,11 @@
                   {% liquid
                     assign min_order_cents = 15000
                     assign drawer_checkout_disabled = false
-                    if cart.total_price < min_order_cents
+                    assign is_dropshipping = false
+                    if cart.attributes.dropshipping == 'yes'
+                      assign is_dropshipping = true
+                    endif
+                    if cart.total_price < min_order_cents and is_dropshipping == false
                       assign drawer_checkout_disabled = true
                     endif
                   %}

@@ -255,7 +255,11 @@
                     {% liquid
                       assign min_order_cents = 15000
                       assign checkout_disabled = false
-                      if cart == empty or cart.total_price < min_order_cents
+                      assign is_dropshipping = false
+                      if cart.attributes.dropshipping == 'yes'
+                        assign is_dropshipping = true
+                      endif
+                      if cart == empty or cart.total_price < min_order_cents and is_dropshipping == false
                         assign checkout_disabled = true
                       endif
                     %}
@@ -283,7 +287,7 @@
                     {%- endif -%}
                   </div>
 
-                  {%- if additional_checkout_buttons and block.settings.show_additional_checkout_buttons and cart.total_price >= 15000 -%}
+                  {%- if additional_checkout_buttons and block.settings.show_additional_checkout_buttons and checkout_disabled == false -%}
                     <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
                       {{ content_for_additional_checkout_buttons }}
                     </div>
