@@ -1,0 +1,126 @@
+{% comment %}
+  Retail Credit Component
+  Shows suggested retail products when cart total >= $350
+  Credit = 10% of cart total, suggests products within that budget
+{% endcomment %}
+
+{% if customer %}
+  {%- liquid
+    assign cart_total = 0
+    for item in cart.items
+      assign cart_total = cart_total | plus: item.original_line_price
+    endfor
+
+    assign min_order = 35000
+    if cart_total >= min_order
+      assign credit_cents = cart_total | times: 10 | divided_by: 100
+      assign credit_dollars = credit_cents | money
+
+      assign retail_collection = collections['retail-products']
+    endif
+  -%}
+
+  {% if cart_total >= min_order and retail_collection != blank %}
+    <div class="f-retail-credit" id="retail-credit-section">
+      <div class="f-retail-credit__header">
+        <h3 class="f-retail-credit__title text-base font-semibold">
+          🎁 You have {{ credit_dollars }} in FREE retail products!
+        </h3>
+        <p class="f-retail-credit__subtitle text-sm color-foreground-secondary mt-1">
+          Add retail products up to {{ credit_dollars }} — they'll be on us.
+        </p>
+      </div>
+
+      <div class="f-retail-credit__products mt-3" id="retail-credit-products">
+        {%- for product in retail_collection.products limit: 20 -%}
+          {%- liquid
+            assign retail_variant = nil
+            for variant in product.variants
+              assign vtag = variant.metafields.custom.tag | downcase
+              if vtag == 'retail'
+                assign retail_variant = variant
+                break
+              endif
+            endfor
+          -%}
+
+          {%- if retail_variant and retail_variant.price <= credit_cents and retail_variant.available -%}
+            {%- assign already_in_cart = false -%}
+            {%- for item in cart.items -%}
+              {%- if item.variant_id == retail_variant.id -%}
+                {%- assign already_in_cart = true -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- unless already_in_cart -%}
+              <div class="f-retail-credit__product flex items-center gap-3 py-2 border-b border-color-border">
+                {% if product.featured_image %}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 80 }}"
+                    alt="{{ product.title | escape }}"
+                    width="40"
+                    height="40"
+                    class="f-retail-credit__image rounded"
+                    loading="lazy"
+                  >
+                {% endif %}
+                <div class="f-retail-credit__info flex-1">
+                  <p class="text-sm font-medium">{{ product.title }}</p>
+                  <p class="text-xs color-foreground-secondary">
+                    {{ retail_variant.title }} — <strong>{{ retail_variant.price | money }}</strong>
+                    <span class="f-retail-credit__free-tag" style="color: #16a34a; font-weight: 600;">FREE</span>
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  class="f-retail-credit__add btn btn--sm btn--secondary"
+                  data-variant-id="{{ retail_variant.id }}"
+                  onclick="addRetailProduct({{ retail_variant.id }})"
+                  style="white-space: nowrap; padding: 4px 12px; font-size: 12px;"
+                >
+                  + Add
+                </button>
+              </div>
+            {%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <style>
+      .f-retail-credit {
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      .f-retail-credit__free-tag {
+        margin-left: 4px;
+      }
+    </style>
+
+    <script>
+      function addRetailProduct(variantId) {
+        const btn = event.currentTarget;
+        btn.disabled = true;
+        btn.textContent = '...';
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: variantId, quantity: 1 })
+        })
+        .then(r => r.json())
+        .then(() => {
+          window.location.reload();
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = '+ Add';
+        });
+      }
+    </script>
+  {% endif %}
+{% endif %}
