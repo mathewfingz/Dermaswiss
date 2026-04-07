@@ -230,7 +230,10 @@
         "button": "Soveltaa",
         "duplicate_error_message": "Alennuskoodia on jo sovellettu ostoskoriin.",
         "apply_error_message": "Alennuskoodia ei voida soveltaa ostoskoriin."
-      }
+      },
+      "dropshipping_option_label": "Is this a dropshipping order?",
+      "dropshipping_delivery_note": "Note: Dropshipping orders may take an additional 24-48 hours to process.",
+      "dropshipping_address_notice": "Remember to enter your final customer's address in the next step."
     },
     "breadcrumbs": {
       "home": "Koti",
@@ -544,6 +547,22 @@
       "min_error": "Tällä tuotteella on vähintään {{ min }}",
       "max_error": "Tällä tuotteella on enintään {{ max }}",
       "step_error": "Voit lisätä tämän kohteen vain {{ step }}:n välein"
+    },
+    "dropshipping": {
+      "how_it_works_heading": "HOW DOES IT WORK?",
+      "step_1_title": "STEP 1.",
+      "step_1_text_html": "<ul><li>Place your order from your professional account.</li><li>Select Retail products and choose <strong>'Dropshipping'</strong>.</li><li>Enter your customer's shipping details.</li></ul>",
+      "step_2_title": "STEP 2.",
+      "step_2_text_html": "<ul><li>We prepare the order.</li><li>Our fulfillment center picks and packs the products with professional presentation.</li></ul>",
+      "step_3_title": "STEP 3.",
+      "step_3_text_html": "<ul><li>We ship the order directly to your customer.</li><li>The package arrives without prices or promotional material.</li><li>You'll receive a tracking number to share with your customer.</li></ul>",
+      "faq_heading": "Frequently Asked Questions",
+      "faq_1_title": "Is there any cost to join?",
+      "faq_1_content": "No, joining our dropshipping program is completely free for registered aesthetics professionals.",
+      "faq_2_title": "Will the customer know the shipment comes from Dermaswiss?",
+      "faq_2_content": "If you select the 'Dropshipping' option in the cart, we'll make sure the shipment is discreet and doesn't include invoices with wholesale prices.",
+      "faq_3_title": "How are returns handled?",
+      "faq_3_content": "Returns are handled directly through your distributor account following our standard warranty policies."
     }
   },
   "blogs": {
