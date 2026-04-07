@@ -211,27 +211,38 @@
                       <td class="f-cart-item__totals right md:hidden">
                         <div class="f-cart-item__price-wrapper">
                           {%- if customer -%}
-                          {%- if item.original_line_price != item.final_line_price -%}
-                            <dl class="f-cart-item__discounted-prices">
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.regular_price' | t }}
-                              </dt>
-                              <dd>
-                                <s class="f-cart-item__old-price price price--end">
-                                  {{ item.original_line_price | money }}
-                                </s>
-                              </dd>
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.sale_price' | t }}
-                              </dt>
-                              <dd class="price price--end">
-                                {{ item.final_line_price | money }}
-                              </dd>
-                            </dl>
-                          {%- else -%}
-                            <span class="price price--end">
-                              {{ item.original_line_price | money }}
-                              </span>
+                            {%- liquid
+                              assign tag_has_discount = false
+                              assign tag_discount_price = item.original_line_price
+                              for tag in item.product.tags
+                                assign tag_lower = tag | downcase
+                                if tag_lower contains 'show'
+                                  assign tag_number = tag_lower | remove: 'show' | plus: 0
+                                  if tag_number > 0 and tag_number <= 100
+                                    assign tag_has_discount = true
+                                    assign discount_multiplier = 100 | minus: tag_number
+                                    assign tag_discount_price = item.original_line_price | times: discount_multiplier | divided_by: 100
+                                    break
+                                  endif
+                                endif
+                              endfor
+                            -%}
+                            {%- if tag_has_discount -%}
+                              <dl class="f-cart-item__discounted-prices">
+                                <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
+                                <dd><s class="f-cart-item__old-price price price--end">{{ item.original_line_price | money }}</s></dd>
+                                <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
+                                <dd class="price price--end">{{ tag_discount_price | money }}</dd>
+                              </dl>
+                            {%- elsif item.original_line_price != item.final_line_price -%}
+                              <dl class="f-cart-item__discounted-prices">
+                                <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
+                                <dd><s class="f-cart-item__old-price price price--end">{{ item.original_line_price | money }}</s></dd>
+                                <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
+                                <dd class="price price--end">{{ item.final_line_price | money }}</dd>
+                              </dl>
+                            {%- else -%}
+                              <span class="price price--end">{{ item.original_line_price | money }}</span>
                             {%- endif -%}
                           {%- else -%}
                             <span class="price price--end text-sm">
@@ -277,27 +288,38 @@
                       <td class="f-cart-item__totals right md-down:hidden">
                         <div class="f-cart-item__price-wrapper">
                           {%- if customer -%}
-                          {%- if item.original_line_price != item.final_line_price -%}
-                            <dl class="f-cart-item__discounted-prices">
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.regular_price' | t }}
-                              </dt>
-                              <dd>
-                                <s class="f-cart-item__old-price price price--end">
-                                  {{ item.original_line_price | money }}
-                                </s>
-                              </dd>
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.sale_price' | t }}
-                              </dt>
-                              <dd class="f-cart-item__price f-cart-item__price--end">
-                                {{ item.final_line_price | money }}
-                              </dd>
-                            </dl>
-                          {%- else -%}
-                            <span class="f-cart-item__price f-cart-item__price--end">
-                              {{ item.original_line_price | money }}
-                              </span>
+                            {%- liquid
+                              assign tag_has_discount = false
+                              assign tag_discount_price = item.original_line_price
+                              for tag in item.product.tags
+                                assign tag_lower = tag | downcase
+                                if tag_lower contains 'show'
+                                  assign tag_number = tag_lower | remove: 'show' | plus: 0
+                                  if tag_number > 0 and tag_number <= 100
+                                    assign tag_has_discount = true
+                                    assign discount_multiplier = 100 | minus: tag_number
+                                    assign tag_discount_price = item.original_line_price | times: discount_multiplier | divided_by: 100
+                                    break
+                                  endif
+                                endif
+                              endfor
+                            -%}
+                            {%- if tag_has_discount -%}
+                              <dl class="f-cart-item__discounted-prices">
+                                <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
+                                <dd><s class="f-cart-item__old-price price price--end">{{ item.original_line_price | money }}</s></dd>
+                                <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
+                                <dd class="f-cart-item__price f-cart-item__price--end">{{ tag_discount_price | money }}</dd>
+                              </dl>
+                            {%- elsif item.original_line_price != item.final_line_price -%}
+                              <dl class="f-cart-item__discounted-prices">
+                                <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
+                                <dd><s class="f-cart-item__old-price price price--end">{{ item.original_line_price | money }}</s></dd>
+                                <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
+                                <dd class="f-cart-item__price f-cart-item__price--end">{{ item.final_line_price | money }}</dd>
+                              </dl>
+                            {%- else -%}
+                              <span class="f-cart-item__price f-cart-item__price--end">{{ item.original_line_price | money }}</span>
                             {%- endif -%}
                           {%- else -%}
                             <span class="f-cart-item__price f-cart-item__price--end text-sm">

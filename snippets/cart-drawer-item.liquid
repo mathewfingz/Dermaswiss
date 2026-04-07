@@ -38,19 +38,46 @@
         </a>
         <div class="f-cart-drawer__product-prices">
           {%- if customer -%}
-          {%- if item.original_line_price != item.final_line_price -%}
-            <div class="f-cart-drawer__discounted-prices text-sm">
-              <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
-              <s class="f-cart-drawer__product-price">
-                {{ item.original_line_price | money }}
-              </s>
-              <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
-              <span class="f-cart-drawer__product-price f-cart-drawer__product-price--discount">
-                {{- item.final_line_price | money -}}
-              </span>
-            </div>
-          {%- else -%}
-            <span class="f-cart-drawer__product-price">{{ item.original_line_price | money }}</span>
+            {%- liquid
+              assign tag_has_discount = false
+              assign tag_discount_price = item.original_line_price
+              for tag in item.product.tags
+                assign tag_lower = tag | downcase
+                if tag_lower contains 'show'
+                  assign tag_number = tag_lower | remove: 'show' | plus: 0
+                  if tag_number > 0 and tag_number <= 100
+                    assign tag_has_discount = true
+                    assign discount_multiplier = 100 | minus: tag_number
+                    assign tag_discount_price = item.original_line_price | times: discount_multiplier | divided_by: 100
+                    break
+                  endif
+                endif
+              endfor
+            -%}
+            {%- if tag_has_discount -%}
+              <div class="f-cart-drawer__discounted-prices text-sm">
+                <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                <s class="f-cart-drawer__product-price">
+                  {{ item.original_line_price | money }}
+                </s>
+                <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                <span class="f-cart-drawer__product-price f-cart-drawer__product-price--discount">
+                  {{- tag_discount_price | money -}}
+                </span>
+              </div>
+            {%- elsif item.original_line_price != item.final_line_price -%}
+              <div class="f-cart-drawer__discounted-prices text-sm">
+                <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                <s class="f-cart-drawer__product-price">
+                  {{ item.original_line_price | money }}
+                </s>
+                <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                <span class="f-cart-drawer__product-price f-cart-drawer__product-price--discount">
+                  {{- item.final_line_price | money -}}
+                </span>
+              </div>
+            {%- else -%}
+              <span class="f-cart-drawer__product-price">{{ item.original_line_price | money }}</span>
             {%- endif -%}
           {%- else -%}
             <span class="f-cart-drawer__product-price text-sm">{{ 'sections.cart.login_to_see_price' | t }}</span>

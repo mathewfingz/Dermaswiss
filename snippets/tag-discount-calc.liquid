@@ -1,0 +1,28 @@
+{% comment %}
+  Calculates discount based on product tags (show5, show10, show15, etc.)
+  Usage: {% render 'tag-discount-calc', item: item %}
+  Outputs: tag_discount_percentage, tag_discount_price, tag_has_discount
+{% endcomment %}
+
+{%- liquid
+  assign tag_discount_percentage = 0
+  assign tag_has_discount = false
+  assign tag_discount_price = item.original_line_price
+
+  for tag in item.product.tags
+    assign tag_lower = tag | downcase
+    if tag_lower contains 'show'
+      assign tag_number = tag_lower | remove: 'show' | plus: 0
+      if tag_number > 0 and tag_number <= 100
+        assign tag_discount_percentage = tag_number
+        assign tag_has_discount = true
+        break
+      endif
+    endif
+  endfor
+
+  if tag_has_discount
+    assign discount_multiplier = 100 | minus: tag_discount_percentage
+    assign tag_discount_price = item.original_line_price | times: discount_multiplier | divided_by: 100
+  endif
+-%}
