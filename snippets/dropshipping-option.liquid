@@ -1,4 +1,14 @@
-{% if customer %}
+{% liquid
+  assign all_retail = true
+  for item in cart.items
+    assign variant_tag = item.variant.metafields.custom.tag | downcase
+    if variant_tag != 'retail'
+      assign all_retail = false
+      break
+    endif
+  endfor
+%}
+{% if customer and all_retail %}
   <div class="f-cart__dropshipping">
     <dropshipping-component>
       <div class="f-cart__block-dropshipping mb-4">
