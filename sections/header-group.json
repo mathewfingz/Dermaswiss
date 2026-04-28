@@ -71,26 +71,25 @@
         "brand_edu": {
           "type": "brand",
           "settings": {
-            "label": "Dermaswiss Education",
+            "label": "Education",
             "link": "https://www.education.dermaswiss.com",
-            "active": false,
+            "active": true,
             "new_tab": false
           }
         },
         "brand_retail": {
           "type": "brand",
           "settings": {
-            "label": "Dermaswiss",
+            "label": "Retail",
             "link": "https://www.dermaswiss.com",
-            "active": false,
+            "active": true,
             "new_tab": false
           }
         }
       },
       "block_order": [
-        "brand_pro",
-        "brand_edu",
-        "brand_retail"
+        "brand_retail",
+        "brand_edu"
       ],
       "settings": {
         "bg_color": "#1a1a1a",
