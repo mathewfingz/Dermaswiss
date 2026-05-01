@@ -57,7 +57,7 @@ if (!customElements.get('dropshipping-component')) {
         body.sections_url = window.location.pathname;
       }
 
-      const discountUrl = isDropshipping ? '/discount/DROPSHIP10' : '/discount/clear';
+      const discountUrl = isDropshipping ? '/discount/DROPSHIP-MAY26-UI89WLX6' : '/discount/clear';
 
       fetch(discountUrl, { method: 'GET', credentials: 'same-origin' })
         .catch(() => {})
