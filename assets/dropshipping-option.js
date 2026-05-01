@@ -34,7 +34,7 @@ if (!customElements.get('dropshipping-component')) {
 
     updateDropshipping(isDropshipping) {
       if (this.loadingIcon) this.loadingIcon.style.display = 'block';
-      
+
       const headers = new Headers({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -46,7 +46,6 @@ if (!customElements.get('dropshipping-component')) {
         }
       };
 
-      // If we are in the cart drawer or main cart, we might want to refresh sections
       const cartDrawer = document.querySelector('cart-drawer');
       const mainCart = document.querySelector('cart-items');
 
@@ -58,31 +57,34 @@ if (!customElements.get('dropshipping-component')) {
         body.sections_url = window.location.pathname;
       }
 
-      fetch(`${window.FoxThemeSettings.routes.cart_update_url}`, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(body),
-      })
-      .then((response) => response.json())
-      .then((cart) => {
-        // Update FoxTheme cart state
-        if (window.FoxThemeEvents && typeof PUB_SUB_EVENTS !== 'undefined') {
-          window.FoxThemeEvents.emit(PUB_SUB_EVENTS.cartUpdate, cart);
-        }
-        
-        if (cartDrawer && cartDrawer.renderContents) {
-          cartDrawer.renderContents(cart);
-        }
-        if (mainCart && mainCart.renderContents) {
-          mainCart.renderContents(cart);
-        }
-      })
-      .catch((error) => {
-        console.error('Error updating dropshipping attribute:', error);
-      })
-      .finally(() => {
-        if (this.loadingIcon) this.loadingIcon.style.display = 'none';
-      });
+      const discountUrl = isDropshipping ? '/discount/DROPSHIP10' : '/discount/clear';
+
+      fetch(discountUrl, { method: 'GET', credentials: 'same-origin' })
+        .catch(() => {})
+        .then(() => fetch(`${window.FoxThemeSettings.routes.cart_update_url}`, {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify(body),
+        }))
+        .then((response) => response.json())
+        .then((cart) => {
+          if (window.FoxThemeEvents && typeof PUB_SUB_EVENTS !== 'undefined') {
+            window.FoxThemeEvents.emit(PUB_SUB_EVENTS.cartUpdate, cart);
+          }
+
+          if (cartDrawer && cartDrawer.renderContents) {
+            cartDrawer.renderContents(cart);
+          }
+          if (mainCart && mainCart.renderContents) {
+            mainCart.renderContents(cart);
+          }
+        })
+        .catch((error) => {
+          console.error('Error updating dropshipping attribute:', error);
+        })
+        .finally(() => {
+          if (this.loadingIcon) this.loadingIcon.style.display = 'none';
+        });
     }
   }
 
