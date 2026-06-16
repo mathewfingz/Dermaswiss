@@ -310,7 +310,7 @@
                   {% endif %}
                   {%- if customer -%}
                   {% liquid
-                    assign min_order_cents = 15000
+                    assign min_order_cents = 0
                     assign drawer_checkout_disabled = false
                     assign is_dropshipping = false
                     if cart.attributes.dropshipping == 'yes'

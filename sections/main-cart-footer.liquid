@@ -254,7 +254,7 @@
                     </noscript>
 
                     {% liquid
-                      assign min_order_cents = 15000
+                      assign min_order_cents = 0
                       assign checkout_disabled = false
                       assign is_dropshipping = false
                       if cart.attributes.dropshipping == 'yes'
