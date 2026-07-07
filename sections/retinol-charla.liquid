@@ -1,0 +1,254 @@
+{% comment %}
+  Charla "Retinol bajo la lupa" — invitación + registro + pago directo.
+  El cupo lo controla el inventario del producto (30 uds, política DENY):
+  esta sección solo lo refleja; el bloqueo real ocurre en el checkout.
+{% endcomment %}
+{%- assign ticket = all_products[section.settings.ticket_handle] -%}
+{%- assign tvar = ticket.selected_or_first_available_variant -%}
+{%- assign qty = tvar.inventory_quantity | default: 0 -%}
+{%- assign soldout = false -%}
+{%- if ticket.empty? or tvar == blank or tvar.available == false or qty <= 0 -%}
+  {%- assign soldout = true -%}
+{%- endif -%}
+
+<section class="rc">
+  <div class="rc-inner">
+
+    <header class="rc-hero">
+      <p class="rc-eyebrow">Charla presencial &middot; Demostraci&oacute;n en vivo</p>
+      <h1 class="rc-title">Retinol bajo la lupa</h1>
+      <p class="rc-sub">Lo que toda esteticista debe saber</p>
+    </header>
+
+    <div class="rc-speaker">
+      <img class="rc-speaker-img" src="{{ 'retinol-dr-arguelles.jpg' | asset_url }}" alt="Dr. Miguel Arguelles" width="360" height="540" loading="eager">
+      <div class="rc-speaker-info">
+        <p class="rc-label">Conferencista</p>
+        <h2 class="rc-speaker-name">Dr. Miguel Arguelles</h2>
+        <ul class="rc-facts">
+          <li><span>Fecha</span>Martes 14 de julio</li>
+          <li><span>Hora</span>9:30 AM</li>
+          <li><span>Inversi&oacute;n</span>$15.00 USD</li>
+          <li><span>Cupos</span>Limitados a {{ section.settings.total_cupos }} personas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rc-address">
+      <p class="rc-address-eyebrow">&#128205; Lugar del evento &mdash; &iexcl;toma nota, esta edici&oacute;n es en DermaSwiss!</p>
+      <p class="rc-address-line">DermaSwiss &middot; 2806 NW 79th Ave</p>
+      <p class="rc-address-city">Miami, FL 33122 &middot; Estados Unidos</p>
+      <a class="rc-address-btn" href="https://maps.google.com/?q=2806+NW+79th+Ave,+Miami,+FL+33122" target="_blank" rel="noopener">C&oacute;mo llegar (Google Maps)</a>
+    </div>
+
+    {%- if soldout -%}
+      <div class="rc-soldout">
+        <h2>Cupos agotados</h2>
+        <p>Las {{ section.settings.total_cupos }} plazas de esta charla ya fueron reservadas. &iexcl;Gracias por el inter&eacute;s!</p>
+      </div>
+    {%- else -%}
+      <div class="rc-count">
+        <strong>Quedan {{ qty }} cupos de {{ section.settings.total_cupos }}</strong> &mdash; tu lugar se confirma al completar el pago de $15.00 USD.
+      </div>
+
+      <form id="rc-form" class="rc-form" novalidate>
+        <h3 class="rc-form-title">Inscripci&oacute;n</h3>
+
+        <div class="rc-grid">
+          <label class="rc-field">
+            <span>Nombre *</span>
+            <input type="text" name="nombre" required autocomplete="given-name">
+          </label>
+          <label class="rc-field">
+            <span>Apellido *</span>
+            <input type="text" name="apellido" required autocomplete="family-name">
+          </label>
+          <label class="rc-field">
+            <span>Tel&eacute;fono *</span>
+            <input type="tel" name="telefono" required autocomplete="tel" placeholder="+1 305 000 0000">
+          </label>
+          <label class="rc-field">
+            <span>Email *</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="tu@email.com">
+          </label>
+          <label class="rc-field">
+            <span>Estado o regi&oacute;n *</span>
+            <input type="text" name="estado" required placeholder="Ej: Florida">
+          </label>
+          <label class="rc-field">
+            <span>Idioma de preferencia *</span>
+            <select name="idioma" required>
+              <option value="" disabled selected>Selecciona…</option>
+              <option>Espa&ntilde;ol</option>
+              <option>English</option>
+              <option>Portugu&ecirc;s</option>
+            </select>
+          </label>
+        </div>
+
+        <fieldset class="rc-field rc-radio">
+          <legend>&iquest;Eres due&ntilde;a/o de negocio? *</legend>
+          <label><input type="radio" name="negocio" value="Sí" required> S&iacute;</label>
+          <label><input type="radio" name="negocio" value="No"> No</label>
+        </fieldset>
+
+        <label class="rc-field rc-hidden" id="rc-negocio-nombre">
+          <span>Nombre del negocio *</span>
+          <input type="text" name="negocio_nombre" autocomplete="organization">
+        </label>
+
+        <div class="rc-grid">
+          <label class="rc-field">
+            <span>N&uacute;mero de licencia profesional *</span>
+            <input type="text" name="licencia" required>
+          </label>
+          <label class="rc-field">
+            <span>&iquest;C&oacute;mo llegaste a DermaSwiss? *</span>
+            <select name="referencia" required>
+              <option value="" disabled selected>Selecciona…</option>
+              <option>Referido</option>
+              <option>Redes sociales</option>
+              <option>Otro</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="submit" class="rc-submit" id="rc-submit">
+          Reservar mi cupo &mdash; pagar $15.00 USD
+        </button>
+        <p class="rc-fine">Al enviar ir&aacute;s directo al pago seguro de la tienda. Tu inscripci&oacute;n queda confirmada con el pago.</p>
+      </form>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{%- unless soldout -%}
+<script>
+  (function () {
+    var form = document.getElementById('rc-form');
+    if (!form) return;
+    var btn = document.getElementById('rc-submit');
+    var bizWrap = document.getElementById('rc-negocio-nombre');
+    var bizInput = bizWrap.querySelector('input');
+
+    form.querySelectorAll('[name="negocio"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        var yes = form.querySelector('[name="negocio"]:checked').value === 'Sí';
+        bizWrap.classList.toggle('rc-hidden', !yes);
+        bizInput.required = yes;
+        if (!yes) bizInput.value = '';
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var v = function (name) {
+        var el = form.querySelector('[name="' + name + '"]');
+        return (el && el.value || '').trim();
+      };
+      var negocio = (form.querySelector('[name="negocio"]:checked') || {}).value || '';
+
+      var p = new URLSearchParams();
+      p.set('checkout[email]', v('email'));
+      p.set('attributes[Nombre]', v('nombre'));
+      p.set('attributes[Apellido]', v('apellido'));
+      p.set('attributes[Teléfono]', v('telefono'));
+      p.set('attributes[Email]', v('email'));
+      p.set('attributes[Estado o región]', v('estado'));
+      p.set('attributes[Idioma de preferencia]', v('idioma'));
+      p.set('attributes[Dueño de negocio]', negocio);
+      if (negocio === 'Sí') p.set('attributes[Nombre del negocio]', v('negocio_nombre'));
+      p.set('attributes[Número de licencia profesional]', v('licencia'));
+      p.set('attributes[Cómo llegó a DermaSwiss]', v('referencia'));
+      p.set('note', 'Inscripción — Charla Retinol bajo la lupa (14 de julio)');
+
+      btn.disabled = true;
+      btn.textContent = 'Llevándote al pago…';
+      window.location.href = '/cart/{{ tvar.id }}:1?' + p.toString();
+    });
+  })();
+</script>
+{%- endunless -%}
+
+<style>
+  .rc { background: #f6f2ee; padding: 48px 20px 72px; }
+  .rc-inner { max-width: 880px; margin: 0 auto; }
+  .rc, .rc p, .rc li, .rc label, .rc input, .rc select { font-family: var(--font-body-family, 'DM Sans', sans-serif); color: #222; }
+  .rc h1, .rc h2, .rc h3, .rc legend { font-family: var(--font-heading-family, 'Montserrat', sans-serif); }
+
+  .rc-hero { text-align: center; margin-bottom: 36px; }
+  .rc-eyebrow { display: inline-block; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; font-weight: 700; color: #db0032; border: 1px solid rgba(219,0,50,.35); border-radius: 999px; padding: 7px 16px; margin-bottom: 18px; }
+  .rc-title { font-size: clamp(34px, 6vw, 58px); line-height: 1.04; margin: 0 0 10px; text-transform: uppercase; letter-spacing: .01em; }
+  .rc-sub { font-size: clamp(17px, 2.4vw, 22px); opacity: .75; margin: 0; }
+
+  .rc-speaker { display: grid; grid-template-columns: 240px 1fr; gap: 28px; align-items: center; background: #fff; border-radius: 20px; padding: 28px; box-shadow: 0 12px 40px rgba(25,45,57,.08); margin-bottom: 20px; }
+  .rc-speaker-img { width: 100%; height: auto; border-radius: 14px; object-fit: cover; }
+  .rc-label { letter-spacing: .14em; text-transform: uppercase; font-size: 11px; font-weight: 700; color: #db0032; margin: 0 0 6px; }
+  .rc-speaker-name { font-size: clamp(24px, 3.4vw, 34px); margin: 0 0 18px; }
+  .rc-facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+  .rc-facts li { background: #f6f2ee; border-radius: 12px; padding: 12px 14px; font-weight: 600; font-size: 15px; }
+  .rc-facts li span { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity: .55; margin-bottom: 3px; font-weight: 700; }
+
+  .rc-address { background: #192d39; color: #fff; border-radius: 20px; text-align: center; padding: 34px 24px; margin-bottom: 20px; }
+  .rc-address p { color: #fff; margin: 0; }
+  .rc-address-eyebrow { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; opacity: .85; margin-bottom: 12px !important; }
+  .rc-address-line { font-family: var(--font-heading-family, 'Montserrat', sans-serif); font-size: clamp(24px, 4.4vw, 40px); font-weight: 800; line-height: 1.1; }
+  .rc-address-city { font-size: clamp(16px, 2.6vw, 22px); opacity: .85; margin-top: 4px !important; }
+  .rc-address-btn { display: inline-block; margin-top: 18px; background: #fff; color: #192d39; font-weight: 700; text-decoration: none; border-radius: 999px; padding: 12px 26px; font-size: 15px; }
+  .rc-address-btn:hover { background: #db0032; color: #fff; }
+
+  .rc-count { background: rgba(219,0,50,.08); border: 1px dashed rgba(219,0,50,.45); color: #8f0021; border-radius: 14px; padding: 14px 18px; text-align: center; font-size: 15px; margin-bottom: 20px; }
+  .rc-soldout { background: #fff; border-radius: 20px; text-align: center; padding: 48px 24px; box-shadow: 0 12px 40px rgba(25,45,57,.08); }
+  .rc-soldout h2 { color: #db0032; text-transform: uppercase; letter-spacing: .04em; margin: 0 0 10px; }
+  .rc-soldout p { margin: 0; opacity: .75; }
+
+  .rc-form { background: #fff; border-radius: 20px; padding: 32px 28px 28px; box-shadow: 0 12px 40px rgba(25,45,57,.08); }
+  .rc-form-title { font-size: 24px; margin: 0 0 20px; }
+  .rc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; margin-bottom: 16px; }
+  .rc-field { display: block; }
+  .rc-field > span, .rc-radio legend { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .rc-field input, .rc-field select { width: 100%; border: 1px solid #ddd6cd; border-radius: 10px; background: #fcfaf7; padding: 12px 14px; font-size: 15px; box-sizing: border-box; }
+  .rc-field input:focus, .rc-field select:focus { outline: 2px solid #192d39; outline-offset: 0; border-color: #192d39; }
+  .rc-radio { border: 0; padding: 0; margin: 0 0 16px; }
+  .rc-radio label { display: inline-flex; align-items: center; gap: 8px; margin-right: 22px; font-size: 15px; font-weight: 600; }
+  .rc-radio input { accent-color: #db0032; width: 18px; height: 18px; }
+  .rc-hidden { display: none; }
+  label#rc-negocio-nombre { margin-bottom: 16px; }
+
+  .rc-submit { display: block; width: 100%; border: 0; cursor: pointer; background: #db0032; color: #fff; font-family: var(--font-heading-family, 'Montserrat', sans-serif); font-weight: 800; font-size: 17px; letter-spacing: .02em; border-radius: 999px; padding: 18px 24px; margin-top: 8px; transition: background .15s ease; }
+  .rc-submit:hover { background: #b00029; }
+  .rc-submit:disabled { background: #b7b7b7; cursor: wait; }
+  .rc-fine { text-align: center; font-size: 13px; opacity: .6; margin: 12px 0 0; }
+
+  @media (max-width: 700px) {
+    .rc { padding: 32px 14px 56px; }
+    .rc-speaker { grid-template-columns: 1fr; padding: 20px; text-align: center; }
+    .rc-speaker-img { max-width: 240px; margin: 0 auto; }
+    .rc-facts { text-align: left; }
+    .rc-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Charla Retinol",
+  "settings": [
+    {
+      "type": "text",
+      "id": "ticket_handle",
+      "label": "Handle del producto entrada",
+      "default": "entrada-retinol-bajo-la-lupa"
+    },
+    {
+      "type": "text",
+      "id": "total_cupos",
+      "label": "Cupos totales (solo texto informativo)",
+      "default": "30"
+    }
+  ],
+  "presets": [{ "name": "Charla Retinol" }]
+}
+{% endschema %}
