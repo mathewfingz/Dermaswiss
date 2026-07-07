@@ -1,7 +1,7 @@
 {% comment %}
-  Charla "Retinol bajo la lupa" — invitación + registro + pago directo.
-  El cupo lo controla el inventario del producto (30 uds, política DENY):
-  esta sección solo lo refleja; el bloqueo real ocurre en el checkout.
+  "Retinol Under the Microscope" talk — invitation + registration + direct checkout.
+  Seat cap is enforced by product inventory (30 units, DENY policy):
+  this section only reflects it; the real block happens at checkout.
 {% endcomment %}
 {%- assign ticket = all_products[section.settings.ticket_handle] -%}
 {%- assign tvar = ticket.selected_or_first_available_variant -%}
@@ -15,108 +15,108 @@
   <div class="rc-inner">
 
     <header class="rc-hero">
-      <p class="rc-eyebrow">Charla presencial &middot; Demostraci&oacute;n en vivo</p>
-      <h1 class="rc-title">Retinol bajo la lupa</h1>
-      <p class="rc-sub">Lo que toda esteticista debe saber</p>
+      <p class="rc-eyebrow">In-person talk &middot; Live demonstration</p>
+      <h1 class="rc-title">Retinol Under the Microscope</h1>
+      <p class="rc-sub">What every esthetician needs to know</p>
     </header>
 
     <div class="rc-speaker">
       <img class="rc-speaker-img" src="{{ 'retinol-dr-arguelles.jpg' | asset_url }}" alt="Dr. Miguel Arguelles" width="360" height="540" loading="eager">
       <div class="rc-speaker-info">
-        <p class="rc-label">Conferencista</p>
+        <p class="rc-label">Speaker</p>
         <h2 class="rc-speaker-name">Dr. Miguel Arguelles</h2>
         <ul class="rc-facts">
-          <li><span>Fecha</span>Martes 14 de julio</li>
-          <li><span>Hora</span>9:30 AM</li>
-          <li><span>Inversi&oacute;n</span>$15.00 USD</li>
-          <li><span>Cupos</span>Limitados a {{ section.settings.total_cupos }} personas</li>
+          <li><span>Date</span>Tuesday, July 14</li>
+          <li><span>Time</span>9:30 AM</li>
+          <li><span>Admission</span>$15.00 USD</li>
+          <li><span>Seats</span>Limited to {{ section.settings.total_cupos }}</li>
         </ul>
       </div>
     </div>
 
     <div class="rc-address">
-      <p class="rc-address-eyebrow">&#128205; Lugar del evento &mdash; &iexcl;toma nota, esta edici&oacute;n es en DermaSwiss!</p>
+      <p class="rc-address-eyebrow">&#128205; Event location &mdash; please note: this edition is at DermaSwiss!</p>
       <p class="rc-address-line">DermaSwiss &middot; 2806 NW 79th Ave</p>
-      <p class="rc-address-city">Miami, FL 33122 &middot; Estados Unidos</p>
-      <a class="rc-address-btn" href="https://maps.google.com/?q=2806+NW+79th+Ave,+Miami,+FL+33122" target="_blank" rel="noopener">C&oacute;mo llegar (Google Maps)</a>
+      <p class="rc-address-city">Miami, FL 33122 &middot; United States</p>
+      <a class="rc-address-btn" href="https://maps.google.com/?q=2806+NW+79th+Ave,+Miami,+FL+33122" target="_blank" rel="noopener">Get directions (Google Maps)</a>
     </div>
 
     {%- if soldout -%}
       <div class="rc-soldout">
-        <h2>Cupos agotados</h2>
-        <p>Las {{ section.settings.total_cupos }} plazas de esta charla ya fueron reservadas. &iexcl;Gracias por el inter&eacute;s!</p>
+        <h2>Sold out</h2>
+        <p>All {{ section.settings.total_cupos }} seats for this talk have been reserved. Thank you for your interest!</p>
       </div>
     {%- else -%}
       <div class="rc-count">
-        <strong>Quedan {{ qty }} cupos de {{ section.settings.total_cupos }}</strong> &mdash; tu lugar se confirma al completar el pago de $15.00 USD.
+        <strong>{{ qty }} of {{ section.settings.total_cupos }} seats left</strong> &mdash; your seat is confirmed once you complete the $15.00 USD payment.
       </div>
 
       <form id="rc-form" class="rc-form" novalidate>
-        <h3 class="rc-form-title">Inscripci&oacute;n</h3>
+        <h3 class="rc-form-title">Registration</h3>
 
         <div class="rc-grid">
           <label class="rc-field">
-            <span>Nombre *</span>
+            <span>First name *</span>
             <input type="text" name="nombre" required autocomplete="given-name">
           </label>
           <label class="rc-field">
-            <span>Apellido *</span>
+            <span>Last name *</span>
             <input type="text" name="apellido" required autocomplete="family-name">
           </label>
           <label class="rc-field">
-            <span>Tel&eacute;fono *</span>
+            <span>Phone *</span>
             <input type="tel" name="telefono" required autocomplete="tel" placeholder="+1 305 000 0000">
           </label>
           <label class="rc-field">
             <span>Email *</span>
-            <input type="email" name="email" required autocomplete="email" placeholder="tu@email.com">
+            <input type="email" name="email" required autocomplete="email" placeholder="you@email.com">
           </label>
           <label class="rc-field">
-            <span>Estado o regi&oacute;n *</span>
-            <input type="text" name="estado" required placeholder="Ej: Florida">
+            <span>State or region *</span>
+            <input type="text" name="estado" required placeholder="E.g.: Florida">
           </label>
           <label class="rc-field">
-            <span>Idioma de preferencia *</span>
+            <span>Preferred language *</span>
             <select name="idioma" required>
-              <option value="" disabled selected>Selecciona…</option>
-              <option>Espa&ntilde;ol</option>
+              <option value="" disabled selected>Select…</option>
               <option>English</option>
-              <option>Portugu&ecirc;s</option>
+              <option value="Spanish">Espa&ntilde;ol</option>
+              <option value="Portuguese">Portugu&ecirc;s</option>
             </select>
           </label>
         </div>
 
         <fieldset class="rc-field rc-radio">
-          <legend>&iquest;Eres due&ntilde;a/o de negocio? *</legend>
-          <label><input type="radio" name="negocio" value="Sí" required> S&iacute;</label>
+          <legend>Are you a business owner? *</legend>
+          <label><input type="radio" name="negocio" value="Yes" required> Yes</label>
           <label><input type="radio" name="negocio" value="No"> No</label>
         </fieldset>
 
         <label class="rc-field rc-hidden" id="rc-negocio-nombre">
-          <span>Nombre del negocio *</span>
+          <span>Business name *</span>
           <input type="text" name="negocio_nombre" autocomplete="organization">
         </label>
 
         <div class="rc-grid">
           <label class="rc-field">
-            <span>N&uacute;mero de licencia profesional *</span>
+            <span>Professional license number *</span>
             <input type="text" name="licencia" required>
           </label>
           <label class="rc-field">
-            <span>&iquest;C&oacute;mo llegaste a DermaSwiss? *</span>
+            <span>How did you hear about DermaSwiss? *</span>
             <select name="referencia" required>
-              <option value="" disabled selected>Selecciona…</option>
-              <option>Referido</option>
-              <option>Redes sociales</option>
-              <option>Otro</option>
+              <option value="" disabled selected>Select…</option>
+              <option>Referral</option>
+              <option>Social media</option>
+              <option>Other</option>
             </select>
           </label>
         </div>
 
         <button type="submit" class="rc-submit" id="rc-submit">
-          Reservar mi cupo &mdash; pagar $15.00 USD
+          Reserve my seat &mdash; pay $15.00 USD
         </button>
-        <p class="rc-fine">Al enviar ir&aacute;s directo al pago seguro de la tienda. Tu inscripci&oacute;n queda confirmada con el pago.</p>
+        <p class="rc-fine">You&rsquo;ll be taken straight to the store&rsquo;s secure checkout. Your registration is confirmed upon payment.</p>
       </form>
     {%- endif -%}
 
@@ -134,7 +134,7 @@
 
     form.querySelectorAll('[name="negocio"]').forEach(function (r) {
       r.addEventListener('change', function () {
-        var yes = form.querySelector('[name="negocio"]:checked').value === 'Sí';
+        var yes = form.querySelector('[name="negocio"]:checked').value === 'Yes';
         bizWrap.classList.toggle('rc-hidden', !yes);
         bizInput.required = yes;
         if (!yes) bizInput.value = '';
@@ -153,20 +153,20 @@
 
       var p = new URLSearchParams();
       p.set('checkout[email]', v('email'));
-      p.set('attributes[Nombre]', v('nombre'));
-      p.set('attributes[Apellido]', v('apellido'));
-      p.set('attributes[Teléfono]', v('telefono'));
+      p.set('attributes[First name]', v('nombre'));
+      p.set('attributes[Last name]', v('apellido'));
+      p.set('attributes[Phone]', v('telefono'));
       p.set('attributes[Email]', v('email'));
-      p.set('attributes[Estado o región]', v('estado'));
-      p.set('attributes[Idioma de preferencia]', v('idioma'));
-      p.set('attributes[Dueño de negocio]', negocio);
-      if (negocio === 'Sí') p.set('attributes[Nombre del negocio]', v('negocio_nombre'));
-      p.set('attributes[Número de licencia profesional]', v('licencia'));
-      p.set('attributes[Cómo llegó a DermaSwiss]', v('referencia'));
-      p.set('note', 'Inscripción — Charla Retinol bajo la lupa (14 de julio)');
+      p.set('attributes[State or region]', v('estado'));
+      p.set('attributes[Preferred language]', v('idioma'));
+      p.set('attributes[Business owner]', negocio);
+      if (negocio === 'Yes') p.set('attributes[Business name]', v('negocio_nombre'));
+      p.set('attributes[Professional license number]', v('licencia'));
+      p.set('attributes[How did you hear about DermaSwiss]', v('referencia'));
+      p.set('note', 'Registration — Retinol Under the Microscope talk (July 14)');
 
       btn.disabled = true;
-      btn.textContent = 'Llevándote al pago…';
+      btn.textContent = 'Taking you to checkout…';
       window.location.href = '/cart/{{ tvar.id }}:1?' + p.toString();
     });
   })();
@@ -234,21 +234,21 @@
 
 {% schema %}
 {
-  "name": "Charla Retinol",
+  "name": "Retinol Talk",
   "settings": [
     {
       "type": "text",
       "id": "ticket_handle",
-      "label": "Handle del producto entrada",
+      "label": "Ticket product handle",
       "default": "entrada-retinol-bajo-la-lupa"
     },
     {
       "type": "text",
       "id": "total_cupos",
-      "label": "Cupos totales (solo texto informativo)",
+      "label": "Total seats (display only)",
       "default": "30"
     }
   ],
-  "presets": [{ "name": "Charla Retinol" }]
+  "presets": [{ "name": "Retinol Talk" }]
 }
 {% endschema %}
