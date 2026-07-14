@@ -17,75 +17,15 @@
     "calendar": {
       "type": "monthly-calendar",
       "blocks": {
-        "event_jan_18_students": {
+        "event_DUiHgV": {
           "type": "event",
           "settings": {
-            "title": "PeelxPlus Certification Level I: Seminar",
-            "event_date": "2026-02-25",
-            "event_type": "Online",
-            "price": "$40",
-            "city": "",
-            "location": "",
-            "registration_link": "https://dermaswiss.com/products/sanantoniopeelxplus",
-            "event_description": "",
-            "event_color": "#db0032",
-            "language": "en"
-          }
-        },
-        "event_jan_20_retinol_es": {
-          "type": "event",
-          "settings": {
-            "title": "Certificación PeelxPlus NIVEL 2* Seminario",
-            "event_date": "2026-02-26",
-            "event_type": "Peelings Químicos en Capas y Técnicas Combinadas",
-            "price": "60",
-            "city": "Online",
-            "location": "",
-            "registration_link": "",
-            "event_description": "",
-            "event_color": "#db0032",
-            "language": "es"
-          }
-        },
-        "event_jan_26_reset_miami": {
-          "type": "event",
-          "settings": {
-            "title": "Seminario: Defensa Cutánea: Antioxidantes en la Era del Estrés Celular",
-            "event_date": "2026-03-25",
-            "event_type": "Seminario: Defensa Cutánea: Antioxidantes en la Era del Estrés Celular",
+            "title": "Nuevo Curso",
+            "event_date": "2026-08-18",
+            "event_type": "Seminar",
             "price": "40",
             "city": "",
             "location": "",
-            "registration_link": "",
-            "event_description": "",
-            "event_color": "#db0032",
-            "language": "es"
-          }
-        },
-        "event_jan_28_reset_online": {
-          "type": "event",
-          "settings": {
-            "title": "Reset: Taller de Automasaje",
-            "event_date": "2026-01-28",
-            "event_type": "Online",
-            "price": "Gratis",
-            "city": "Online",
-            "location": "Zoom | 6:00 p.m. EST",
-            "registration_link": "https://us02web.zoom.us/webinar/register/WN_mxJSHKwdQmWIw2Jnah1srQ",
-            "event_description": "<p>Profesora: Alicia Ortiz. Un taller online de automasaje y un momento para compartir con otros profesionales de la industria.</p>",
-            "event_color": "#db0032",
-            "language": "es"
-          }
-        },
-        "event_mbbrar": {
-          "type": "event",
-          "settings": {
-            "title": "Skin Defense: Antioxidants in the Era of Cellular Stress. Seminar",
-            "event_date": "2026-03-27",
-            "event_type": "Webinar",
-            "price": "40",
-            "city": "",
-            "location": "Online",
             "registration_link": "",
             "event_description": "",
             "event_color": "#db0032",
@@ -94,11 +34,7 @@
         }
       },
       "block_order": [
-        "event_jan_18_students",
-        "event_jan_20_retinol_es",
-        "event_jan_26_reset_miami",
-        "event_jan_28_reset_online",
-        "event_mbbrar"
+        "event_DUiHgV"
       ],
       "settings": {
         "heading": "Monthly Calendar",
