@@ -36,13 +36,13 @@
             "enable_highlight_text_color": false,
             "heading_size": "h1",
             "heading_color": "",
-            "subheading": "DermaSwiss Professional \u2014 Doral, Florida",
-            "description": "<p>2806 NW 79th Ave, Doral, FL 33122, USA</p><p><a href=\"tel:+13056632882\">+1 (305) 663-2882</a></p><p><a href=\"mailto:customercare@dermaswiss.com\">customercare@dermaswiss.com</a></p>",
+            "subheading": "DermaSwiss Professional \u2014 Miami, Florida",
+            "description": "<p>2806 NW 79th Ave, Miami, FL 33122, USA</p><p><a href=\"tel:+13056632882\">+1 (305) 663-2882</a></p><p><a href=\"mailto:customercare@dermaswiss.com\">customercare@dermaswiss.com</a></p><p>Mon\u2013Fri: 9 a.m.\u20135:30 p.m.</p>",
             "text_alignment": "left",
             "button_label": "Get directions",
             "button_style": "btn--underline",
             "image": "shopify://shop_images/High_quality_product.png",
-            "button_link": "https://www.google.com/maps/search/?api=1&query=2806+NW+79th+Ave%2C+Doral%2C+FL+33122"
+            "button_link": "https://www.google.com/maps/search/?api=1&query=2806+NW+79th+Ave%2C+Miami%2C+FL+33122"
           }
         }
       },
