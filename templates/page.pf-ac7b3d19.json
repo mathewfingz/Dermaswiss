@@ -11,7 +11,29 @@
   "sections": {
     "pf-ac7b3d19": {
       "type": "pf-ac7b3d19",
-      "settings": {}
+      "settings": {
+        "pf_e6e6249f_value": "The convenience of online shopping is seeing what other customers saying. Place a short paragraph show how people satisfied with your product here",
+        "pf_e85a2845_value": "The convenience of online shopping is seeing what other customers saying. Place a short paragraph show how people satisfied with your product here",
+        "pf_effa6979_value": "<font color=\"#3d1466\">Diligencia tu información para el Registro</font>",
+        "pf_456631e4_checkboxLabel": "Acepto que me envíen información sobre Educational Blast y DermaSwiss",
+        "pf_54f6e145_placeholder": "Ingresa el país de tu número de contacto",
+        "pf_f6e14566_label_text": "Autorización Educational Blast",
+        "pf_456631e4_placeholder": "Ingresa tu correo electrónico",
+        "pf_651d7bcb_placeholder": "Ingresa tu apellido (s)",
+        "pf_1e3643a4_placeholder": "Ingresa tu nombre (s)",
+        "pf_9da9e2ef_label_text": "Número de contacto",
+        "pf_ef5f72cc_label_text": "Correo electrónico",
+        "pf_45a1a824_value": "CUSTOMER'S NAME",
+        "pf_9f26d88f_value": "CUSTOMER'S NAME",
+        "pf_5675bc78_value": "Ir al checkout",
+        "pf_7ddb5c3d_value": "Social Proofs",
+        "pf_1485651d_label_text": "Apellido (s)",
+        "pf_67f41756_value": "Add to Cart",
+        "pf_76c60414_value": "Testimonial",
+        "pf_12d61e36_label_text": "Nombre (s)",
+        "pf_62458a11_value": "Enviar",
+        "pf_cc9154f6_label_text": "País"
+      }
     }
   },
   "order": [

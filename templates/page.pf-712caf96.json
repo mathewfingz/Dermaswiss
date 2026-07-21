@@ -11,7 +11,11 @@
   "sections": {
     "pf-712caf96": {
       "type": "pf-712caf96",
-      "settings": {}
+      "settings": {
+        "pf_3f7bee89_value": "Disfruta este regalo de nuestro team para ti",
+        "pf_6c56d9c3_value": "Tu profesión es nuestra mayor inspiración",
+        "pf_579243d4_value": "<b>¡Feliz día de la esteticista! 🎉</b>"
+      }
     }
   },
   "order": [

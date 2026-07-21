@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pf-51712caf": {
+      "type": "pf-51712caf",
+      "settings": {
+        "pf_7621a12e_value": "A descubrir como tu personalidad puede influir en tu estilo personal.",
+        "pf_a7c3e386_value": "Mantener una imagen coherente en el mundo digital y presencial.",
+        "pf_a12ed1c1_value": "Consejos y trucos para destacar aquello que te hace diferente.",
+        "pf_83b89358_value": "¡Comienza tu viaje hacia una imagen más poderosa y auténtica!",
+        "pf_d1c1a7c3_value": "Elegir colores que te favorezcan y comuniquen tu mensaje.",
+        "pf_3a2eb4e6_value": "Aprenderás:"
+      }
+    }
+  },
+  "order": [
+    "pf-51712caf"
+  ],
+  "layout": "theme.pagefly"
+}
