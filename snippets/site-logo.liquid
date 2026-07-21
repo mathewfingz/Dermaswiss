@@ -66,6 +66,15 @@
             <nav class="menu-drawer__navigation">
               <ul class="menu-drawer__menu has-submenu list-menu" role="list">
                 {%- for link in menu_links -%}
+                  {%- liquid
+                    assign nav_guard_handle = link.title | handleize
+                    if nav_guard_handle == 'resources' and customer == blank
+                      continue
+                    endif
+                    if nav_guard_handle == 'recursos' and customer == blank
+                      continue
+                    endif
+                  -%}
                   <li>
                     {%- if link.links != blank -%}
                       <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
