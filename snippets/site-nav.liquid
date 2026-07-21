@@ -37,6 +37,16 @@
           if menu_part == 'last' and forloop.index <= split_index
             continue
           endif
+          comment
+            Resources solo para clientes con sesion iniciada
+          endcomment
+          assign nav_guard_handle = link.title | handleize
+          if nav_guard_handle == 'resources' and customer == blank
+            continue
+          endif
+          if nav_guard_handle == 'recursos' and customer == blank
+            continue
+          endif
           assign li_class = 'f-site-nav__item'
           assign is_mega_item = true
           assign three_level = false
