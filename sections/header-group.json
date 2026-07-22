@@ -80,7 +80,7 @@
         "brand_retail": {
           "type": "brand",
           "settings": {
-            "label": "Retail",
+            "label": "Personal Use",
             "link": "https://www.dermaswiss.com",
             "active": true,
             "new_tab": false
